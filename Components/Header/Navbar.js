@@ -17,8 +17,7 @@ const HeaderBox = styled(Box)`
     padding: 10px 35px;
     background-color: #ffffff;
     padding: 10px 35px;
-    /* background-color: antiquewhite; */
-    box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
+    // box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
 `
 
 const FoodLogoBox = styled(Box)`
@@ -98,9 +97,6 @@ const SearchContainer = styled(Box)`
     cursor: pointer;
     }
 `
-
-/* Header Component End */
-
 
 const Navbar = () => {
   return (
