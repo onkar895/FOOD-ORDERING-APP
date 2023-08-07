@@ -1,11 +1,11 @@
 import React from 'react'
-import { Box, styled, Typography } from '@mui/material'
+import { Box, styled, Typography, Image } from '@mui/material'
 import RatingImage from '../../Assets/Rating.png'
 
 const RestCard = styled(Box)`
-width : 260px;
-height : 300px;
-margin : 0 0 30px 50px;
+width : 224px;
+height : 260px;
+margin : 30px 0 130px 50px;
 background-color: white;
 border-radius : 10px;
 // filter: drop-shadow(5px 5px 5px black);
@@ -43,26 +43,41 @@ gap : 5px;
 }
 `
 
-const Card = () => {
+
+const Card = ({
+  cloudinaryImageId,
+  name,
+  cuisines,
+  area,
+  totalRatingsString,
+  lastMileTravelString,
+  costForTwoString,
+  avgRating, }) => {
+  
   return (
-    <>
-      <Box sx={{margin : '40px 0 30px 46px'}}>
-        <h2>Restaurants with online food delivery in Pune</h2>
-      </Box>
-      <RestCard>
-        <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ee4f041cd8611dccc19f4267783ab5ea' alt='EatFit' />
-        <CardInfo>
-          <h2>EatFit</h2>
-          <Rating>
-            <img src={RatingImage} alt='Rating' />
-            <h2>4.1 Stars</h2>
-          </Rating>
-          <Typography sx={{ fontFamily: "Trebuchet MS", color : 'grey'}}>
-            Chinese, Healthy Food..... <br/> Shivajinagar, 2.2km
-          </Typography>
-        </CardInfo>
-      </RestCard>
-    </>
+       <RestCard >
+      <img src={ "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+          cloudinaryImageId} alt=''/>
+      <CardInfo>
+        <h2>{name}</h2>
+        <Rating  sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
+          <img src={RatingImage} alt='Rating' />
+          <h4>{avgRating} Stars</h4> &nbsp;
+          <h5>{ totalRatingsString }</h5>
+        </Rating>
+    
+        <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
+          {cuisines.join(",")}
+        </Typography>
+        <Box sx={{display : 'flex', fontFamily: "Trebuchet MS", color: 'grey', gap : '5px' }}>
+          <Typography >{area},</Typography>
+          <Typography>{lastMileTravelString}</Typography>
+        </Box>
+       
+        <h4>{costForTwoString}</h4>
+      </CardInfo>
+    </RestCard>
+    
   )
 }
 

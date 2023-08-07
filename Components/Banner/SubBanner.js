@@ -18,6 +18,8 @@ const BannerImage = styled(Box)`
 & > img {
   display: flex;
   align-items : center;
+  aspect-ratio : 3/2;
+  mix-blend-mode : color-burn;
   object-fit: contain;
   width: 100%;
   height : 30vh;
