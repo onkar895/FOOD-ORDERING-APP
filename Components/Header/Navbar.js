@@ -2,18 +2,14 @@ import React from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import CartLogo from '../../Assets/CartLogo.png'
 import SearchIcon from '../../Assets/SearchIcon.png'
-import { Box, styled, Topography, Typography } from '@mui/material'
+import { Box, styled,AppBar, Toolbar, Typography } from '@mui/material'
 
 
-const HeaderBox = styled(Box)`
+const HeaderBox = styled(Toolbar)`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
     padding: 10px 35px;
     background-color: #ffffff;
     padding: 10px 35px;
@@ -100,7 +96,8 @@ const SearchContainer = styled(Box)`
 
 const Navbar = () => {
   return (
-    <HeaderBox>
+    <AppBar sx={{boxShadow : 'none'}}>
+      <HeaderBox>
       <FoodLogoBox>
         <img src={FoodLogo} alt='FoodLogo' />
         <HeadingBox>
@@ -134,8 +131,9 @@ const Navbar = () => {
             </CartBox>
           </li>
         </ul>
-      </NavItems>
-    </HeaderBox>
+        </NavItems>
+      </HeaderBox>
+    </AppBar>
   )
 }
 
