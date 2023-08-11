@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Navbar from './Components/Header/Navbar'
-import Body from './Components/Body/Body'
+import HomePage from './Pages/HomePage'
 import {Box} from '@mui/material'
 
 const MainComponent = () => {
@@ -10,7 +10,7 @@ const MainComponent = () => {
       <Box>
          <Navbar />
           <Box style={{ marginTop: '3rem'}}>
-             <Body/>  
+             <HomePage/>  
           </Box>
       </Box>
     </>

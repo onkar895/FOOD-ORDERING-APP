@@ -1,5 +1,5 @@
 import React from 'react'
-import SaladImage from '../../Assets/Salad.png'
+import PizzaBanner from '../../Assets/pizza-banner.jpg'
 import { Typography, Box, styled } from '@mui/material'
 
 const MainContainer = styled(Box)(({ theme }) => ({
@@ -17,18 +17,22 @@ const MainContainer = styled(Box)(({ theme }) => ({
 
 
 const Container = styled(Box)`
+    position : absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 40px;
+    align-items : start;
+    margin-left: 60px;
+    margin-top : 75px;
     gap: 15px;
 
     & > h1 {
+    color : white;
     font-size : 36;
     }
 
     & > h3 {
-    color: #f32170;
+    color: white;
     font-size: 22px;
     }
 
@@ -41,23 +45,29 @@ const SubContainer = styled(Box)`
     font-weight: 600;
 
     & p {
+       color : white;
        font-family: "Trebuchet MS"
     }
 `
 
 const ImageContainer = styled(Box)`
+    position : relative;
     display: flex;
     justify-content: center;
 
     & > img {
-      width: 38vw;
+      border-radius : 22px;
+      width: 90%;
     }
 `
 const Banner = () => {
   return (
     <MainContainer>
+        <ImageContainer>
+        <img src={PizzaBanner} alt='PizzaBanner' />
+      </ImageContainer>
       <Container>
-        <h1>Fresh & tasty salads</h1>
+        <h1>Fresh & tasty Pizza's</h1>
         <SubContainer>
           <Typography>
             Relax Please, we've got you
@@ -66,11 +76,8 @@ const Banner = () => {
             covered every day of the week
           </Typography>
         </SubContainer>
-        <h3>Order Food Online...</h3>
+        <h3>Order Online to get 40% OFF...</h3>
       </Container>
-      <ImageContainer>
-        <img src={SaladImage} alt='SaladImage' />
-      </ImageContainer>
     </MainContainer>
   )
 }

@@ -1,46 +1,54 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { ProductData, responsive } from './Data'
-import {Box, styled, Typography} from '@mui/material'
+import { Data } from './Data';
+import {Box, styled} from '@mui/material'
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  }
+};
 
 
-const BannerContainer = styled(Box)` 
-  margin-top: 50px;
-  overflow: hidden;
-  width: 100%;
-  padding: 0 40px;
-  // box-shadow : 2px 2px 2px 2px;
+const BannerContainer = styled(Box)`
+  width: 38.5vw;
+  margin-top: 75px;
 `
 
-const BannerImage = styled(Box)`
+const BannerImage = styled(Box)` 
 
 & > img {
-  display: flex;
-  align-items : center;
-  aspect-ratio : 3/2;
-  mix-blend-mode : color-burn;
-  object-fit: contain;
   width: 100%;
-  height : 30vh;
+  height: 48.5vh;
+  objectFit: cover;
+  // mix-blend-mode : multiply;
+  objectFit: fill;
 }
-
 `
 
-
-const SubBanner = () => {
+const SliderBanner = () => {
   return (
     <BannerContainer>
-      <Box style={{ margin:'1rem 0 0 0.3rem'}}>
-        <h2>What's on your mind?</h2>
-      </Box>
+      {/* <Box style={{ margin:'1.2rem 0 0.5rem 1rem'}}>
+        <h2>Best Offers for You</h2>
+      </Box> */}
       
       <Carousel
         swipeable={false}    // disables the ability to swipe through the carousel items.
         draggable={true}    // disables dragging the carousel items.
-        autoPlay={false}  // enables automatic play of the carousel items.
+        autoPlay={true}  // enables automatic play of the carousel items.
         responsive={responsive}
-        infinite={false}
+        infinite={true}
         autoPlaySpeed={2000}
         keyBoardControl={true}  // enables control of the carousel using keyboard arrow keys.
         showDots={false}   // whether to display pagination dots at the bottom of the carousel 
@@ -51,7 +59,7 @@ const SubBanner = () => {
       >
 
         {
-          ProductData.map((Images) => {
+          Data.map((Images) => {
             const { id, url } = Images
             return (
               <BannerImage key={id} >
@@ -66,4 +74,4 @@ const SubBanner = () => {
   )
 }
 
-export default SubBanner
+export default SliderBanner

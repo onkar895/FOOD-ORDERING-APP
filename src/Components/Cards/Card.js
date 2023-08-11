@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, styled, Typography, Image } from '@mui/material'
+import { Box, styled, Typography} from '@mui/material'
 import RatingImage from '../../Assets/Rating.png'
+import { SWIGGY_CDN_LINK } from '../../Constants'
 
 const RestCard = styled(Box)`
 display : flex;
@@ -62,7 +63,7 @@ const Card = ({
   
   return (
        <RestCard >
-      <img src={ "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+      <img src={ SWIGGY_CDN_LINK +
           cloudinaryImageId} alt=''/>
       <CardInfo>
         <h2>{name}</h2>

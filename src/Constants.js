@@ -1,3 +1,5 @@
+export const SWIGGY_CDN_LINK = 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'
+
 // Config Driven UI
 export const RestaurantList = [
   {
@@ -488,10 +490,10 @@ export const RestaurantList = [
       area: 'Athwa',
       totalRatingsString: '1000+ ratings',
       cloudinaryImageId: 'oxsb5mr1xsmhnxhunjsc',
-      cuisines: ['Chinese', 'North Indian', 'Biryani'],
+      cuisines: ['Chinese', 'North Indian'],
       tags: [],
       costForTwo: 2000,
-      costForTwoString: '₹20 FOR TWO',
+      costForTwoString: '₹250 FOR TWO',
       deliveryTime: 35,
       minDeliveryTime: 30,
       maxDeliveryTime: 40,
@@ -1687,29 +1689,24 @@ export const RestaurantList = [
     type: 'restaurant',
     data: {
       type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
-      tags: [],
-      costForTwo: 20000,
+      id: '394784',
+      name: 'Theobroma',
+      cloudinaryImageId: 'asd7v64r8hjmbx5nivyh',
+      locality: 'Karve Road',
+      area: 'Shivajinagar',
+      cuisines: [
+        'Bakery',
+        'Desserts'
+      ],
+      'avgRating': 4.6,
+      totalRatingsString: '400+ ratings',
       costForTwoString: '₹200 FOR TWO',
       deliveryTime: 30,
       minDeliveryTime: 25,
       maxDeliveryTime: 35,
       slaString: '25-35 MINS',
       lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
       cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
       parentId: 387846,
       unserviceable: true,
       veg: false,
@@ -1797,6 +1794,474 @@ export const RestaurantList = [
       },
       promoted: false,
       avgRating: '4.5',
+      totalRatings: 100,
+      new: false
+    },
+    subtype: 'basic'
+  },
+  {
+    type: 'restaurant',
+    data: {
+      type: 'F',
+      'id': '33938',
+      'name': 'Firangi Bake',
+      'cloudinaryImageId': 'alsnrdyobu0m5uo2jsan',
+      'locality': 'beside vinayak jewellers',
+      'area': 'Kothrud',
+      'cuisines': [
+        'Pizzas',
+        'Pastas',
+        'Italian',
+        'Mexican',
+        'Healthy Food',
+        'Desserts',
+        'Beverages'
+      ],
+      totalRatingsString: '1000+ ratings',
+      tags: [],
+      costForTwoString: '₹600 FOR TWO',
+      deliveryTime: 30,
+      minDeliveryTime: 25,
+      maxDeliveryTime: 35,
+      slaString: '25-35 MINS',
+      lastMileTravel: 3,
+      cityState: '21',
+      parentId: 387846,
+      unserviceable: true,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: 'FREE DELIVERY',
+        shortDescriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      aggregatedDiscountInfoV2: {
+        header: '',
+        shortDescriptionList: [
+          {
+            meta: 'Free Delivery',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      chain: [],
+      feeDetails: {
+        fees: [],
+        totalFees: 0,
+        message: '',
+        title: '',
+        amount: '',
+        icon: ''
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: '',
+        nextCloseMessage: ''
+      },
+      longDistanceEnabled: 0,
+      rainMode: 'NONE',
+      thirdPartyAddress: false,
+      thirdPartyVendor: '',
+      adTrackingID: '',
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: []
+      },
+      lastMileTravelString: '3 kms',
+      hasSurge: false,
+      sla: {
+        restaurantId: '311443',
+        deliveryTime: 30,
+        minDeliveryTime: 25,
+        maxDeliveryTime: 35,
+        lastMileTravel: 3,
+        lastMileDistance: 0,
+        serviceability: 'SERVICEABLE_WITH_BANNER',
+        rainMode: 'NONE',
+        longDistance: 'NOT_LONG_DISTANCE',
+        preferentialService: false,
+        iconType: 'EMPTY'
+      },
+      promoted: false,
+      avgRating: '4.5',
+      totalRatings: 100,
+      new: false
+    },
+    subtype: 'basic'
+  },
+  {
+    type: 'restaurant',
+    data: {
+      type: 'F',
+      'id': '35873',
+      'name': 'Sweet Truth - Cake and Desserts',
+      'cloudinaryImageId': '4a3b48488e3aa9bda13efd8cfcd95284',
+      'area': 'Shaniwar Peth FC',
+      'costForTwo': '₹450 for two',
+      'cuisines': [
+        'Snacks',
+        'Bakery',
+        'Desserts'
+      ],
+      totalRatingsString: '100+ ratings',
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: '₹400 FOR TWO',
+      deliveryTime: 30,
+      minDeliveryTime: 25,
+      maxDeliveryTime: 35,
+      slaString: '25-35 MINS',
+      lastMileTravel: 3,
+      cityState: '21',
+      parentId: 387846,
+      unserviceable: true,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: 'FREE DELIVERY',
+        shortDescriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      aggregatedDiscountInfoV2: {
+        header: '',
+        shortDescriptionList: [
+          {
+            meta: 'Free Delivery',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      chain: [],
+      feeDetails: {
+        fees: [],
+        totalFees: 0,
+        message: '',
+        title: '',
+        amount: '',
+        icon: ''
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: '',
+        nextCloseMessage: ''
+      },
+      longDistanceEnabled: 0,
+      rainMode: 'NONE',
+      thirdPartyAddress: false,
+      thirdPartyVendor: '',
+      adTrackingID: '',
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: []
+      },
+      lastMileTravelString: '6 kms',
+      hasSurge: false,
+      sla: {
+        restaurantId: '311443',
+        deliveryTime: 30,
+        minDeliveryTime: 25,
+        maxDeliveryTime: 35,
+        lastMileTravel: 3,
+        lastMileDistance: 0,
+        serviceability: 'SERVICEABLE_WITH_BANNER',
+        rainMode: 'NONE',
+        longDistance: 'NOT_LONG_DISTANCE',
+        preferentialService: false,
+        iconType: 'EMPTY'
+      },
+      promoted: false,
+      avgRating: '4.1',
+      totalRatings: 100,
+      new: false
+    },
+    subtype: 'basic'
+  },
+  {
+    type: 'restaurant',
+    data: {
+      'id': '288388',
+      'name': 'Starbucks Coffee',
+      'cloudinaryImageId': '4df3497f1460dfd1ecd8125222f6d362',
+      'area': 'Shivajinagar',
+      'cuisines': [
+        'Cafe',
+        'Snacks',
+        'Coffee',
+        'Protein Shakes'
+      ],
+      totalRatingsString: '500+ ratings',
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: '₹350 FOR TWO',
+      deliveryTime: 30,
+      minDeliveryTime: 25,
+      maxDeliveryTime: 35,
+      slaString: '25-35 MINS',
+      lastMileTravel: 3,
+      cityState: '21',
+      parentId: 387846,
+      unserviceable: true,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: 'FREE DELIVERY',
+        shortDescriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      aggregatedDiscountInfoV2: {
+        header: '',
+        shortDescriptionList: [
+          {
+            meta: 'Free Delivery',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      chain: [],
+      feeDetails: {
+        fees: [],
+        totalFees: 0,
+        message: '',
+        title: '',
+        amount: '',
+        icon: ''
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: '',
+        nextCloseMessage: ''
+      },
+      longDistanceEnabled: 0,
+      rainMode: 'NONE',
+      thirdPartyAddress: false,
+      thirdPartyVendor: '',
+      adTrackingID: '',
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: []
+      },
+      lastMileTravelString: '9 kms',
+      hasSurge: false,
+      sla: {
+        restaurantId: '311443',
+        deliveryTime: 30,
+        minDeliveryTime: 25,
+        maxDeliveryTime: 35,
+        lastMileTravel: 3,
+        lastMileDistance: 0,
+        serviceability: 'SERVICEABLE_WITH_BANNER',
+        rainMode: 'NONE',
+        longDistance: 'NOT_LONG_DISTANCE',
+        preferentialService: false,
+        iconType: 'EMPTY'
+      },
+      promoted: false,
+      avgRating: '4.5',
+      totalRatings: 100,
+      new: false
+    },
+    subtype: 'basic'
+  },
+  {
+    type: 'restaurant',
+    data: {
+      type: 'F',
+      'id': '34415',
+      'name': 'Frozen Bottle',
+      'cloudinaryImageId': 'sfjjgxe2uxlcmhux5khf',
+      'cuisines': [
+        'Waffle',
+        'Bakery',
+        'Healthy Food',
+        'Shakes'
+      ],
+      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
+      city: '21',
+      area: 'VimanNagar',
+      totalRatingsString: '100+ ratings',
+      tags: [],
+      costForTwo: 20000,
+      costForTwoString: '₹400 FOR TWO',
+      deliveryTime: 30,
+      minDeliveryTime: 25,
+      maxDeliveryTime: 35,
+      slaString: '25-35 MINS',
+      lastMileTravel: 3,
+      cityState: '21',
+      parentId: 387846,
+      unserviceable: true,
+      veg: false,
+      select: false,
+      favorite: false,
+      tradeCampaignHeaders: [],
+      aggregatedDiscountInfo: {
+        header: 'FREE DELIVERY',
+        shortDescriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      aggregatedDiscountInfoV2: {
+        header: '',
+        shortDescriptionList: [
+          {
+            meta: 'Free Delivery',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        descriptionList: [
+          {
+            meta: 'FREE DELIVERY',
+            discountType: 'FREE_DELIVERY',
+            operationType: 'RESTAURANT'
+          }
+        ],
+        subHeader: '',
+        headerType: 0,
+        superFreedel: ''
+      },
+      chain: [],
+      feeDetails: {
+        fees: [],
+        totalFees: 0,
+        message: '',
+        title: '',
+        amount: '',
+        icon: ''
+      },
+      availability: {
+        opened: true,
+        nextOpenMessage: '',
+        nextCloseMessage: ''
+      },
+      longDistanceEnabled: 0,
+      rainMode: 'NONE',
+      thirdPartyAddress: false,
+      thirdPartyVendor: '',
+      adTrackingID: '',
+      badges: {
+        imageBased: [],
+        textBased: [],
+        textExtendedBadges: []
+      },
+      lastMileTravelString: '4 kms',
+      hasSurge: false,
+      sla: {
+        restaurantId: '311443',
+        deliveryTime: 30,
+        minDeliveryTime: 25,
+        maxDeliveryTime: 35,
+        lastMileTravel: 3,
+        lastMileDistance: 0,
+        serviceability: 'SERVICEABLE_WITH_BANNER',
+        rainMode: 'NONE',
+        longDistance: 'NOT_LONG_DISTANCE',
+        preferentialService: false,
+        iconType: 'EMPTY'
+      },
+      promoted: false,
+      avgRating: '4.7',
       totalRatings: 100,
       new: false
     },
@@ -1925,29 +2390,25 @@ export const RestaurantList = [
     type: 'restaurant',
     data: {
       type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
+      'id': '23719',
+      'name': "McDonald's",
+      'cloudinaryImageId': 'ee5f8e06b300efc07c9fe3f4df40dfc4',
+      'area': 'JM Road',
+      totalRatingsString: '1000+ ratings',
+      'cuisines': [
+        'Burgers',
+        'Beverages',
+        'Cafe'
+      ],
       tags: [],
       costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
+      costForTwoString: '₹499 FOR TWO',
       deliveryTime: 30,
       minDeliveryTime: 25,
       maxDeliveryTime: 35,
       slaString: '25-35 MINS',
       lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
       cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
       parentId: 387846,
       unserviceable: true,
       veg: false,
@@ -2018,7 +2479,7 @@ export const RestaurantList = [
         textBased: [],
         textExtendedBadges: []
       },
-      lastMileTravelString: '3 kms',
+      lastMileTravelString: '7.5 kms',
       hasSurge: false,
       sla: {
         restaurantId: '311443',
@@ -2044,505 +2505,27 @@ export const RestaurantList = [
     type: 'restaurant',
     data: {
       type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
+      'id': '5624',
+      'name': 'Subway',
+      'cloudinaryImageId': '1ace5fa65eff3e1223feb696c956b38b',
+      'area': 'Deccan Gymkhana',
+      'cuisines': [
+        'Healthy Food',
+        'Salads',
+        'Snacks',
+        'Desserts',
+        'Beverages'
+      ],
+      totalRatingsString: '500+ ratings',
       tags: [],
       costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
+      costForTwoString: '₹600 FOR TWO',
       deliveryTime: 30,
       minDeliveryTime: 25,
       maxDeliveryTime: 35,
       slaString: '25-35 MINS',
       lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
       cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
-      parentId: 387846,
-      unserviceable: true,
-      veg: false,
-      select: false,
-      favorite: false,
-      tradeCampaignHeaders: [],
-      aggregatedDiscountInfo: {
-        header: 'FREE DELIVERY',
-        shortDescriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      aggregatedDiscountInfoV2: {
-        header: '',
-        shortDescriptionList: [
-          {
-            meta: 'Free Delivery',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      chain: [],
-      feeDetails: {
-        fees: [],
-        totalFees: 0,
-        message: '',
-        title: '',
-        amount: '',
-        icon: ''
-      },
-      availability: {
-        opened: true,
-        nextOpenMessage: '',
-        nextCloseMessage: ''
-      },
-      longDistanceEnabled: 0,
-      rainMode: 'NONE',
-      thirdPartyAddress: false,
-      thirdPartyVendor: '',
-      adTrackingID: '',
-      badges: {
-        imageBased: [],
-        textBased: [],
-        textExtendedBadges: []
-      },
-      lastMileTravelString: '3 kms',
-      hasSurge: false,
-      sla: {
-        restaurantId: '311443',
-        deliveryTime: 30,
-        minDeliveryTime: 25,
-        maxDeliveryTime: 35,
-        lastMileTravel: 3,
-        lastMileDistance: 0,
-        serviceability: 'SERVICEABLE_WITH_BANNER',
-        rainMode: 'NONE',
-        longDistance: 'NOT_LONG_DISTANCE',
-        preferentialService: false,
-        iconType: 'EMPTY'
-      },
-      promoted: false,
-      avgRating: '4.5',
-      totalRatings: 100,
-      new: false
-    },
-    subtype: 'basic'
-  },
-  {
-    type: 'restaurant',
-    data: {
-      type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
-      tags: [],
-      costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
-      deliveryTime: 30,
-      minDeliveryTime: 25,
-      maxDeliveryTime: 35,
-      slaString: '25-35 MINS',
-      lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
-      cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
-      parentId: 387846,
-      unserviceable: true,
-      veg: false,
-      select: false,
-      favorite: false,
-      tradeCampaignHeaders: [],
-      aggregatedDiscountInfo: {
-        header: 'FREE DELIVERY',
-        shortDescriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      aggregatedDiscountInfoV2: {
-        header: '',
-        shortDescriptionList: [
-          {
-            meta: 'Free Delivery',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      chain: [],
-      feeDetails: {
-        fees: [],
-        totalFees: 0,
-        message: '',
-        title: '',
-        amount: '',
-        icon: ''
-      },
-      availability: {
-        opened: true,
-        nextOpenMessage: '',
-        nextCloseMessage: ''
-      },
-      longDistanceEnabled: 0,
-      rainMode: 'NONE',
-      thirdPartyAddress: false,
-      thirdPartyVendor: '',
-      adTrackingID: '',
-      badges: {
-        imageBased: [],
-        textBased: [],
-        textExtendedBadges: []
-      },
-      lastMileTravelString: '3 kms',
-      hasSurge: false,
-      sla: {
-        restaurantId: '311443',
-        deliveryTime: 30,
-        minDeliveryTime: 25,
-        maxDeliveryTime: 35,
-        lastMileTravel: 3,
-        lastMileDistance: 0,
-        serviceability: 'SERVICEABLE_WITH_BANNER',
-        rainMode: 'NONE',
-        longDistance: 'NOT_LONG_DISTANCE',
-        preferentialService: false,
-        iconType: 'EMPTY'
-      },
-      promoted: false,
-      avgRating: '4.5',
-      totalRatings: 100,
-      new: false
-    },
-    subtype: 'basic'
-  },
-  {
-    type: 'restaurant',
-    data: {
-      type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
-      tags: [],
-      costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
-      deliveryTime: 30,
-      minDeliveryTime: 25,
-      maxDeliveryTime: 35,
-      slaString: '25-35 MINS',
-      lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
-      cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
-      parentId: 387846,
-      unserviceable: true,
-      veg: false,
-      select: false,
-      favorite: false,
-      tradeCampaignHeaders: [],
-      aggregatedDiscountInfo: {
-        header: 'FREE DELIVERY',
-        shortDescriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      aggregatedDiscountInfoV2: {
-        header: '',
-        shortDescriptionList: [
-          {
-            meta: 'Free Delivery',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      chain: [],
-      feeDetails: {
-        fees: [],
-        totalFees: 0,
-        message: '',
-        title: '',
-        amount: '',
-        icon: ''
-      },
-      availability: {
-        opened: true,
-        nextOpenMessage: '',
-        nextCloseMessage: ''
-      },
-      longDistanceEnabled: 0,
-      rainMode: 'NONE',
-      thirdPartyAddress: false,
-      thirdPartyVendor: '',
-      adTrackingID: '',
-      badges: {
-        imageBased: [],
-        textBased: [],
-        textExtendedBadges: []
-      },
-      lastMileTravelString: '3 kms',
-      hasSurge: false,
-      sla: {
-        restaurantId: '311443',
-        deliveryTime: 30,
-        minDeliveryTime: 25,
-        maxDeliveryTime: 35,
-        lastMileTravel: 3,
-        lastMileDistance: 0,
-        serviceability: 'SERVICEABLE_WITH_BANNER',
-        rainMode: 'NONE',
-        longDistance: 'NOT_LONG_DISTANCE',
-        preferentialService: false,
-        iconType: 'EMPTY'
-      },
-      promoted: false,
-      avgRating: '4.5',
-      totalRatings: 100,
-      new: false
-    },
-    subtype: 'basic'
-  },
-  {
-    type: 'restaurant',
-    data: {
-      type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
-      tags: [],
-      costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
-      deliveryTime: 30,
-      minDeliveryTime: 25,
-      maxDeliveryTime: 35,
-      slaString: '25-35 MINS',
-      lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
-      cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
-      parentId: 387846,
-      unserviceable: true,
-      veg: false,
-      select: false,
-      favorite: false,
-      tradeCampaignHeaders: [],
-      aggregatedDiscountInfo: {
-        header: 'FREE DELIVERY',
-        shortDescriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      aggregatedDiscountInfoV2: {
-        header: '',
-        shortDescriptionList: [
-          {
-            meta: 'Free Delivery',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        descriptionList: [
-          {
-            meta: 'FREE DELIVERY',
-            discountType: 'FREE_DELIVERY',
-            operationType: 'RESTAURANT'
-          }
-        ],
-        subHeader: '',
-        headerType: 0,
-        superFreedel: ''
-      },
-      chain: [],
-      feeDetails: {
-        fees: [],
-        totalFees: 0,
-        message: '',
-        title: '',
-        amount: '',
-        icon: ''
-      },
-      availability: {
-        opened: true,
-        nextOpenMessage: '',
-        nextCloseMessage: ''
-      },
-      longDistanceEnabled: 0,
-      rainMode: 'NONE',
-      thirdPartyAddress: false,
-      thirdPartyVendor: '',
-      adTrackingID: '',
-      badges: {
-        imageBased: [],
-        textBased: [],
-        textExtendedBadges: []
-      },
-      lastMileTravelString: '3 kms',
-      hasSurge: false,
-      sla: {
-        restaurantId: '311443',
-        deliveryTime: 30,
-        minDeliveryTime: 25,
-        maxDeliveryTime: 35,
-        lastMileTravel: 3,
-        lastMileDistance: 0,
-        serviceability: 'SERVICEABLE_WITH_BANNER',
-        rainMode: 'NONE',
-        longDistance: 'NOT_LONG_DISTANCE',
-        preferentialService: false,
-        iconType: 'EMPTY'
-      },
-      promoted: false,
-      avgRating: '4.5',
-      totalRatings: 100,
-      new: false
-    },
-    subtype: 'basic'
-  },
-  {
-    type: 'restaurant',
-    data: {
-      type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
-      totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
-      tags: [],
-      costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
-      deliveryTime: 30,
-      minDeliveryTime: 25,
-      maxDeliveryTime: 35,
-      slaString: '25-35 MINS',
-      lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
-      cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
       parentId: 387846,
       unserviceable: true,
       veg: false,
@@ -2639,29 +2622,25 @@ export const RestaurantList = [
     type: 'restaurant',
     data: {
       type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
+      'id': '21001',
+      'name': 'Pizza Hut',
+      'cloudinaryImageId': '2b4f62d606d1b2bfba9ba9e5386fabb7',
+      'area': 'Kalyani Nagar',
+      'cuisines': [
+        'Pizzas',
+        'Beverages'
+      ],
       totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
       cuisines: ['Ice Cream', 'Juices', 'Desserts'],
       tags: [],
       costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
+      costForTwoString: '₹500 FOR TWO',
       deliveryTime: 30,
       minDeliveryTime: 25,
       maxDeliveryTime: 35,
       slaString: '25-35 MINS',
       lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
       cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
       parentId: 387846,
       unserviceable: true,
       veg: false,
@@ -2758,14 +2737,17 @@ export const RestaurantList = [
     type: 'restaurant',
     data: {
       type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
+      'id': '18808',
+      'name': 'Faasos - Wraps & Rolls',
+      'cloudinaryImageId': 'af33b81798b11deba338e94b7585d348',
+      'area': 'Hinjewadi',
+      'costForTwo': '₹200 for two',
+      'cuisines': [
+        'Kebabs',
+        'Snacks',
+        'American'
+      ],
       totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
       tags: [],
       costForTwo: 20000,
       costForTwoString: '₹200 FOR TWO',
@@ -2774,13 +2756,7 @@ export const RestaurantList = [
       maxDeliveryTime: 35,
       slaString: '25-35 MINS',
       lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
       cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
       parentId: 387846,
       unserviceable: true,
       veg: false,
@@ -2851,7 +2827,7 @@ export const RestaurantList = [
         textBased: [],
         textExtendedBadges: []
       },
-      lastMileTravelString: '3 kms',
+      lastMileTravelString: '5 kms',
       hasSurge: false,
       sla: {
         restaurantId: '311443',
@@ -2877,29 +2853,24 @@ export const RestaurantList = [
     type: 'restaurant',
     data: {
       type: 'F',
-      id: '311443',
-      name: 'Siddhi Icecream & Thick Shake',
-      uuid: '1ca3e8c2-e5da-4b59-8f7e-868991cb40b7',
-      city: '21',
-      area: 'Nanpura',
+      'id': '62934',
+      'name': 'LunchBox - Meals and Thalis',
+      'cloudinaryImageId': 'chs0jbyj2osyqumr1wiu',
+      'area': 'Narayan Peth',
+      'cuisines': [
+        'Biryani',
+        'North Indian'
+      ],
       totalRatingsString: '100+ ratings',
-      cloudinaryImageId: 'spd3y5gok3vvwqulgmda',
-      cuisines: ['Ice Cream', 'Juices', 'Desserts'],
       tags: [],
       costForTwo: 20000,
-      costForTwoString: '₹200 FOR TWO',
+      costForTwoString: '₹400 FOR TWO',
       deliveryTime: 30,
       minDeliveryTime: 25,
       maxDeliveryTime: 35,
       slaString: '25-35 MINS',
       lastMileTravel: 3,
-      slugs: {
-        restaurant: 'siddhi-icecream-athwa-athwa',
-        city: 'surat'
-      },
       cityState: '21',
-      address: 'siddhi icecream, Kadampally Society, Timaliawad, Nanpura, Surat, Gujarat, India',
-      locality: 'Athwa',
       parentId: 387846,
       unserviceable: true,
       veg: false,
@@ -2970,7 +2941,7 @@ export const RestaurantList = [
         textBased: [],
         textExtendedBadges: []
       },
-      lastMileTravelString: '3 kms',
+      lastMileTravelString: '9 kms',
       hasSurge: false,
       sla: {
         restaurantId: '311443',

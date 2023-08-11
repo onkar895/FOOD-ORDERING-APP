@@ -1,5 +1,5 @@
 import React from 'react'
-import FoodLogo from '../../Assets/FoodLogo.png'
+import FoodGood from '../../Assets/FoodGood.png'
 import CartLogo from '../../Assets/CartLogo.png'
 import SearchIcon from '../../Assets/SearchIcon.png'
 import { Box, styled,AppBar, Toolbar, Typography } from '@mui/material'
@@ -10,10 +10,9 @@ const HeaderBox = styled(Toolbar)`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px 35px;
+    padding: 2px 35px;
     background-color: #ffffff;
-    padding: 10px 35px;
-    // box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
+    box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
 `
 
 const FoodLogoBox = styled(Box)`
@@ -23,7 +22,8 @@ const FoodLogoBox = styled(Box)`
     gap: 20px;
 
     & > img {
-    width: 4vw;
+    background : none;
+    width: 6.5vw;
     }
 `
 
@@ -32,7 +32,8 @@ const HeadingBox = styled(Box)`
     flex-direction: column;
 
     & > p {
-    font-size: 30px;
+    font-family: "Trebuchet MS";
+    font-size: 28px;
     background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf, #f32170, #ff6b08);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -40,8 +41,10 @@ const HeadingBox = styled(Box)`
     }
 
     & h5 {
-    margin-left: 3.5rem;
+    font-family: "Trebuchet MS";
+    margin-left: 3.2rem;
     color: #f32170;
+    margin-bottom : 8px;
     }
   `
 
@@ -53,7 +56,7 @@ const NavItems = styled(Box)`
     gap: 2rem;
     color: black;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     list-style-type: none;
     margin-right: 16px;
 
@@ -65,8 +68,12 @@ const NavItems = styled(Box)`
 `
 
 const CartBox = styled(Box)`
+display : flex;
+align-items : center;
+gap : 3px;
+
  & > img {
- width: 1vw;
+ width: 1.3vw;
  }
 `
 
@@ -99,7 +106,7 @@ const Navbar = () => {
     <AppBar sx={{boxShadow : 'none'}}>
       <HeaderBox>
       <FoodLogoBox>
-        <img src={FoodLogo} alt='FoodLogo' />
+        <img src={FoodGood} alt='FoodLogo' />
         <HeadingBox>
           <Typography>
             The Foodie Zone
@@ -127,7 +134,8 @@ const Navbar = () => {
           </li>
           <li>
             <CartBox>
-              <img src={CartLogo} alt='CartLogo' /> Cart
+                <img src={CartLogo} alt='CartLogo' />
+                Cart
             </CartBox>
           </li>
         </ul>
