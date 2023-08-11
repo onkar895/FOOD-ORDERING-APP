@@ -3,9 +3,11 @@ import { Box, styled, Typography, Image } from '@mui/material'
 import RatingImage from '../../Assets/Rating.png'
 
 const RestCard = styled(Box)`
-width : 224px;
-height : 260px;
-margin : 30px 0 130px 50px;
+display : flex;
+flex-direction : column;
+width : 220px;
+height : 340px;
+margin : 30px 0 0 29px;
 background-color: white;
 border-radius : 10px;
 // filter: drop-shadow(5px 5px 5px black);
@@ -18,10 +20,10 @@ border-radius : 10px;
 
 & > img {
 width : 100%;
-height : 60%;
+height : 45%;
 border-radius : 10px;
 object-fit : cover;
-filter: drop-shadow(2px 2px 2px black);
+filter: drop-shadow(3px 3px 3px black);
 }
 `
 
@@ -30,19 +32,23 @@ margin: 10px 0 0 12px;
 display : flex;
 flex-direction : column;
 gap : 5px;
-
-`
-
-const Rating = styled(Box)`
-display : flex;
-align-items : center;
-gap : 5px;
+overflow : hidden;
 
 & h2 {
   font-size : 18px;
 }
 `
 
+const RatingContainer = styled(Box)`
+display : flex;
+justify-content: space-between;
+align-items : center;
+`
+
+const Rating = styled(Box)`
+display : flex;
+align-items : center;
+`
 
 const Card = ({
   cloudinaryImageId,
@@ -60,12 +66,15 @@ const Card = ({
           cloudinaryImageId} alt=''/>
       <CardInfo>
         <h2>{name}</h2>
-        <Rating  sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
+        <RatingContainer>
+          <Rating  sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
           <img src={RatingImage} alt='Rating' />
-          <h4>{avgRating} Stars</h4> &nbsp;
-          <h5>{ totalRatingsString }</h5>
-        </Rating>
-    
+          <h5>{avgRating} Stars</h5> 
+          </Rating>
+          <Box sx={{color : 'grey'}}><h5>{ totalRatingsString }</h5></Box>
+        </RatingContainer>
+      
+      
         <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
           {cuisines.join(",")}
         </Typography>

@@ -22,7 +22,8 @@ const Body = () => {
         {
           RestaurantList.map((restaurant) => {
             return <Card key={restaurant.data.id} {...restaurant.data} />
-          })}
+          })
+        }
       </CardContainer>
     </Box>
   )

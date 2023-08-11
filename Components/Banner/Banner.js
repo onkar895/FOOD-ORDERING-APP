@@ -2,11 +2,19 @@ import React from 'react'
 import SaladImage from '../../Assets/Salad.png'
 import { Typography, Box, styled } from '@mui/material'
 
-const MainContainer = styled(Box)`
-    display: flex;
-    width: 58vw;
-    margin-top: 75px;
-`
+const MainContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  width: '58vw',
+  marginTop: '75px',
+  [theme.breakpoints.down('sm')]: {
+    display: 'none'
+  },
+   [theme.breakpoints.down('md')]: {
+    
+  }
+}))
+    
+
 
 const Container = styled(Box)`
     display: flex;
