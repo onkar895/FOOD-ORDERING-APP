@@ -10,7 +10,7 @@ export const RestaurantList = [
       name: "Domino's Pizza",
       uuid: '87727dbd-7f2b-4857-9763-359624165845',
       city: '21',
-      area: 'Athwa',
+      area: 'DP Road',
       totalRatingsString: '1000+ ratings',
       cloudinaryImageId: 'bz9zkh2aqywjhpankb07',
       cuisines: ['Pizzas'],
@@ -24,7 +24,7 @@ export const RestaurantList = [
       lastMileTravel: 0,
       slugs: {
         restaurant: 'dominos-pizza-majura-nondh-test_surat',
-        city: 'surat'
+        city: 'Pune'
       },
       cityState: '21',
       address: 'Shop 32 To 35, Sheetal Shopping Square,Near Lb Turning Point, Bhatar Road,MAJURA NONDH, Surat,GUJARAT-395001',
@@ -129,7 +129,7 @@ export const RestaurantList = [
       name: 'The Brooklyn Creamery - Healthy Ice Cream',
       uuid: '82e23b48-b6bd-4ee0-9746-06737ec062b0',
       city: '21',
-      area: 'althan bhatar',
+      area: 'Hinjewadi',
       totalRatingsString: '100+ ratings',
       cloudinaryImageId: 'ldtibwymvzehvmdwl8la',
       cuisines: ['Ice Cream', 'Healthy Food'],
@@ -249,7 +249,7 @@ export const RestaurantList = [
       name: 'Richie Rich Juices & Shakes',
       uuid: '40b0b55b-e9af-43e7-aeae-be1b012d0b1d',
       city: '21',
-      area: 'Athwa',
+      area: 'Viman Nagar',
       totalRatingsString: '500+ ratings',
       cloudinaryImageId: 'nyp7yrzwc1dc2xqfkydk',
       cuisines: ['Ice Cream'],
@@ -263,7 +263,7 @@ export const RestaurantList = [
       lastMileTravel: 5.599999904632568,
       slugs: {
         restaurant: 'juices-shakes-by-richie-rich-athwa-athwa',
-        city: 'surat'
+        city: 'Pune'
       },
       cityState: '21',
       address: 'Richie Rich Building , Opposite Golden Square Complex, Parle Point, Athwa, Surat',
@@ -368,7 +368,7 @@ export const RestaurantList = [
       name: 'Pizza Pie',
       uuid: '68598bcb-7460-4466-a8b2-113158c6cf8c',
       city: '21',
-      area: 'Nanpura',
+      area: 'Pimpri Chinchwad',
       totalRatingsString: '50+ ratings',
       cloudinaryImageId: 'bvr70adr30ejyr5ua79k',
       cuisines: ['Pizzas'],
@@ -382,7 +382,7 @@ export const RestaurantList = [
       lastMileTravel: 4,
       slugs: {
         restaurant: 'pizza-pie-athwa-athwa',
-        city: 'surat'
+        city: 'pune'
       },
       cityState: '21',
       address: '1/704 Sarang building, Nanpura New Rd, opposite river palace, near Ramji Mandir, Nanpura, Surat, Gujarat',
@@ -2747,7 +2747,7 @@ export const RestaurantList = [
         'Snacks',
         'American'
       ],
-      totalRatingsString: '100+ ratings',
+      totalRatingsString: '1000+ ratings',
       tags: [],
       costForTwo: 20000,
       costForTwoString: '₹200 FOR TWO',
@@ -2843,7 +2843,7 @@ export const RestaurantList = [
         iconType: 'EMPTY'
       },
       promoted: false,
-      avgRating: '4.5',
+      avgRating: '4.1',
       totalRatings: 100,
       new: false
     },
@@ -2957,7 +2957,7 @@ export const RestaurantList = [
         iconType: 'EMPTY'
       },
       promoted: false,
-      avgRating: '4.5',
+      avgRating: '4.8',
       totalRatings: 100,
       new: false
     },

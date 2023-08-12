@@ -106,7 +106,7 @@ const Navbar = () => {
     <AppBar sx={{boxShadow : 'none'}}>
       <HeaderBox>
       <FoodLogoBox>
-        <img src={FoodGood} alt='FoodLogo' />
+          <img src={FoodGood} alt='FoodLogo' />
         <HeadingBox>
           <Typography>
             The Foodie Zone

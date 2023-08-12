@@ -38,7 +38,7 @@ const SubBanner = () => {
       
       <Carousel
         swipeable={false}    // disables the ability to swipe through the carousel items.
-        draggable={true}    // disables dragging the carousel items.
+        draggable={false}    // disables dragging the carousel items.
         autoPlay={false}  // enables automatic play of the carousel items.
         responsive={responsive}
         infinite={false}
@@ -55,7 +55,7 @@ const SubBanner = () => {
           ProductData.map((Images) => {
             const { id, url } = Images
             return (
-              <BannerImage key={id} >
+              <BannerImage key={id}>
                 <img src={url} alt="BannerImages"/>
               </BannerImage>
             )

@@ -16,7 +16,7 @@ border-radius : 10px;
 :hover {
   cursor : pointer;
   transform : scale(0.9);
-  transition : 0.2s;
+  transition : 0.3s;
 }
 
 & > img {
