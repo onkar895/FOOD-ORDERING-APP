@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import HeaderBanner from '../Components/Banner/HeaderBanner'
 import SubBanner from '../Components/Banner/SubBanner'
 import Card from '../Components/Cards/Card'
-import SearchIcon from '../Assets/SearchIcon.png'
 import { Box, styled } from '@mui/material'
 import { RestaurantList } from '../Constants'
+import SearchIcon from '@mui/icons-material/Search';
 
 const CardContainer = styled(Box)`
 display : flex;
@@ -16,23 +16,26 @@ const SearchContainer = styled(Box)`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right : 2rem;
-
+    margin-top :40px;
+   
     & > input {
     font-family: "Trebuchet MS";
-    width: 35vw;
+    width: 45vw;
     padding: 12px;
     border-radius: 5px;
     color: grey; 
     }
+`
 
-    & img {
-    position: absolute;
-    width: 2.2vw;
-    margin-right: 5px;
-    cursor: pointer;
-    margin-left : 25rem;
-    }
+const SearchIconBox = styled(Box)`
+ position: absolute; 
+ margin : 0 0.3rem 0 33rem;
+ cursor: pointer;
+ padding-top : 4.5px;
+
+ :hover {
+   color : #ff6b08;
+ }
 `
 
 const filteredRestaurants = (searchInput, restaurants) => {
@@ -52,23 +55,28 @@ const HomePage = () => {
     <Box>
       <HeaderBanner />
       <SubBanner />
-      <Box sx={{margin: '40px 0 0 35px', display : 'flex', justifyContent: 'space-between',
-    alignItems: 'center'}}>
-      <h2>Restaurants with online food delivery in Pune</h2>
-        <SearchContainer>
+
+      <SearchContainer>
           <input
             type='text'
-            placeholder=' Search for Restaurants and Food....' name='search'
+            placeholder=' Search for Restaurants and Food....'
+            name='search'
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <img src={SearchIcon} alt='SearchIcon'
+        />
+        <SearchIconBox>
+        <SearchIcon  sx={{fontSize:'30px'}}
             onClick={() => {
               const data = filteredRestaurants(searchInput, restaurants)
               setRestaurants(data)
             }}
           />
-        </SearchContainer>
+        </SearchIconBox>
+      </SearchContainer>
+      
+      
+      <Box sx={{margin: '20px 0 0 35px'}}>
+      <h2>Restaurants with online food delivery in Pune</h2>
       </Box>
      
       <CardContainer>

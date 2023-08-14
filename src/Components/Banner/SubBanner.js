@@ -32,13 +32,13 @@ const BannerImage = styled(Box)`
 const SubBanner = () => {
   return (
     <BannerContainer>
-      <Box style={{ margin:'1rem 0 0 0.3rem'}}>
+      <Box style={{ marginTop:'1rem',}}>
         <h2>What's on your mind?</h2>
       </Box>
       
       <Carousel
         swipeable={false}    // disables the ability to swipe through the carousel items.
-        draggable={false}    // disables dragging the carousel items.
+        draggable={true}    // disables dragging the carousel items.
         autoPlay={false}  // enables automatic play of the carousel items.
         responsive={responsive}
         infinite={false}
