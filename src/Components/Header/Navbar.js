@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FoodGood from '../../Assets/FoodGood.png'
 import CartLogo from '../../Assets/CartLogo.png'
-import SearchIcon from '../../Assets/SearchIcon.png'
-import { Box, styled,AppBar, Toolbar, Typography } from '@mui/material'
+import { Box, styled, AppBar, Toolbar, Typography } from '@mui/material'
 
 
 const HeaderBox = styled(Toolbar)`
@@ -77,31 +76,8 @@ gap : 3px;
  }
 `
 
-const SearchContainer = styled(Box)`
-    position: relative;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-right: 0.5rem;
-
-    & > input {
-    font-family: "Trebuchet MS";
-    width: 30vw;
-    padding: 12px;
-    padding: 10px;
-    border-radius: 5px;
-    color: grey; 
-    }
-
-    & img {
-    position: absolute;
-    width: 2.2vw;
-    margin-right: 5px;
-    cursor: pointer;
-    }
-`
-
 const Navbar = () => {
+
   return (
     <AppBar sx={{boxShadow : 'none'}}>
       <HeaderBox>
@@ -114,10 +90,7 @@ const Navbar = () => {
           <h5>Taste of Everything</h5>
         </HeadingBox>
       </FoodLogoBox>
-      <SearchContainer>
-        <input type='text' placeholder=' Search for Restaurants and Food....' name='search' />
-        <img src={SearchIcon} alt='SearchIcon' />
-      </SearchContainer>
+      
       <NavItems>
         <ul>
           <li>
