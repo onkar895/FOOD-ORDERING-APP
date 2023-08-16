@@ -16,7 +16,7 @@ const HeaderBanner = () => {
   return (
     <BannerContainer>
       <Banner />
-      <SliderBanner/>
+      <SliderBanner />
     </BannerContainer>
   )
 }

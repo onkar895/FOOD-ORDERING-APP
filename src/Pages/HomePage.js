@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import HeaderBanner from '../Components/Banner/HeaderBanner'
 import SubBanner from '../Components/Banner/SubBanner'
 import Card from '../Components/Cards/Card'
 import { Box, styled } from '@mui/material'
-import { RestaurantList } from '../Constants'
+import { RestaurantList, SWIGGY_CDN_LINK } from '../Constants'
 import SearchIcon from '@mui/icons-material/Search';
+import { SWIGGY_API_URL } from '../Constants'
 
 const CardContainer = styled(Box)`
 display : flex;
@@ -14,24 +15,26 @@ flex-wrap : wrap;
 const SearchContainer = styled(Box)`
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     margin-top :40px;
    
     & > input {
     font-family: "Trebuchet MS";
     width: 45vw;
-    padding: 12px;
-    border-radius: 5px;
+    padding: 18px;
+    background : #E5E4E2;
+    border : none;
+    border-radius: 8px;
     color: grey; 
     }
 `
 
 const SearchIconBox = styled(Box)`
  position: absolute; 
- margin : 0 0.3rem 0 33rem;
  cursor: pointer;
- padding-top : 4.5px;
+ padding: 4.5px 10px 0 0;
+ 
 
  :hover {
    color : #ff6b08;
@@ -40,7 +43,8 @@ const SearchIconBox = styled(Box)`
 
 const filteredRestaurants = (searchInput, restaurants) => {
     const filterData = restaurants.filter((restaurant) =>
-       restaurant?.data?.name.toLowerCase().includes(searchInput.toLowerCase())  // The includes method checks if the string it's called on contains the specified substring.
+      restaurant?.data?.name.toLowerCase().includes(searchInput.toLowerCase())
+       // The includes method checks if the string it's called on contains the specified substring.
     )
     return filterData
   }
@@ -51,29 +55,52 @@ const HomePage = () => {
 
   const [restaurants, setRestaurants] = useState(RestaurantList)
 
+  // empty dependency array :  once after render
+  // dep array [searchInput] : once after initial render + everytime after render (my searchInput changes)
+  useEffect(() => {
+    // API Call
+    getRestaurants()
+  }, []);
+
+  const getRestaurants = async () => {
+    try {
+      const data = await fetch(SWIGGY_API_URL)
+      const json = await data.json();
+      // Optional Chaining ?
+      setRestaurants(json?.data?.cards[i])
+    } catch (error) {
+      console.log(error,"error while getting the restaurants")
+    }
+    
+  }
+
+  console.log("render")
+  
   return (
     <Box>
       <HeaderBanner />
       <SubBanner />
 
+    <Box sx={{display : 'flex', justifyContent: 'center', alignItems:'center'}}>
       <SearchContainer>
           <input
             type='text'
             placeholder=' Search for Restaurants and Food....'
             name='search'
             value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+            onChange={(e) => {
+              setSearchInput(e.target.value)
+              const data = filteredRestaurants(e.target.value, RestaurantList);
+              setRestaurants(data);
+            }}
         />
         <SearchIconBox>
-        <SearchIcon  sx={{fontSize:'30px'}}
-            onClick={() => {
-              const data = filteredRestaurants(searchInput, restaurants)
-              setRestaurants(data)
-            }}
-          />
+          <SearchIcon  sx={{fontSize:'30px'}}/>
         </SearchIconBox>
+          
       </SearchContainer>
-      
+    </Box>
+    
       
       <Box sx={{margin: '20px 0 0 35px'}}>
       <h2>Restaurants with online food delivery in Pune</h2>

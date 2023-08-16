@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, styled, Typography} from '@mui/material'
 import RatingImage from '../../Assets/Rating.png'
+import StarIcon from '@mui/icons-material/Star';
 import { SWIGGY_CDN_LINK } from '../../Constants'
 
 const RestCard = styled(Box)`
@@ -14,14 +15,17 @@ border-radius : 10px;
 // filter: drop-shadow(5px 5px 5px black);
 
 :hover {
+  filter: drop-shadow(3px 3px 3px black);
   cursor : pointer;
-  transform : scale(0.9);
+  transform : scale(0.92);
   transition : 0.3s;
 }
 
 & > img {
-width : 100%;
+display : flex;
+width : 90%;
 height : 45%;
+margin : 10px;
 border-radius : 10px;
 object-fit : cover;
 filter: drop-shadow(3px 3px 3px black);
@@ -44,11 +48,13 @@ const RatingContainer = styled(Box)`
 display : flex;
 justify-content: space-between;
 align-items : center;
+
 `
 
 const Rating = styled(Box)`
 display : flex;
 align-items : center;
+gap : 5px;
 `
 
 const Card = ({
@@ -69,7 +75,7 @@ const Card = ({
         <h2>{name}</h2>
         <RatingContainer>
           <Rating  sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
-          <img src={RatingImage} alt='Rating' />
+            <StarIcon sx={{ color: 'white', background: '#00A36C', borderRadius: '50%', alignItems: 'center', display: 'flex', justifyContent: 'center', fontSize:'18px' }} src={RatingImage} alt='Rating' />
           <h5>{avgRating} Stars</h5> 
           </Rating>
           <Box sx={{color : 'grey'}}><h5>{ totalRatingsString }</h5></Box>
