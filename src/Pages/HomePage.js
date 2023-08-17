@@ -3,9 +3,9 @@ import HeaderBanner from '../Components/Banner/HeaderBanner'
 import SubBanner from '../Components/Banner/SubBanner'
 import Card from '../Components/Cards/Card'
 import { Box, styled } from '@mui/material'
-import { RestaurantList, SWIGGY_CDN_LINK } from '../Constants'
 import SearchIcon from '@mui/icons-material/Search';
 import { SWIGGY_API_URL } from '../Constants'
+import Shimmer from '../Components/Shimmer'
 
 const CardContainer = styled(Box)`
 display : flex;
@@ -41,7 +41,7 @@ const SearchIconBox = styled(Box)`
  }
 `
 
-const filteredRestaurants = (searchInput, restaurants) => {
+const filteredData = (searchInput, restaurants) => {
     const filterData = restaurants.filter((restaurant) =>
       restaurant?.data?.name.toLowerCase().includes(searchInput.toLowerCase())
        // The includes method checks if the string it's called on contains the specified substring.
@@ -51,9 +51,11 @@ const filteredRestaurants = (searchInput, restaurants) => {
 
 const HomePage = () => {
 
+  const  [allRestaurants, setAllRestaurants] = useState([])
+
   const [searchInput, setSearchInput] = useState("")
 
-  const [restaurants, setRestaurants] = useState(RestaurantList)
+  const [filteredRestaurants, setFilteredRestaurants] = useState([])
 
   // empty dependency array :  once after render
   // dep array [searchInput] : once after initial render + everytime after render (my searchInput changes)
@@ -67,16 +69,28 @@ const HomePage = () => {
       const data = await fetch(SWIGGY_API_URL)
       const json = await data.json();
       // Optional Chaining ?
-      setRestaurants(json?.data?.cards[i])
+      setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+      setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     } catch (error) {
       console.log(error,"error while getting the restaurants")
     }
-    
   }
 
   console.log("render")
   
-  return (
+  // Conditional Rendering
+  // if restaurant is empty => shimmer UI
+  // if restaurant has data => actual Data shown
+
+  // NOT render component (Early return)
+  if (!allRestaurants) return null
+  
+  if (filteredRestaurants?.length === 0) return <h1>No Restaurant match your filter!!!</h1>
+  
+  return (allRestaurants.length === 0) ? (
+    <Shimmer />
+  ) : (
+  <>
     <Box>
       <HeaderBanner />
       <SubBanner />
@@ -90,8 +104,8 @@ const HomePage = () => {
             value={searchInput}
             onChange={(e) => {
               setSearchInput(e.target.value)
-              const data = filteredRestaurants(e.target.value, RestaurantList);
-              setRestaurants(data);
+              const data = filteredData(searchInput, allRestaurants);
+              setFilteredRestaurants(data);
             }}
         />
         <SearchIconBox>
@@ -102,18 +116,20 @@ const HomePage = () => {
     </Box>
     
       
-      <Box sx={{margin: '20px 0 0 35px'}}>
-      <h2>Restaurants with online food delivery in Pune</h2>
+        <Box sx={{margin: '20px 0 0 35px'}}>
+          <h2>Restaurants with online food delivery</h2>
       </Box>
      
-      <CardContainer>
-        {
-          restaurants.map((restaurant) => {
-            return <Card key={restaurant.data.id} {...restaurant.data} />
-          })
-        }
-      </CardContainer>
+        <CardContainer>
+          {/* mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
+          {     
+            filteredRestaurants.map((restaurant) => {
+              return <Card key={restaurant?.info?.id} {...restaurant?.info} />
+            })
+          }
+        </CardContainer>
     </Box>
+  </>
   )
 }
 
