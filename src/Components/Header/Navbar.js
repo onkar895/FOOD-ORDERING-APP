@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import FoodGood from '../../Assets/FoodGood.png'
 import CartLogo from '../../Assets/CartLogo.png'
-import { Box, styled, AppBar, Toolbar, Typography } from '@mui/material'
+import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 
 
 const HeaderBox = styled(Toolbar)`
@@ -48,6 +48,10 @@ const HeadingBox = styled(Box)`
   `
 
 const NavItems = styled(Box)`
+display : flex;
+gap: 2rem;
+margin-right : 1.6rem;
+
 
 & > ul {
     display: flex;
@@ -57,7 +61,6 @@ const NavItems = styled(Box)`
     font-weight: bold;
     font-size: 16px;
     list-style-type: none;
-    margin-right: 16px;
 
     & li:hover {
     color: #ff6b08;
@@ -74,6 +77,24 @@ gap : 3px;
  & > img {
  width: 1.3vw;
  }
+`
+
+const ButtonBox = styled(Button)`
+padding: 2px;
+width: 6vw ;
+font-family: "Trebuchet MS";
+color: #f32170;
+align-items: center;
+cursor: pointer;
+font-weight: bold;
+background: none;
+border : 2px solid #f32170;
+text-transform : capitalize;
+
+:hover {
+  background : #f32170;
+  color : white;
+}
 `
 
 const Navbar = () => {
@@ -114,17 +135,15 @@ const Navbar = () => {
             </CartBox>
           </li>
         </ul>
-        </NavItems>
-        <button onClick={() => {
-          isLoggedIn === "LogIn"
-            ? setIsLoggedIn("LogOut")
-            : setIsLoggedIn("LogIn")
-        }}>
-          {isLoggedIn}
-        </button>
-        
-      
-        
+
+          <ButtonBox onClick={() => {
+          isLoggedIn === "LogIn" ? setIsLoggedIn("LogOut") : setIsLoggedIn("LogIn")
+          }}>  {isLoggedIn}
+        </ButtonBox>
+       
+          
+      </NavItems>
+       
       </HeaderBox>
     </AppBar>
   )
