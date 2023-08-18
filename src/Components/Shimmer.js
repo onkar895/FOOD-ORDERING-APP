@@ -1,8 +1,47 @@
+import { Box, styled } from '@mui/material'
 import React from 'react'
+
+const ShimmerBox = styled(Box)`
+display : flex;
+flex-wrap : wrap;
+
+& > div {
+width : 220px;
+height : 345px;
+margin : 80px 0 0 29px;
+background-color: #E5E4E2;
+border-radius : 10px;
+}
+`
 
 const Shimmer = () => {
   return (
-    <h1 style={{color: 'black', marginTop: '8rem'}}>Shimmer UI Loading....</h1>
+    <>
+      <ShimmerBox>
+        
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+        
+      </ShimmerBox>
+    </>
   )
 }
 

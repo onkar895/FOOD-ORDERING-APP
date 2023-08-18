@@ -9,7 +9,7 @@ display : flex;
 // flex-wrap : wrap;
 flex-direction : column;
 width : 220px;
-height : 340px;
+height : 345px;
 margin : 30px 0 0 29px;
 background-color: white;
 border-radius : 10px;
@@ -25,7 +25,7 @@ border-radius : 10px;
 & > img {
 display : flex;
 width : 90%;
-height : 45%;
+height : 42%;
 margin : 10px;
 border-radius : 10px;
 object-fit : cover;
@@ -38,6 +38,7 @@ margin: 10px 0 0 12px;
 display : flex;
 flex-direction : column;
 gap : 5px;
+overflow : hidden;
 
 & h2 {
   font-size : 18px;

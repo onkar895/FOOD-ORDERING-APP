@@ -78,7 +78,7 @@ gap : 3px;
 
 const Navbar = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
 
   return (
     <AppBar sx={{boxShadow : 'none'}}>
@@ -115,13 +115,16 @@ const Navbar = () => {
           </li>
         </ul>
         </NavItems>
-        {
-          isLoggedIn ? (
-            <button onClick={() => setIsLoggedIn(false)}>LogOut</button>
-          ) : (
-            <button onClick={() => setIsLoggedIn(true)}>LogIn</button>
-          )
-        }
+        <button onClick={() => {
+          isLoggedIn === "LogIn"
+            ? setIsLoggedIn("LogOut")
+            : setIsLoggedIn("LogIn")
+        }}>
+          {isLoggedIn}
+        </button>
+        
+      
+        
       </HeaderBox>
     </AppBar>
   )

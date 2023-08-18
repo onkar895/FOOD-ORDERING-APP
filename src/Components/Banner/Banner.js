@@ -1,6 +1,7 @@
 import React from 'react'
 import PizzaBanner from '../../Assets/pizza-banner.jpg'
 import { Typography, Box, styled } from '@mui/material'
+// import useNavigate from 'react-router-dom'
 
 const MainContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -61,6 +62,8 @@ const ImageContainer = styled(Box)`
     }
 `
 const Banner = () => {
+
+  // const navigate = useNavigate()
   return (
     <MainContainer>
         <ImageContainer>
@@ -77,6 +80,8 @@ const Banner = () => {
           </Typography>
         </SubContainer>
         <h3>Order Online to get 40% OFF...</h3>
+
+        <button>Explore Restaurants</button>
       </Container>
     </MainContainer>
   )

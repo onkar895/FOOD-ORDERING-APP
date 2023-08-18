@@ -3,7 +3,7 @@ export const SWIGGY_CDN_LINK = 'https://res.cloudinary.com/swiggy/image/upload/f
 
 // Swiggy API to get Restaurant data with corsproxy
 export const SWIGGY_API_URL =
-'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING'
+'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
 
 // Config Driven UI
 // export const RestaurantList = [
