@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import FoodGood from '../../Assets/FoodGood.png'
-import CartLogo from '../../Assets/CartLogo.png'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 
 
@@ -11,7 +11,9 @@ const HeaderBox = styled(Toolbar)`
     width: 100%;
     padding: 2px 35px;
     background-color: #ffffff;
-    box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
+    // box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
+    background-image: linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%);
+    // background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,0,0,0.3));
 `
 
 const FoodLogoBox = styled(Box)`
@@ -129,9 +131,9 @@ const Navbar = () => {
             Contact
           </li>
           <li>
-            <CartBox>
-                <img src={CartLogo} alt='CartLogo' />
-                Cart
+              <CartBox>
+                 Cart
+                <ShoppingCartIcon fontSize='18px'/>
             </CartBox>
           </li>
         </ul>
