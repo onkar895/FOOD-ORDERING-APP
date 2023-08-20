@@ -6,13 +6,13 @@ import { SWIGGY_CDN_LINK } from '../../Constants'
 
 const RestCard = styled(Box)`
 display : flex;
-// flex-wrap : wrap;
 flex-direction : column;
-width : 220px;
+width : 250px;
 height : 345px;
-margin : 30px 0 0 29px;
+margin : 30px 0 0 55px;
 background-color: white;
 border-radius : 10px;
+
 // filter: drop-shadow(5px 5px 5px black);
 
 :hover {

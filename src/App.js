@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Navbar from './Components/Header/Navbar'
 import HomePage from './Pages/HomePage'
-import {Box} from '@mui/material'
+import About from './Pages/About'
+import { Box } from '@mui/material'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const MainComponent = () => {
   return (
@@ -17,6 +19,22 @@ const MainComponent = () => {
   )
 }
 
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainComponent/>,
+  },
+  {
+    path: '/about',
+    element: <About/>,
+  },
+  //  {
+  //   path: '/contact',
+  //   element: <Contact/>,
+  // },
+])
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<MainComponent />)
+root.render(<RouterProvider router={appRouter} />)

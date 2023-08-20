@@ -19,10 +19,8 @@ const responsive = {
   }
 };
 
-
 const BannerContainer = styled(Box)`
-  width: 38.5vw;
-  margin-top: 75px;
+  width: 39vw;
 `
 
 const BannerImage = styled(Box)` 

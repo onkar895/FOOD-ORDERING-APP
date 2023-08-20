@@ -113,7 +113,7 @@ const HomePage = () => {
         </Box>
 
           <CardContainer>
-          {/* mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
+          {/* mapping restaurants array and passing JSON array data to Card component as props with unique key as restaurant.info.id */}
           {filteredRestaurants.map((restaurant) => (
             <Card key={restaurant?.info?.id} {...restaurant?.info} />
           ))}

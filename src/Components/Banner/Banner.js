@@ -5,8 +5,7 @@ import { Typography, Box, styled } from '@mui/material'
 
 const MainContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
-  width: '58vw',
-  marginTop: '75px',
+  width: '48vw',
   [theme.breakpoints.down('sm')]: {
     display: 'none'
   },
@@ -70,7 +69,7 @@ const Banner = () => {
         <img src={PizzaBanner} alt='PizzaBanner' />
       </ImageContainer>
       <Container>
-        <h1>Fresh & tasty Pizza's</h1>
+        <h1>Fresh & tasty Food</h1>
         <SubContainer>
           <Typography>
             Relax Please, we've got you
@@ -81,7 +80,6 @@ const Banner = () => {
         </SubContainer>
         <h3>Order Online to get 40% OFF...</h3>
 
-        <button>Explore Restaurants</button>
       </Container>
     </MainContainer>
   )

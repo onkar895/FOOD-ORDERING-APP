@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FoodGood from '../../Assets/FoodGood.png'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
@@ -65,7 +65,7 @@ margin-right : 1.6rem;
     list-style-type: none;
 
     & li:hover {
-    color: #ff6b08;
+    color : #f32170;
     cursor: pointer;
     }
 }
@@ -102,6 +102,15 @@ text-transform : capitalize;
 const Navbar = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
+  
+  console.log("Header Render")
+
+  //1. If no dependency array => useEffect is called on every render
+  //2. If dependency array is empty = [] => useEffect is called on Initial render(just Once)
+  //3. If the dependency array is [isLoggedIn] => useEffect called everytime isLoggedIn is updated
+  useEffect(() => {
+    console.log("UseEffect Called")
+  }, [])
 
   return (
     <AppBar sx={{boxShadow : 'none'}}>

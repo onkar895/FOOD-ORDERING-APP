@@ -11,9 +11,15 @@ const BannerContainer = styled(Box)`
   width: 100%;
   padding: 0 40px;
   // box-shadow : 2px 2px 2px 2px;
+
 `
 
 const BannerImage = styled(Box)`
+
+:hover {
+  transform : scale(1.1);
+  transition : 0.3s;
+  }
 
 & > img {
   display: flex;
@@ -24,6 +30,8 @@ const BannerImage = styled(Box)`
   width: 100%;
   height : 30vh;
   cursor : pointer;
+
+  
 }
 
 `
@@ -39,9 +47,9 @@ const SubBanner = () => {
       <Carousel
         swipeable={false}    // disables the ability to swipe through the carousel items.
         draggable={true}    // disables dragging the carousel items.
-        autoPlay={false}  // enables automatic play of the carousel items.
+        autoPlay={true}  // enables automatic play of the carousel items.
         responsive={responsive}
-        infinite={false}
+        infinite={true}
         autoPlaySpeed={2000}
         keyBoardControl={true}  // enables control of the carousel using keyboard arrow keys.
         showDots={false}   // whether to display pagination dots at the bottom of the carousel 
