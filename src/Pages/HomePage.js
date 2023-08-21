@@ -8,7 +8,7 @@ display : flex;
 gap : 40px;
 align-items : center;
 justify-content : center;
-margin : 5rem 5rem 0 8rem;
+margin : 5rem 5rem 0 6.5rem;
 `
 
 const InfoContainer = styled(Box)`
@@ -22,7 +22,7 @@ gap : 1rem;
   font-size : 40px;
 
   & span {
-    color : rgb(250,97,65);
+    color : rgb(211,47,47);
   }
 }
 
@@ -37,15 +37,16 @@ const ButtonContainer = styled(Box)`
 display : flex;
 align-items : center;
 justify-content : center;
+margin-top : 10px;
 
 & > button {
-  border : 2px solid rgb(250,97,65);
+  border : 2px solid rgb(211,47,47);
   font-family: "Trebuchet MS";
 }
 
 & > button:hover {
-  box-shadow : 5px 5px 10px red;
-  background : rgb(250,97,65);
+  box-shadow : 5px 5px 10px rgb(211,47,47);
+  background : rgb(211,47,47);
   color : white;
   border-radius : 5px;
 }
@@ -55,6 +56,11 @@ const ImageContainer = styled(Box)`
 
 & > img {
   width :56vw;
+
+  :hover {
+    transform : scale(1.1);
+    transition : 1s;
+  }
 }
 `
 
@@ -71,7 +77,7 @@ const HomePage = () => {
             <Typography>and with fast and free delivery.</Typography>
           </Box>
           <Box sx={{
-            color : 'rgb(250,97,65)'
+            color : 'rgb(211,47,47)'
           }}>
              <h3>Order Online to get 40% OFF...</h3>
           </Box>

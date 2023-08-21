@@ -12,9 +12,8 @@ const HeaderBox = styled(Toolbar)`
     width: 100%;
     padding: 2px 35px;
     background-color: #ffffff;
-    // box-shadow: 0 0 1.2px 0 rgb(134, 130, 130);
     background-image: linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%);
-    // background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,0,0,0.3));
+
 `
 
 const FoodLogoBox = styled(Box)`
@@ -36,17 +35,14 @@ const HeadingBox = styled(Box)`
     & > p {
     font-family: "Trebuchet MS";
     font-size: 28px;
-    color : rgb(250,97,65);
-    // background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf, #f32170, #ff6b08);
-    // -webkit-text-fill-color: transparent;
-    // -webkit-background-clip: text;
+    color : rgb(211,47,47);
     font-weight: bolder;
     }
 
     & h5 {
     font-family: "Trebuchet MS";
     margin-left: 3.2rem;
-    color: #f32170;
+    color: rgb(211,47,47);
     margin-bottom : 8px;
     }
   `
@@ -72,7 +68,7 @@ margin-right : 1.6rem;
     }
 
     & > li > a:hover{
-    color : rgb(250,97,65);
+    color : rgb(211,47,47);
     cursor: pointer;
     }
 }
@@ -90,18 +86,15 @@ gap : 3px;
 
 const ButtonBox = styled(Button)`
 padding: 2px;
-width: 6vw ;
-font-family: "Trebuchet MS";
-color: rgb(250,97,65);
+width: 7vw ;
 align-items: center;
 cursor: pointer;
 font-weight: bold;
-background: none;
-border : 2px solid #f32170;
+border : 1.5px solid rgb(211,47,47);
 text-transform : capitalize;
 
 :hover {
-  background : rgb(250,97,65);
+  background : rgb(211,47,47);
   color : white;
 }
 `
@@ -156,7 +149,10 @@ const Navbar = () => {
           </li>
         </ul>
 
-          <ButtonBox onClick={() => {
+          <ButtonBox
+            variant='outlined'
+            color = 'error'
+            onClick={() => {
           isLoggedIn === "LogIn" ? setIsLoggedIn("LogOut") : setIsLoggedIn("LogIn")
           }}>  {isLoggedIn}
         </ButtonBox>

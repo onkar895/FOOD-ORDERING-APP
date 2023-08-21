@@ -21,6 +21,7 @@ const responsive = {
 
 const BannerContainer = styled(Box)`
   width: 39vw;
+  margin-top : 20px;
 `
 
 const BannerImage = styled(Box)` 

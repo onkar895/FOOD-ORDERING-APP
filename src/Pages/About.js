@@ -14,10 +14,9 @@ margin: 90px 40px;
 border-radius : 15px;
 
 & > h1 {
-  color : white;
   border-radius : 5px;
   padding : 5px 20px;
-  background-color : #ff6b08;
+  color : rgb(211,47,47);
   font-family: "Trebuchet MS";
 }
 

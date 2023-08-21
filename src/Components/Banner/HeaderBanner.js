@@ -5,7 +5,6 @@ import { Box, styled } from '@mui/material'
 
 const BannerContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
-  margin: '30px 30px 0 0'
 
 // [theme.breakpoints.down('sm')]: {
 //   flexDirection: 'column'

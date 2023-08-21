@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Navbar from './Components/Header/Navbar'
 import HomePage from './Pages/HomePage'
+import Menu from './Pages/Menu'
 import Error from './Pages/Error'
 import About from './Pages/About'
 import Contact from './Pages/Contact'
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/',
         element: <HomePage/>
+      },
+      {
+        path: '/menu',
+        element: <Menu/>
       },
       {
         path: '/about',

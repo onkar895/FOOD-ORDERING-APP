@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SubBanner from '../Components/Banner/SubBanner';
 import Card from '../Components/Cards/Card';
-import { Box, styled } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, styled, Button, TextField } from '@mui/material';
 import { SWIGGY_API_URL } from '../Constants';
 import Shimmer from '../Components/Shimmer';
 
@@ -14,30 +12,46 @@ const CardContainer = styled(Box)`
 const SearchContainer = styled(Box)`
   position: relative;
   display: flex;
-  justify-content: flex-end; /* Changed to 'flex-end' for better alignment */
+  justify-content: center; /* Changed to 'flex-end' for better alignment */
   align-items: center;
   margin-top: 40px;
 
   & > input {
     font-family: "Trebuchet MS";
-    width: 40vw;
-    padding: 14px;
-    background: #E5E4E2;
-    border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     color: grey;
   }
 `;
 
-const SearchIconBox = styled(Box)`
-  position: absolute;
-  cursor: pointer;
-  padding: 4.5px 10px 0 0;
+const ButtonContainer = styled(Button)`
+display : flex;
+align-items : center;
+justify-content : center;
+margin-top: 38px;
+padding : 7.5px 25px;
+text-transform : capitalize;
+border-radius : 5px;
+background : rgb(211,47,47);
+font-family: "Trebuchet MS";
 
-  :hover {
-    color: #ff6b08;
-  }
-`;
+:hover {
+background : rgb(211,47,47);
+}
+`
+
+const ButtonBox = styled(Button)`
+text-transform : capitalize;
+margin: 6rem 4.8rem 0 0;
+width : 16vw;
+height : 6.5vh;
+border : 1.5px solid rgb(211,47,47);
+font-weight : bold;
+
+:hover {
+background : rgb(211,47,47);
+color : white;
+}
+`
 
 const Restaurants = () => {
 
@@ -85,38 +99,62 @@ const Restaurants = () => {
   // Conditional Rendering
   // if restaurant is empty => shimmer UI
   // if restaurant has data => actual Data shown
-  return listOfRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
-    <>
+  return (
+      <>
       <Box>
-        <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', margin: '60px 0 0 64px' }}>
-          <SearchContainer>
-            <input
-              type='text'
-              placeholder='Search for Restaurants and Food....'
-              name='search'
-              value={searchInput}
-              onChange={handleSearchInputChange}
-            />
-            <SearchIconBox>
-              <SearchIcon sx={{ fontSize: '30px' }} />
-            </SearchIconBox>
-          </SearchContainer>
+        <Box sx={{display : 'flex', justifyContent:'space-between'}}>
+          <Box sx={{ display: 'flex', gap: '10px', justifyContent: 'start', alignItems: 'center', margin: '60px 0 0 64px' }}>
+            <SearchContainer>
+              <TextField sx={{ width: '32vw'}}
+                variant='outlined'
+                color='error' 
+                size='small'
+                fullWidth required
+                type='text'
+                placeholder='Search for Restaurants and Food....'
+                name='search'
+                value={searchInput}
+                onChange={handleSearchInputChange}
+              />
+            </SearchContainer>
+        
+            <ButtonContainer
+              variant='contained'>
+               Search
+            </ButtonContainer>
+          </Box>
+
+          <ButtonBox
+            variant='outlined'
+            color='error'
+            size ='small'
+            onClick={() => {
+            const filteredList = listOfRestaurants.filter(
+              (res) => res.info.avgRating > 4
+            )
+            setFilteredRestaurants(filteredList)
+            }}>
+              Top Rated Restaurants
+          </ButtonBox>
         </Box>
 
-        <Box sx={{ margin: '30px 0 0 64px' }}>
-          <h2>Restaurants with online food delivery in Pune</h2>
-        </Box>
-
-          <CardContainer>
-          {/* mapping restaurants array and passing JSON array data to Card component as props with unique key as restaurant.info.id */}
-          {filteredRestaurants.map((restaurant) => (
-            <Card key={restaurant?.info?.id} {...restaurant?.info} />
-          ))}
-        </CardContainer>
-        </Box>
-        <SubBanner />
+        {
+          listOfRestaurants.length === 0 ? (
+           <Shimmer />
+          ) : (
+            <>
+              <Box sx={{ margin: '30px 0 0 64px' }}>
+                  <h2>Restaurants with online food delivery in Pune</h2>
+              </Box>
+              <CardContainer>
+                 {/* mapping restaurants array and passing JSON array data to Card component as props with unique key as restaurant.info.id */}
+                   {filteredRestaurants.map((restaurant) => (
+                   <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                 ))}
+              </CardContainer>
+            </>
+        )}
+      </Box>
     </>
   )
 }
