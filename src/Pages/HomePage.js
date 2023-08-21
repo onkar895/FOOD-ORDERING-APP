@@ -2,6 +2,9 @@ import React from 'react'
 import { Button, Box, styled, Typography} from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import FoodImage from '../Assets/FoodImage.png'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const MainContainer = styled(Box)`
 display : flex;
@@ -52,15 +55,30 @@ margin-top : 10px;
 }
 `
 
+const IconContainer = styled(Box)`
+display : flex;
+gap : 20px;
+align-items : center;
+justify-content : center;
+
+& > a:hover {
+  font-weight : bolder;
+    transform : scale(1.2);
+    transition : 0.5s;
+}
+
+`
+
 const ImageContainer = styled(Box)`
 
 & > img {
-  width :56vw;
+  width :52vw;
 
-  :hover {
-    transform : scale(1.1);
-    transition : 1s;
-  }
+  // :hover {
+  //   cursor : pointer;
+  //   transform : scale(1.1);
+  //   transition : 0.6s;
+  // }
 }
 `
 
@@ -94,6 +112,11 @@ const HomePage = () => {
           <img src={FoodImage} alt="FoodImage"/>
         </ImageContainer>
       </MainContainer>
+      <IconContainer>
+            <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: '	black',  }} /></a>
+           <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'	black'}} /></a>
+            <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{cursor:'pointer', color: '	black'}}/></a>
+        </IconContainer>
    
     </>
   )

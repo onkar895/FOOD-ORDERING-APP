@@ -41,7 +41,7 @@ background : rgb(211,47,47);
 
 const ButtonBox = styled(Button)`
 text-transform : capitalize;
-margin: 6rem 4.8rem 0 0;
+margin: 5.6rem 4.8rem 0 0;
 width : 16vw;
 height : 6.5vh;
 border : 1.5px solid rgb(211,47,47);
