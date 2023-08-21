@@ -6,9 +6,9 @@ display : flex;
 flex-wrap : wrap;
 
 & > div {
-width : 220px;
+width : 250px;
 height : 345px;
-margin : 80px 0 0 29px;
+margin : 10rem 0 0 58px;
 background-color: #E5E4E2;
 border-radius : 10px;
 }

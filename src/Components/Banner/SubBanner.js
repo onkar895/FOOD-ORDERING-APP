@@ -40,7 +40,7 @@ const BannerImage = styled(Box)`
 const SubBanner = () => {
   return (
     <BannerContainer>
-      <Box style={{ marginTop:'1rem',}}>
+      <Box style={{ marginTop:'5rem',}}>
         <h2>What's on your mind?</h2>
       </Box>
       

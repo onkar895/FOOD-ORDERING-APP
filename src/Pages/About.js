@@ -7,18 +7,25 @@ display : flex;
 flex-direction : column;
 gap : 10px;
 justify-content : center;
-padding : 40px 0;
+padding : 10px 0;
 align-items : center;
 border : 2px solid #ff6b08;
-margin: 30px 40px;
+margin: 90px 40px;
 border-radius : 15px;
 
 & > h1 {
-  color : #ff6b08;
+  color : white;
+  border-radius : 5px;
+  padding : 5px 20px;
+  background-color : #ff6b08;
   font-family: "Trebuchet MS";
 }
 
 & p {
+    background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf, #f32170, #ff6b08);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bolder;
   font-size :20px;
   font-family: "Trebuchet MS";
 }
@@ -27,9 +34,6 @@ border-radius : 15px;
 const About = () => {
   return (
     <>
-      {/* <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',marginTop : '10px', color: '#ff6b08',fontFamily: "Trebuchet MS" }}>
-       <h1>WELCOME TO FOODIE ZONE</h1>
-      </Box> */}
       <HeaderBox>
         <h1>OUR STORY</h1>
         <Box>

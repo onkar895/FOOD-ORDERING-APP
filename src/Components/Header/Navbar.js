@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FoodGood from '../../Assets/FoodGood.png'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 
 const HeaderBox = styled(Toolbar)`
@@ -35,9 +36,10 @@ const HeadingBox = styled(Box)`
     & > p {
     font-family: "Trebuchet MS";
     font-size: 28px;
-    background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf, #f32170, #ff6b08);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    color : rgb(250,97,65);
+    // background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf, #f32170, #ff6b08);
+    // -webkit-text-fill-color: transparent;
+    // -webkit-background-clip: text;
     font-weight: bolder;
     }
 
@@ -63,9 +65,14 @@ margin-right : 1.6rem;
     font-weight: bold;
     font-size: 16px;
     list-style-type: none;
+    
+    & a {
+      text-decoration : none;
+      color : black;
+    }
 
-    & li:hover {
-    color : #f32170;
+    & > li > a:hover{
+    color : rgb(250,97,65);
     cursor: pointer;
     }
 }
@@ -85,7 +92,7 @@ const ButtonBox = styled(Button)`
 padding: 2px;
 width: 6vw ;
 font-family: "Trebuchet MS";
-color: #f32170;
+color: rgb(250,97,65);
 align-items: center;
 cursor: pointer;
 font-weight: bold;
@@ -94,7 +101,7 @@ border : 2px solid #f32170;
 text-transform : capitalize;
 
 :hover {
-  background : #f32170;
+  background : rgb(250,97,65);
   color : white;
 }
 `
@@ -128,22 +135,24 @@ const Navbar = () => {
       <NavItems>
         <ul>
           <li>
-            Home
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            Menu
+            <Link to='/menu'>Menu</Link>
           </li>
           <li>
-            About
+            <Link to='/about'>About</Link>
           </li>
           <li>
-            Contact
+           <Link to='/contact'>Contact</Link>
           </li>
           <li>
+            <Link to='/cart'>
               <CartBox>
-                 Cart
+                Cart
                 <ShoppingCartIcon fontSize='18px'/>
-            </CartBox>
+              </CartBox>
+            </Link>
           </li>
         </ul>
 
