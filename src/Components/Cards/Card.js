@@ -7,9 +7,9 @@ import { SWIGGY_CDN_LINK } from '../../Constants'
 const RestCard = styled(Box)`
 display : flex;
 flex-direction : column;
-width : 250px;
-height : 345px;
-margin : 30px 0 0 55px;
+width : 260px;
+height : 330px;
+margin : 30px 0 0 48px;
 background-color: white;
 border-radius : 10px;
 
@@ -25,7 +25,7 @@ border-radius : 10px;
 & > img {
 display : flex;
 width : 90%;
-height : 42%;
+height : 45%;
 margin : 10px;
 border-radius : 10px;
 object-fit : cover;
@@ -38,24 +38,39 @@ margin: 10px 0 0 12px;
 display : flex;
 flex-direction : column;
 gap : 5px;
-overflow : hidden;
+flex-wrap : wrap;
+overflow:  hidden;
 
 & h2 {
-  font-size : 18px;
+  color : black;
+  font-size : 22px;
+}
+
+& h4 {
+  color : black;
 }
 `
 
 const RatingContainer = styled(Box)`
 display : flex;
-justify-content: space-between;
+gap : 16.6px;
+justify-content: start;
 align-items : center;
-
+margin-top : 5px;
 `
 
 const Rating = styled(Box)`
 display : flex;
 align-items : center;
-gap : 5px;
+justify-content : center;
+gap : 4px;
+background : rgba(220,220,220,0.6);
+border-radius : 5px;
+padding : 3px 4px;
+
+& > h5 {
+  font-size : 16px;
+}
 `
 
 const Card = ({
@@ -63,34 +78,35 @@ const Card = ({
   name,
   cuisines,
   areaName,
-  totalRatingsString,
   sla,
   costForTwo,
   avgRatingString, }) => {
   
   return (
-       <RestCard >
-      <img src={ SWIGGY_CDN_LINK + cloudinaryImageId} alt=''/>
+    <RestCard >
+      <img src={ SWIGGY_CDN_LINK + cloudinaryImageId} alt='Images'/>
       <CardInfo>
         <h2>{name}</h2>
-        <RatingContainer>
-          <Rating  sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>
-            <StarIcon sx={{ color: 'white', background: '#00A36C', borderRadius: '50%', alignItems: 'center', display: 'flex', justifyContent: 'center', fontSize:'18px' }} src={RatingImage} alt='Rating' />
-          <h5>{avgRatingString} Stars</h5> 
-          </Rating>
-          <Box sx={{color : 'grey'}}><h5>{ totalRatingsString }</h5></Box>
-        </RatingContainer>
-      
-      
-        <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey'}}>
+
+         <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey',   
+          textAlign: 'inherit'}}>
           {cuisines.join(",")}
         </Typography>
-        <Box sx={{display : 'flex', fontFamily: "Trebuchet MS", color: 'grey', gap : '5px' }}>
-          <Typography >{areaName},</Typography>
-          <Typography>{sla?.lastMileTravelString ?? '2.0 km'}</Typography>
-        </Box>
-       
-        <h4>{costForTwo}</h4>
+
+        <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey'}}>{ areaName }</Typography>
+
+        <RatingContainer>
+          <Rating sx={{color: avgRatingString >= 4 ? "#2c784e" : "red", }}>
+            <StarIcon sx={{alignItems: 'center', display: 'flex', justifyContent: 'center', fontSize:'18px'}} src={RatingImage} alt='Rating' />
+            <h5>{avgRatingString}</h5> 
+          </Rating>
+          <Box sx={{display : 'flex', fontFamily: "Trebuchet MS", color: 'grey', gap : '5px' }}>
+          <Typography sx={{fontFamily: "Trebuchet MS", }}>{sla?.lastMileTravelString ?? '2.0 km'}</Typography>
+          </Box>
+          <Box><h4>{costForTwo}</h4></Box>
+        </RatingContainer>
+      
+        
       </CardInfo>
     </RestCard>
     

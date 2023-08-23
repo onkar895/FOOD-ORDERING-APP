@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../Components/Cards/Card';
+import Card from '../Components/Cards/Card'
 import { Box, styled, Button, TextField } from '@mui/material';
 import { SWIGGY_API_URL } from '../Constants';
 import Shimmer from '../Components/Shimmer';
+import { Link } from 'react-router-dom';
 
 const CardContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
+
+  & > a {
+     text-decoration: none;
+  }
 `;
 
 const SearchContainer = styled(Box)`
@@ -14,20 +19,18 @@ const SearchContainer = styled(Box)`
   display: flex;
   justify-content: center; /* Changed to 'flex-end' for better alignment */
   align-items: center;
-  margin-top: 40px;
 
   & > input {
     font-family: "Trebuchet MS";
     border-radius: 5px;
     color: grey;
   }
-`;
+`
 
 const ButtonContainer = styled(Button)`
 display : flex;
 align-items : center;
 justify-content : center;
-margin-top: 38px;
 padding : 7.5px 25px;
 text-transform : capitalize;
 border-radius : 5px;
@@ -41,7 +44,7 @@ background : rgb(211,47,47);
 
 const ButtonBox = styled(Button)`
 text-transform : capitalize;
-margin: 5.6rem 4.8rem 0 0;
+margin: 3.7rem 4rem 0 0;
 width : 16vw;
 height : 6.5vh;
 border : 1.5px solid rgb(211,47,47);
@@ -93,6 +96,13 @@ const Restaurants = () => {
     setFilteredRestaurants(filteredData);
   };
 
+  const handleTopRatedClick = () => {
+    const filteredList = listOfRestaurants.filter(
+      (res) => res.info.avgRating > 4
+    );
+    setFilteredRestaurants(filteredList);
+  };
+
   // NOT render component (Early return)
   if (!listOfRestaurants) return null;
 
@@ -128,12 +138,7 @@ const Restaurants = () => {
             variant='outlined'
             color='error'
             size ='small'
-            onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            )
-            setFilteredRestaurants(filteredList)
-            }}>
+            onClick={handleTopRatedClick}>
               Top Rated Restaurants
           </ButtonBox>
         </Box>
@@ -149,7 +154,11 @@ const Restaurants = () => {
               <CardContainer>
                  {/* mapping restaurants array and passing JSON array data to Card component as props with unique key as restaurant.info.id */}
                    {filteredRestaurants.map((restaurant) => (
-                   <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                     <Link
+                       key={restaurant.info.id}
+                       to={"/restaurantmenu/" + restaurant.info.id}>
+                       <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                     </Link>
                  ))}
               </CardContainer>
             </>

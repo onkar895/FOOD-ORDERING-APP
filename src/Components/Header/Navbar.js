@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
 const HeaderBox = styled(Toolbar)`
@@ -52,7 +52,7 @@ const HeadingBox = styled(Box)`
 const NavItems = styled(Box)`
 display : flex;
 gap: 2rem;
-margin-right : 1.6rem;
+margin-right : 2.4rem;
 
 
 & > ul {
@@ -70,7 +70,7 @@ margin-right : 1.6rem;
     }
 
     & > li > a:hover{
-    color : rgb(211,47,47);
+    color : rgba(211,47,47,0.5);
     cursor: pointer;
     }
 }
@@ -115,6 +115,13 @@ const Navbar = () => {
   }, [])
 
    const navigate = useNavigate()
+   
+   const navLinkStyle = ({ isActive }) => {
+    return {
+      color: isActive ? 'rgb(211,47,47)' : '',
+      textDecoration: isActive ? 'underline 2px' : '',
+    }
+  }
 
   return (
     <AppBar sx={{boxShadow : 'none'}}>
@@ -132,24 +139,24 @@ const Navbar = () => {
       <NavItems>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <NavLink style={navLinkStyle} to='/'>Home</NavLink>
           </li>
           <li>
-            <Link to='/restaurants'>Menu</Link>
+            <NavLink style={navLinkStyle} to='/restaurants'>Menu</NavLink>
           </li>
           <li>
-            <Link to='/about'>About</Link>
+            <NavLink style={navLinkStyle} to='/about'>About</NavLink>
           </li>
           <li>
-           <Link to='/contact'>Contact</Link>
+           <NavLink style={navLinkStyle} to='/contact'>Contact</NavLink>
           </li>
           <li>
-            <Link to='/cart'>
+            <NavLink style={navLinkStyle} to='/cart'>
               <CartBox>
                 Cart
                 <ShoppingCartIcon fontSize='18px'/>
               </CartBox>
-            </Link>
+            </NavLink>
           </li>
         </ul>
 

@@ -36,6 +36,13 @@ gap : 1rem;
 }
 `
 
+const Order = styled(Box)`
+
+& > h3 > span {
+color : rgb(211,47,47);
+}
+`
+
 const ButtonContainer = styled(Box)`
 display : flex;
 align-items : center;
@@ -88,17 +95,16 @@ const HomePage = () => {
   return (
     <>
       <MainContainer>
+
         <InfoContainer>
           <h1>We Deliver <br/> Delicious & <br/> Healthy  <span>Food</span></h1>
           <Box>
             <Typography>Our job is to filling your hunger with delicious food</Typography>
             <Typography>and with fast and free delivery.</Typography>
           </Box>
-          <Box sx={{
-            color : 'rgb(211,47,47)'
-          }}>
-             <h3>Order Online to get 40% OFF...</h3>
-          </Box>
+          <Order>
+             <h3>Order Online to get <span>40% OFF...</span></h3>
+          </Order>
           
           <ButtonContainer>
             <Button
@@ -107,11 +113,15 @@ const HomePage = () => {
               Explore Restaurants
             </Button>
           </ButtonContainer>
+
         </InfoContainer>
+
         <ImageContainer>
           <img src={FoodImage} alt="FoodImage"/>
         </ImageContainer>
+
       </MainContainer>
+
       <IconContainer>
             <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: '	black',  }} /></a>
            <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'	black'}} /></a>

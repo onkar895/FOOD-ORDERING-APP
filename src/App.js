@@ -10,13 +10,15 @@ import Restaurants from './Pages/Restaurants'
 import Cart from './Pages/Cart'
 import { Box } from '@mui/material'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import  RestaurantMenu  from './Pages/RestaurantMenu'
 
 const MainComponent = () => {
   return (
     <>
       <Box>
          <Navbar />
-          <Box style={{ marginTop: '3rem'}}>
+        <Box style={{ marginTop: '3rem' }}>
+          {/* Outlet is like a tunnel so all the children according to the routes go inside and come over here in place of this Outlet. */}
              <Outlet/>  
           </Box>
       </Box>
@@ -31,11 +33,11 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomePage/>
+        element: <HomePage/>,
       },
       {
         path: '/restaurants',
-        element: <Menu/>
+        element: <Menu/>,
       },
       {
         path: '/about',
@@ -47,11 +49,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <Cart/>
+        element: <Cart/>,
       },
       {
         path: '/restaurants',
-        element: <Restaurants/>
+        element: <Restaurants/>,
+      },
+      {
+        path: '/restaurantmenu/:resId',
+        element: <RestaurantMenu/>,
       },
     ],
     errorElement : <Error/>,

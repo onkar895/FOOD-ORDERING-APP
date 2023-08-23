@@ -6,8 +6,8 @@ display : flex;
 flex-wrap : wrap;
 
 & > div {
-width : 240px;
-height : 345px;
+width : 250px;
+height : 300px;
 margin : 2rem 0 0 3.8rem;
 background-color: #E5E4E2;
 border-radius : 10px;
@@ -16,7 +16,7 @@ border-radius : 10px;
 
 const HeaderBox = styled(Box)`
 width : 40vw;
-margin: 2rem 0 0 4rem;
+margin: 2rem 0 0 3.8rem;
 height : 3vw;
 background-color: #E5E4E2;
 border-radius : 5px;
