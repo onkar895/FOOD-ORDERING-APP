@@ -69,9 +69,8 @@ align-items : center;
 justify-content : center;
 
 & > a:hover {
-  font-weight : bolder;
     transform : scale(1.2);
-    transition : 0.5s;
+    transition : 0.3s;
 }
 
 `

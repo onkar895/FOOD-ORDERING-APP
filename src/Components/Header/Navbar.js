@@ -119,7 +119,7 @@ const Navbar = () => {
    const navLinkStyle = ({ isActive }) => {
     return {
       color: isActive ? 'rgb(211,47,47)' : '',
-      textDecoration: isActive ? 'underline 2px' : '',
+      fontweight : isActive ? 'bolder' : '',
     }
   }
 
