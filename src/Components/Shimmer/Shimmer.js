@@ -7,7 +7,7 @@ flex-wrap : wrap;
 
 & > div {
 width : 250px;
-height : 300px;
+height : 290px;
 margin : 2rem 0 0 3.8rem;
 background-color: #E5E4E2;
 border-radius : 10px;
@@ -29,27 +29,16 @@ const Shimmer = () => {
 
       </HeaderBox>
       <ShimmerBox>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-        
+        {
+        // creating a new Array instance using Array() constructor and map through every element of array 
+          Array(20)
+          .fill("")
+          .map((_, index) => (
+            <Box key={index}>
+              
+            </Box>
+          ))
+        }
       </ShimmerBox>
     </>
   )

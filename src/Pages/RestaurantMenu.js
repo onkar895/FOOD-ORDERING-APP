@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, styled } from '@mui/material';
-import Shimmer from '../Components/Shimmer';
-import { SWIGGY_CDN_LINK, SWIGGY_MENU_API } from '../Constants';
+import { Box, Typography, styled, Button } from '@mui/material';
+import MenuShimmer from '../Components/Shimmer/MenuShimmer';
+import { SWIGGY_CDN_LINK, SWIGGY_MENU_API, SWIGGY_MENU_IMG_API } from '../Constants';
 import { useParams } from 'react-router-dom';  // import useParams for read `resId`
 import StarIcon from '@mui/icons-material/Star';
+import DemoImage from '../Assets/DemoImage.jpg'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
@@ -87,7 +88,7 @@ const TotalRating = styled(Box)`
 const TimeBox = styled(Box)`
 display : flex;
 flex-direction : column;
-gap : 18px;
+gap : 19px;
 `
 
 const TravelTime = styled(Box)`
@@ -100,15 +101,22 @@ color : rgba(128,128,128,0.8);
 const MenuInfo = styled(Box)`
 margin-top : 2rem;
 padding : 0 20px;
+width: 100%;
+`
+
+const MainContainer = styled(Box)`
+display  :flex;
+justify-content:  space-between;
+align-items : center;
+margin-top : 1rem;
+padding : 20px;
+box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
 `
 
 const CardContent = styled(Box)`
 display  :flex;
 flex-direction : column;
 gap : 10px;
-margin-top : 1rem;
-padding : 10px 20px;
-box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
 
 & > div > h4 {
   color : dimgray ;
@@ -118,6 +126,33 @@ box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
   font-size : 14px;
   color :  rgba(128,128,128,0.7);
   font-family: "Trebuchet MS";
+}
+`
+
+const DemoImageBox = styled(Box)`
+position : relative;
+
+& > img {
+  border-radius: 5px;
+  width : 9vw;
+  height : 14vh;
+}
+
+& button {
+  position : absolute;
+  top : 4.3rem;
+  left : 0.9rem;
+  font-family: "Trebuchet MS";
+  font-weight : bold;
+  padding : 4px 30px;
+  color : rgb(211,47,47);
+  background: white;
+
+  :hover {
+    font-weight : bolder;
+    color : white;
+    background: rgb(211,47,47);
+  }
 }
 `
 
@@ -143,7 +178,7 @@ const RestaurantMenu = () => {
   };
 
   if (resInfo === null) {
-    return <Shimmer />;
+    return <MenuShimmer />;
   }
 
   // Ensure the necessary nested properties are available
@@ -165,6 +200,7 @@ const RestaurantMenu = () => {
       sla,
       availability,
       description,
+      imageId,
       cloudinaryImageId,
     } = cardInfo;
 
@@ -172,6 +208,7 @@ const RestaurantMenu = () => {
   // console.log(itemCards);
 
   return (
+  <>
     <MenuContainer>
 
       <HeaderBox>
@@ -190,7 +227,7 @@ const RestaurantMenu = () => {
             
             <RatingBox>
 
-              <Rating style={{ color: avgRatingString > 4 ? "green" : "red" }}>
+              <Rating style={{ color: avgRatingString >= 4 ? "green" : "red" }}>
                 <StarIcon />
                 <Typography>{avgRatingString}</Typography>
               </Rating>
@@ -236,22 +273,33 @@ const RestaurantMenu = () => {
       <MenuInfo>
         {
           itemCards && itemCards.map((item) => (
-            <CardContent key={item?.card.info.id}>
-              <Box>
-                <h3>{item.card.info.name}</h3>
-              </Box>
-              <Box>
-                <h4>{"₹"} {item.card.info.price / 100 || item.card.info.defaultprice / 100}</h4>
-              </Box>
-               <Box>
-                <Typography>{item.card.info.description}</Typography>
-              </Box>
-            </CardContent>
+          <>
+            <MainContainer>
+              <CardContent key={item?.card.info.id}>
+                <Box>
+                  <h3>{item.card.info.name}</h3>
+                </Box>
+                <Box>
+                  <h4>{"₹"} {(item.card.info.price / 100).toFixed(0)}</h4>
+                </Box>
+                <Box>
+                  <Typography>{item.card.info.description}</Typography>
+                </Box>
+                </CardContent>
+               
+              <DemoImageBox>
+                  <img src={imageId ? SWIGGY_MENU_IMG_API + imageId : DemoImage} alt="MenuImage" />
+                  <Button variant='outlined' size='small' color='error'>Add</Button>
+              </DemoImageBox>
+                
+            </MainContainer>
+          </>
           )
           )
         }
       </MenuInfo>
     </MenuContainer>
+  </>
   );
 };
 
