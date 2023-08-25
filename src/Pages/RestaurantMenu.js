@@ -7,6 +7,7 @@ import StarIcon from '@mui/icons-material/Star';
 import DemoImage from '../Assets/DemoImage.jpg'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 
 const MenuContainer = styled(Box)`
 display : flex;
@@ -135,27 +136,26 @@ align-items: center;
 }
 `
 
-const DemoImageBox = styled(Box)`
+const MenuImageBox = styled(Box)`
 position : relative;
 
 & > img {
+  object-fit : cover;
   border-radius: 5px;
-  width : 9vw;
-  height : 14vh;
+  width : 10vw;
+  height : 15vh;
 }
 
 & button {
   position : absolute;
   top : 4.3rem;
-  left : 0.9rem;
+  left : 1.2rem;
   font-family: "Trebuchet MS";
-  font-weight : bold;
   padding : 4px 30px;
   color : rgb(211,47,47);
   background: white;
 
   :hover {
-    font-weight : bolder;
     color : white;
     background: rgb(211,47,47);
   }
@@ -230,7 +230,7 @@ const RestaurantMenu = () => {
             
             <RatingBox>
 
-              <Rating style={{ color: avgRatingString >= 4 ? "green" : "red" }}>
+              <Rating style={{ color: avgRatingString >= 4 ? "#228B22" : "EC3838" }}>
                 <StarIcon />
                 <Typography>{avgRatingString}</Typography>
               </Rating>
@@ -258,7 +258,8 @@ const RestaurantMenu = () => {
               </Box>
             </Box>
 
-            <Box sx={{color : 'red'}}>
+            <Box sx={{ color: '#228B22', display : 'flex', alignItems: 'center', gap : '5px' }}>
+              <RadioButtonCheckedIcon/>
               <h4>{sla?.serviceability}</h4>
             </Box>
 
@@ -283,13 +284,12 @@ const RestaurantMenu = () => {
                 <Box>
                   <Typography>{item.card.info.description}</Typography>
                 </Box>
-                </CardContent>
+              </CardContent>
                
-              <DemoImageBox>
-                  <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={item?.name} />
-                  <Button variant='outlined' size='small' color='error'>Add</Button>
-              </DemoImageBox>
-                
+              <MenuImageBox>
+                <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={""} />
+                <Button variant='outlined' size='small' color='error'>Add</Button>
+              </MenuImageBox>
             </MainContainer>
           </>
           )

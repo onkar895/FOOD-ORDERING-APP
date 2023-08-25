@@ -68,7 +68,12 @@ background : rgba(220,220,220,0.6);
 border-radius : 5px;
 padding : 3px 4px;
 
+& > svg {
+  color : white;
+}
+
 & > h5 {
+  color : white;
   font-size : 16px;
 }
 `
@@ -96,7 +101,7 @@ const Card = ({
         <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey'}}>{ areaName }</Typography>
 
         <RatingContainer>
-          <Rating sx={{color: avgRatingString >= 4 ? "#2c784e" : "red", }}>
+          <Rating sx={{backgroundColor: avgRatingString >= 4 ? "#00AD1D" : "#EC3838", }}>
             <StarIcon sx={{alignItems: 'center', display: 'flex', justifyContent: 'center', fontSize:'18px'}} src={RatingImage} alt='Rating' />
             <h5>{avgRatingString}</h5> 
           </Rating>

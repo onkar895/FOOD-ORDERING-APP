@@ -5,6 +5,7 @@ import FoodImage from '../Assets/FoodImage.png'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 const MainContainer = styled(Box)`
 display : flex;
@@ -118,14 +119,16 @@ const HomePage = () => {
         <ImageContainer>
           <img src={FoodImage} alt="FoodImage"/>
         </ImageContainer>
+        
 
       </MainContainer>
 
       <IconContainer>
-            <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: '	black',  }} /></a>
-           <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'	black'}} /></a>
-            <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{cursor:'pointer', color: '	black'}}/></a>
-        </IconContainer>
+        <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: '	black',  }} /></a>
+        <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'	black'}} /></a>
+        <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{ cursor: 'pointer', color: '	black' }} /></a>
+        <a href="mailto:onkarkarale4@gmail.com"><MailOutlineIcon sx={{ cursor: 'pointer', color: 'black' }}/></a>
+      </IconContainer>
    
     </>
   )

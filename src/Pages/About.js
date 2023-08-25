@@ -1,54 +1,150 @@
 import React from 'react'
 import { Box, Typography, styled } from '@mui/material'
-import HeaderBanner from '../Components/Banner/HeaderBanner'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+
+
+const WelcomeBox = styled(Box)`
+display : flex;
+align-items:  center;
+justify-content : center;
+margin-top : 5rem;
+background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf,#ff6b08, #f32170, #ff6b08);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+`
 
 const HeaderBox = styled(Box)`
 display : flex;
 flex-direction : column;
 gap : 10px;
 justify-content : center;
-padding : 10px 0;
 align-items : center;
-border : 2px solid #ff6b08;
-margin: 90px 40px;
+margin: 1rem 4rem;
+padding : 20px 0;
+box-shadow : 1px 1px 5px grey;
+
 border-radius : 15px;
 
-& > h1 {
+& > h2 {
   border-radius : 5px;
   padding : 5px 20px;
   color : rgb(211,47,47);
   font-family: "Trebuchet MS";
 }
 
-& p {
-    background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf, #f32170, #ff6b08);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    font-weight: bolder;
+& p { 
   font-size :20px;
   font-family: "Trebuchet MS";
 }
 `
 
+const Container = styled(Box)`
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items : center;
+    margin-top : 15px;
+
+`
+
+const SubContainer = styled(Box)`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    & > div {
+      display : flex;
+      align-items : center;
+      gap : 10px;
+    }
+    
+    & svg {
+      color : #228B22;
+    }
+
+    & p {
+       font-family: "Trebuchet MS"
+    }
+`
+
+const IconContainer = styled(Box)`
+display : flex;
+gap : 20px;
+align-items : center;
+justify-content : center;
+margin-top : 2rem;
+
+& > a:hover {
+    transform : scale(1.2);
+    transition : 0.3s;
+}
+
+`
+
 const About = () => {
   return (
     <>
+      <WelcomeBox>
+        <h1>WELCOME TO FOODIE ZONE!!!</h1>
+      </WelcomeBox>
+      
       <HeaderBox>
-        <h1>OUR STORY</h1>
+       
+        <h2>OUR STORY</h2>
         <Box>
           <Typography>
             Everything we do is a celebration of fresh food - from how we source our restaurants and quality food
           </Typography>
           <Typography sx={{textAlign : 'center'}}>
-             to serving up new ways for you to enjoy it. Since, 2018 we've been  committed to
+            <strong>to serving up new ways for you to enjoy it. Since, 2018 we've been  committed to</strong> 
           </Typography>
           <Typography>
             bringing you the best restaurants and food experience on our website you won't find anywhere else.
           </Typography>
         </Box>
-        <Box>
-          <HeaderBanner/>
-        </Box>
+
+        <Container>
+  
+          <SubContainer>
+            <Box>
+              <VerifiedIcon/> 
+              <Typography>
+                The Foodie Zone offers delivery of <strong>delicious and healthy food.</strong> 
+              </Typography>
+            </Box>
+            <Box>
+              <VerifiedIcon/>
+              <Typography>
+                  Our focus is on satisfying hunger with tasty meals and quick, <strong>free delivery.</strong>
+              </Typography>
+            </Box>
+            <Box>
+              <VerifiedIcon/> 
+              <Typography>Customers can order online and receive a <strong> 40% discount </strong> on their orders.</Typography>
+            </Box>
+            <Box>
+              <VerifiedIcon/> 
+              <Typography>The service combines <strong>taste and health</strong> in its food offerings.</Typography>
+            </Box>
+            <Box>
+              <VerifiedIcon/> 
+              <Typography>The emphasis is on <strong>convenience, taste, and affordability</strong> for customers.</Typography>
+            </Box>
+          </SubContainer>
+
+          <IconContainer>
+            <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: 'rgb(211,47,47)'}} /></a>
+            <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'black'}} /></a>
+            <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{ cursor: 'pointer', color: '#0A66C2' }} /></a>
+            <a href="mailto:onkarkarale4@gmail.com"><MailOutlineIcon sx={{ cursor: 'pointer', color: 'red' }}/></a>
+          </IconContainer>
+
+        </Container>
+
       </HeaderBox>
     </>
   )

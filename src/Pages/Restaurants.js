@@ -89,7 +89,7 @@ const Restaurants = () => {
     const inputValue = e.target.value;
     setSearchInput(inputValue);
 
-    // Filter the restraunt cards and update the UI
+    // Filter the restaurant cards and update the UI
     const filteredData = listOfRestaurants.filter((res) =>
       res.info.name.toLowerCase().includes(inputValue.toLowerCase())
     );
@@ -105,6 +105,7 @@ const Restaurants = () => {
 
   // NOT render component (Early return)
   if (!listOfRestaurants) return null;
+
 
   // Conditional Rendering
   // if restaurant is empty => shimmer UI
