@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Cards/Card'
 import { Box, styled, Button, TextField } from '@mui/material';
-import { SWIGGY_API_URL } from '../Constants';
+import { SWIGGY_API_URL } from '../../utils/Constants';
 import Shimmer from '../Components/Shimmer/Shimmer';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../../utils/useOnlineStatus';
 
 const CardContainer = styled(Box)`
   display: flex;
@@ -75,6 +76,7 @@ const Restaurants = () => {
     try {
       const data = await fetch(SWIGGY_API_URL);
       const json = await data.json();
+
       // Optional Chaining
       const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
       
@@ -84,6 +86,16 @@ const Restaurants = () => {
       console.log(error, "error while getting the restaurants");
     }
   };
+
+  // Using Custom hook here
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1 style={{ marginTop: '6rem', textAlign:'center', color:'red' }}>
+        Looks like you're offline!! Please check your internet connection
+      </h1>
+  )
 
   const handleSearchInputChange = (e) => {
     const inputValue = e.target.value;

@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
 import { Box, Typography, styled, Button } from '@mui/material';
 import MenuShimmer from '../Components/Shimmer/MenuShimmer';
-import { SWIGGY_CDN_LINK, SWIGGY_MENU_API, SWIGGY_MENU_IMG_API } from '../Constants';
+import { SWIGGY_CDN_LINK, SWIGGY_MENU_IMG_API } from '../../utils/Constants';
 import { useParams } from 'react-router-dom';  // import useParams for read `resId`
 import StarIcon from '@mui/icons-material/Star';
 import DemoImage from '../Assets/DemoImage.jpg'
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import useRestaurantMenu from '../../utils/useRestaurantMenu';
 
 const MenuContainer = styled(Box)`
 display : flex;
 // box-shadow : 1px 1px 5px grey;
 border : 1px solid rgba(208,208,208,0.8);
-width : 70%;
+width : 72%;
 margin: 6rem 11.5rem;
 padding : 2rem 0;
 flex-direction : column;
@@ -162,26 +162,20 @@ position : relative;
 }
 `
 
-const RestaurantMenu = () => {
+const ServiceBox = styled(Box)`
+color: #228B22;
+display : flex; 
+align-items: center;
+gap : 5px;
+`
 
-  const [resInfo, setResInfo] = useState(null);
+const RestaurantMenu = () => {
 
   const { resId } = useParams()  // call useParams and get value of restaurant id using object destructuring
 
-  useEffect(() => {
-    fetchMenu();   // call fetchMenu function so it fetch api data and set data in restaurant state variable
-  }, [resId]);  // Add resId as a dependency to re-fetch when it changes
-
-  const fetchMenu = async () => {
-    try {
-      const data = await fetch(SWIGGY_MENU_API + resId);
-      const json = await data.json();
-      // console.log(json);
-      setResInfo(json.data);
-    } catch (error) {
-      console.error('Error fetching menu:', error);
-    }
-  };
+  // Using custom Hook here, so your code will be more readable, modular and reusable. So now RestaurantMenu component doesn't have to worry abt how to fetch the data. Because we are going to fecth the data inside useRestaurant Hook in another file. 
+  // It just have to worry about that I have this resInfo, I have got my restaurant Data inside it and I just want to display it. So,now it does'nt have to manage its own state. It's somehow magically acces to this resInfo.
+  const resInfo = useRestaurantMenu(resId)  // Custom Hook which is defined in utils folder.
 
   if (resInfo === null) {
     return <MenuShimmer />;
@@ -206,6 +200,7 @@ const RestaurantMenu = () => {
       sla,
       cloudinaryImageId,
     } = cardInfo;
+  
 
   const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   // console.log(itemCards);
@@ -230,7 +225,7 @@ const RestaurantMenu = () => {
             
             <RatingBox>
 
-              <Rating style={{ color: avgRatingString >= 4 ? "#228B22" : "EC3838" }}>
+              <Rating style={{ color: avgRatingString >= 4 ? "#228B22" : "#EC3838" }}>
                 <StarIcon />
                 <Typography>{avgRatingString}</Typography>
               </Rating>
@@ -258,16 +253,16 @@ const RestaurantMenu = () => {
               </Box>
             </Box>
 
-            <Box sx={{ color: '#228B22', display : 'flex', alignItems: 'center', gap : '5px' }}>
+            <ServiceBox>
               <RadioButtonCheckedIcon/>
               <h4>{sla?.serviceability}</h4>
-            </Box>
+            </ServiceBox>
 
         </TimeBox>
 
         </HeaderBox>
         
-     
+
       <MenuInfo>
         {
           itemCards && itemCards.map((item) => (

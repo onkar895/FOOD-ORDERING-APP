@@ -4,6 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import useOnlineStatus from '../../../utils/useOnlineStatus';
 
 const HeaderBox = styled(Toolbar)`
     display: flex;
@@ -43,7 +44,7 @@ const HeadingBox = styled(Box)`
 
     & h5 {
     font-family: "Trebuchet MS";
-    margin-left: 3.2rem;
+    margin-left: 2.8rem;
     color: rgb(211,47,47);
     margin-bottom : 8px;
     }
@@ -123,6 +124,8 @@ const Navbar = () => {
     }
   }
 
+  const onlineStatus = useOnlineStatus()
+
   return (
     <AppBar sx={{boxShadow : 'none'}}>
       <HeaderBox>
@@ -132,12 +135,12 @@ const Navbar = () => {
           <Typography>
             The Foodie Zone
           </Typography>
-          <h5>Taste of Everything</h5>
+          <h5> - Taste of Everything</h5>
         </HeadingBox>
       </FoodLogoBox>
       
       <NavItems>
-        <ul>
+          <ul>
           <li>
             <NavLink style={navLinkStyle} to='/'>Home</NavLink>
           </li>
@@ -157,7 +160,10 @@ const Navbar = () => {
                 <ShoppingCartIcon fontSize='18px'/>
               </CartBox>
             </NavLink>
-          </li>
+            </li>
+            <li>
+              {onlineStatus ? "Online ✅" : "Offline 🔴"}
+            </li>
         </ul>
 
           <ButtonBox

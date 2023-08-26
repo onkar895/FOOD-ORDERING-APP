@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, styled, Typography} from '@mui/material'
 import RatingImage from '../../Assets/Rating.png'
 import StarIcon from '@mui/icons-material/Star';
-import { SWIGGY_CDN_LINK } from '../../Constants'
+import { SWIGGY_CDN_LINK } from '../../../utils/Constants';
 
 const RestCard = styled(Box)`
 display : flex;
