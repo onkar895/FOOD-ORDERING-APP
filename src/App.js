@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {lazy, Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import Navbar from './Components/Header/Navbar'
 import HomePage from './Pages/HomePage'
@@ -10,7 +10,18 @@ import Restaurants from './Pages/Restaurants'
 import Cart from './Pages/Cart'
 import { Box } from '@mui/material'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
-import  RestaurantMenu  from './Pages/RestaurantMenu'
+import RestaurantMenu from './Pages/RestaurantMenu'
+// import Grocery from './Components/Grocery/Grocery'
+
+// * Modularity is also known as:
+// * Chunking
+// * Code Splitting
+// * Dynamic Bundling
+// * Lazy Loading
+// * On-Demand Loading
+// * Dynamic Import
+
+// const Grocery = lazy(() => import('./Components/Grocery/Grocery'));
 
 const MainComponent = () => {
   return (
@@ -51,6 +62,14 @@ const appRouter = createBrowserRouter([
         path: '/cart',
         element: <Cart/>,
       },
+      // {
+      //   path: '/grocery',
+      //   element: (
+      //     <Suspense fallback={<h1>Loading...</h1>}>
+      //       <Grocery />
+      //     </Suspense>
+      //   )
+      // },
       {
         path: '/restaurants',
         element: <Restaurants/>,

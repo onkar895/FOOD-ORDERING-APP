@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import useOnlineStatus from '../../../utils/useOnlineStatus';
+// import useOnlineStatus from '../../../utils/useOnlineStatus';
 
 const HeaderBox = styled(Toolbar)`
     display: flex;
@@ -120,11 +120,11 @@ const Navbar = () => {
    const navLinkStyle = ({ isActive }) => {
     return {
       color: isActive ? 'rgb(211,47,47)' : '',
-      fontweight : isActive ? 'bolder' : '',
+      fontWeight: isActive ? 'bolder' : '',
     }
   }
 
-  const onlineStatus = useOnlineStatus()
+  // const onlineStatus = useOnlineStatus()
 
   return (
     <AppBar sx={{boxShadow : 'none'}}>
@@ -141,29 +141,34 @@ const Navbar = () => {
       
       <NavItems>
           <ul>
-          <li>
-            <NavLink style={navLinkStyle} to='/'>Home</NavLink>
-          </li>
-          <li>
-            <NavLink style={navLinkStyle} to='/restaurants'>Menu</NavLink>
-          </li>
-          <li>
-            <NavLink style={navLinkStyle} to='/about'>About</NavLink>
-          </li>
-          <li>
-           <NavLink style={navLinkStyle} to='/contact'>Contact</NavLink>
-          </li>
-          <li>
-            <NavLink style={navLinkStyle} to='/cart'>
-              <CartBox>
-                Cart
-                <ShoppingCartIcon fontSize='18px'/>
-              </CartBox>
-            </NavLink>
+            <li>
+              <NavLink style={navLinkStyle} to='/'>Home</NavLink>
             </li>
             <li>
-              {onlineStatus ? "Online ✅" : "Offline 🔴"}
+              <NavLink style={navLinkStyle} to='/restaurants'>Menu</NavLink>
             </li>
+            <li>
+              <NavLink style={navLinkStyle} to='/about'>About</NavLink>
+            </li>
+            <li>
+             <NavLink style={navLinkStyle} to='/contact'>Contact</NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to='/cart'>
+                <CartBox>
+                  Cart
+                  <ShoppingCartIcon fontSize='18px'/>
+                </CartBox>
+              </NavLink>
+            </li>
+            {/* <li>
+              <NavLink style={navLinkStyle}  to="/grocery">
+                Grocery
+              </NavLink>
+            </li> */}
+            {/* <li>
+              {onlineStatus ? "Online ✅" : "Offline 🔴"}
+            </li> */}
         </ul>
 
           <ButtonBox
