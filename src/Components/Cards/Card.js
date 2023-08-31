@@ -12,7 +12,6 @@ height : 330px;
 margin : 20px 0 0 48px;
 background-color: white;
 border-radius : 10px;
-
 // filter: drop-shadow(5px 5px 5px black);
 
 :hover {
@@ -26,7 +25,7 @@ border-radius : 10px;
 display : flex;
 width : 90%;
 height : 45%;
-margin : 10px;
+margin : 12px;
 border-radius : 10px;
 object-fit : cover;
 filter: drop-shadow(3px 3px 3px black);
@@ -116,6 +115,21 @@ const Card = ({
     </RestCard>
     
   )
+}
+
+// Higher Order Component
+
+// input - Cards =>> CardsPromoted
+
+export const withPromotedLabel = (Card) => {
+  return (props) => {
+    return (
+      <Box>
+        <label>Promoted</label>
+        <Card {...props} />
+      </Box>
+    )
+  }
 }
 
 export default Card

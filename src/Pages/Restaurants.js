@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../Components/Cards/Card'
+import Card, {withPromotedLabel} from '../Components/Cards/Card'
 import { Box, styled, Button, TextField } from '@mui/material';
 import { SWIGGY_API_URL } from '../../utils/Constants';
 import Shimmer from '../Components/Shimmer/Shimmer';
@@ -72,6 +72,8 @@ const Restaurants = () => {
     getRestaurants();
   }, []);
 
+  // console.log(listOfRestaurants)
+
   const getRestaurants = async () => {
     try {
       const data = await fetch(SWIGGY_API_URL);
@@ -115,8 +117,12 @@ const Restaurants = () => {
     setFilteredRestaurants(filteredList);
   };
 
+  
+
   // NOT render component (Early return)
   if (!listOfRestaurants) return null;
+
+  // const RestaurantCardPromoted = withPromotedLabel(Card)
 
 
   // Conditional Rendering
@@ -166,13 +172,20 @@ const Restaurants = () => {
               </Box>
               <CardContainer>
                  {/* mapping restaurants array and passing JSON array data to Card component as props with unique key as restaurant.info.id */}
-                   {filteredRestaurants.map((restaurant) => (
+                  {
+                    filteredRestaurants.map((restaurant) => (
                      <Link
                        key={restaurant.info.id}
                        to={"/restaurantmenu/" + restaurant.info.id}>
-                       <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                       {/* {
+                          restaurant.info.promoted
+                            ? (<RestaurantCardPromoted {...restaurant?.info} />)
+                            : (<Card key={restaurant?.info?.id} {...restaurant?.info} />)
+                       } */}
+                        <Card key={restaurant?.info?.id} {...restaurant?.info} />
                      </Link>
-                 ))}
+                    ))
+                  }
               </CardContainer>
             </>
         )}
