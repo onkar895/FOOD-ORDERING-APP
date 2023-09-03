@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box, Typography, styled, Button } from '@mui/material';
 import MenuShimmer from '../../Components/Shimmer/MenuShimmer';
 import { SWIGGY_CDN_LINK} from '../../../utils/Constants';
@@ -10,12 +11,13 @@ import useRestaurantMenu from '../../../utils/useRestaurantMenu';
 import RestaurantCategory from '../../Pages/RestaurantMenu/RestaurantCategory';
 
 
+
 const MenuContainer = styled(Box)`
 display : flex;
 // box-shadow : 1px 1px 5px grey;
 border : 1px solid rgba(208,208,208,0.8);
 width : 72%;
-margin: 6rem 11.5rem;
+margin: 6rem 11rem;
 padding : 2rem 0;
 flex-direction : column;
 align-items : center;
@@ -108,6 +110,8 @@ width: 100%;
 
 const RestaurantMenu = () => {
 
+  const [showIndex, setShowIndex] = useState(null)
+
   const { resId } = useParams()  // call useParams and get value of restaurant id using object destructuring
 
   // Using custom Hook here, so your code will be more readable, modular and reusable. So now RestaurantMenu component doesn't have to worry abt how to fetch the data. Because we are going to fecth the data inside useRestaurant Hook in another file. 
@@ -149,6 +153,7 @@ const RestaurantMenu = () => {
       'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
   );
   // console.log(categories)
+
 
   return (
   <>
@@ -210,8 +215,14 @@ const RestaurantMenu = () => {
 
       <MenuInfo>
           {
-            categories.map((category) => (
-              <RestaurantCategory key={category?.card?.card.title} data={category?.card?. card} />
+            categories.map((category, index) => (
+              // Controlled Component
+              <RestaurantCategory
+                key={category?.card?.card.title}
+                data={category?.card?.card}
+                showItems={index === showIndex ? true : false}
+                setShowIndex= {() => setShowIndex(index)}
+              />
             ))
           }
       </MenuInfo>

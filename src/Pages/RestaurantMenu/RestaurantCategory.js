@@ -13,19 +13,26 @@ margin-top : 20px;
 }
 `
 
-const RestaurantCategory = ({data}) => {
+const RestaurantCategory = ({data, showItems, setShowIndex}) => {
   // console.log(data)
+
+  const handleClick = () => {
+    setShowIndex()
+  }
+
   return (
     <Header>
 
-      <Accordion sx={{padding:'10px 0'}}>
+      <Accordion onChange={handleClick} sx={{padding:'10px 0'}}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel1a-content' id='panel1a-header'>
           <Typography variant='span'>
             {data.title} ({data.itemCards.length})
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <ItemList items={data.itemCards} />
+          {
+            showItems && <ItemList items={data.itemCards} />
+          }
         </AccordionDetails>
       </Accordion>
 
