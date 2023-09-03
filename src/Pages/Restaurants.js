@@ -13,7 +13,7 @@ const CardContainer = styled(Box)`
   & > a {
      text-decoration: none;
   }
-`;
+`
 
 const SearchContainer = styled(Box)`
   position: relative;
@@ -63,6 +63,8 @@ const Restaurants = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  const RestaurantCardPromoted = withPromotedLabel(Card)
 
   // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
   // empty dependency array :  once after render
@@ -120,9 +122,7 @@ const Restaurants = () => {
   
 
   // NOT render component (Early return)
-  if (!listOfRestaurants) return null;
-
-  // const RestaurantCardPromoted = withPromotedLabel(Card)
+  if (!listOfRestaurants) return <h1 style={{marginTop:'6rem', textAlign:'center', color:'red'}}>SORRY, RESTAURANTS  NOT AVAILABLE AT THE MOMENT, PLZ TRY AGAIN LATER</h1>
 
 
   // Conditional Rendering
@@ -177,12 +177,12 @@ const Restaurants = () => {
                      <Link
                        key={restaurant.info.id}
                        to={"/restaurantmenu/" + restaurant.info.id}>
-                       {/* {
+                       {
                           restaurant.info.promoted
                             ? (<RestaurantCardPromoted {...restaurant?.info} />)
                             : (<Card key={restaurant?.info?.id} {...restaurant?.info} />)
-                       } */}
-                        <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                       }
+                        
                      </Link>
                     ))
                   }

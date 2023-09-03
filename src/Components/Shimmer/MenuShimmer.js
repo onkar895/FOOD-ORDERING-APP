@@ -18,7 +18,7 @@ margin: 2.5rem 0 0 12rem;
 
 & > div {
 width : 80%;
-height : 140px;
+height : 80px;
 background-color: #E5E4E2;
 border-radius : 10px;
 }

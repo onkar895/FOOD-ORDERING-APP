@@ -10,7 +10,7 @@ import Restaurants from './Pages/Restaurants'
 import Cart from './Pages/Cart'
 import { Box } from '@mui/material'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
-import RestaurantMenu from './Pages/RestaurantMenu'
+import RestaurantMenu from './Pages/RestaurantMenu/RestaurantMenu'
 // import Grocery from './Components/Grocery/Grocery'
 
 // * Modularity is also known as:

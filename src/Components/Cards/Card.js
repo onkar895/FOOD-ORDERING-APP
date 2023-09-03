@@ -119,7 +119,7 @@ const Card = ({
 
 // Higher Order Component
 
-// input - Cards =>> CardsPromoted
+// input - Card =>> CardPromoted
 
 export const withPromotedLabel = (Card) => {
   return (props) => {

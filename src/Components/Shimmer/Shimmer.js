@@ -38,33 +38,37 @@ const CardInfo = styled(Box)`
 margin: 10px 0 0 8px;
 display : flex;
 flex-direction : column;
-gap : 5px;
+gap : 15px;
 flex-wrap : wrap;
 overflow:  hidden;
 
 & h2 {
   background-color: #E5E4E2;
   width : 12vw;
-  padding : 14px;
+  padding : 8px;
+  border-radius: 5px;
 }
 
 & h4 {
   background-color: #E5E4E2;
   width : 18vw;
-  padding : 10px;
+  padding : 6px;
+  border-radius: 5px;
 }
 
 & span {
   background-color: #E5E4E2;
   width : 8vw;
-  padding : 10px;
+  padding : 6px;
+  border-radius: 5px;
 }
 `
 
 const Rating = styled(Box)`
  background-color: #E5E4E2;
  width : 18vw;
- padding : 12px;
+ padding : 6px;
+ border-radius: 5px;
 `
 
 const Shimmer = () => {
