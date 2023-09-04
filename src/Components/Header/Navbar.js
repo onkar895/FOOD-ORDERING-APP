@@ -105,8 +105,8 @@ text-transform : capitalize;
 const Navbar = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
-  
-  console.log("Header Render")
+
+  // console.log("Header Render")
 
   //1. If no dependency array => useEffect is called on every render
   //2. If dependency array is empty = [] => useEffect is called on Initial render(just Once)
@@ -178,7 +178,6 @@ const Navbar = () => {
           isLoggedIn === "LogIn" ? setIsLoggedIn("LogOut") : setIsLoggedIn("LogIn")
           }}>  {isLoggedIn}
         </ButtonBox>
-       
           
       </NavItems>
        

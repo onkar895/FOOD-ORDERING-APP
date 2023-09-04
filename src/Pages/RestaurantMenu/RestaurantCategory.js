@@ -23,8 +23,8 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
   return (
     <Header>
 
-      <Accordion onChange={handleClick} sx={{padding:'10px 0'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel1a-content' id='panel1a-header'>
+      <Accordion onClick={handleClick} sx={{padding:'10px 0', boxShadow: '1px 1px 3px darkgray;'}}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{fontSize:'30px'}} />} aria-controls='panel1a-content' id='panel1a-header'>
           <Typography variant='span'>
             {data.title} ({data.itemCards.length})
           </Typography>

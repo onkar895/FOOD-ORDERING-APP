@@ -3,10 +3,13 @@ import { Box, Typography, styled, Button } from '@mui/material';
 import MenuShimmer from '../../Components/Shimmer/MenuShimmer';
 import { SWIGGY_CDN_LINK} from '../../../utils/Constants';
 import { useParams } from 'react-router-dom';  // import useParams for read `resId`
+import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import useRestaurantMenu from '../../../utils/useRestaurantMenu';
 import RestaurantCategory from '../../Pages/RestaurantMenu/RestaurantCategory';
 
@@ -17,12 +20,28 @@ display : flex;
 // box-shadow : 1px 1px 5px grey;
 border : 1px solid rgba(208,208,208,0.8);
 width : 72%;
-margin: 6rem 11rem;
-padding : 2rem 0;
+margin: 6rem auto;
+padding : 1rem 0;
 flex-direction : column;
 align-items : center;
 justify-content : center;
 
+`
+
+const IconBox = styled(Box)`
+margin:0 53.5rem 1rem 0;
+cursor : pointer;
+color : grey;
+
+: hover {
+  color : black;
+  transform : scale(0.9);
+  transition : 0.4s;
+}
+
+& > svg {
+  font-size : 40px;
+}
 `
 
 const HeaderBox = styled(Box)`
@@ -52,6 +71,10 @@ const Info = styled(Box)`
 display : flex;
 flex-direction : column;
 gap : 5px;
+
+& > h2 {
+  font-size : 22px;
+}
 
 & > p {
   color: grey; 
@@ -112,6 +135,8 @@ const RestaurantMenu = () => {
 
   const [showIndex, setShowIndex] = useState(null)
 
+  const navigate = useNavigate()
+
   const { resId } = useParams()  // call useParams and get value of restaurant id using object destructuring
 
   // Using custom Hook here, so your code will be more readable, modular and reusable. So now RestaurantMenu component doesn't have to worry abt how to fetch the data. Because we are going to fecth the data inside useRestaurant Hook in another file. 
@@ -158,6 +183,10 @@ const RestaurantMenu = () => {
   return (
   <>
     <MenuContainer>
+        
+      <IconBox onClick={() => navigate('/restaurants')}>
+        <ArrowBackIcon/>
+      </IconBox>
 
       <HeaderBox>
 
@@ -192,7 +221,7 @@ const RestaurantMenu = () => {
 
         <TimeBox>
 
-            <Box sx={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}> 
+            <Box sx={{ display: 'flex', gap: '0.8rem', alignItems: 'center', width:'16.5vw' }}> 
               <Box sx={{display : 'flex', gap :'4px',  alignItems: 'center'}}>
                  <AccessTimeFilledIcon />
                  <h4>{sla?.slaString}</h4>
@@ -210,13 +239,12 @@ const RestaurantMenu = () => {
 
         </TimeBox>
 
-        </HeaderBox>
+      </HeaderBox>
         
-
       <MenuInfo>
           {
             categories.map((category, index) => (
-              // Controlled Component
+              // Controlled Component : A component is controlled when it's managed by its parent using props.
               <RestaurantCategory
                 key={category?.card?.card.title}
                 data={category?.card?.card}

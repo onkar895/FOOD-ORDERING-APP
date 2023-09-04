@@ -74,7 +74,7 @@ const Restaurants = () => {
     getRestaurants();
   }, []);
 
-  // console.log(listOfRestaurants)
+  console.log(listOfRestaurants)
 
   const getRestaurants = async () => {
     try {

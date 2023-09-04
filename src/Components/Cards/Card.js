@@ -100,7 +100,7 @@ const Card = ({
         <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey'}}>{ areaName }</Typography>
 
         <RatingContainer>
-          <Rating sx={{backgroundColor: avgRatingString >= 4 ? "#00AD1D" : "#EC3838", }}>
+          <Rating sx={{backgroundColor: avgRatingString >= 4 || avgRatingString == "--" ? "#00AD1D" : "#EC3838", }}>
             <StarIcon sx={{alignItems: 'center', display: 'flex', justifyContent: 'center', fontSize:'18px'}} src={RatingImage} alt='Rating' />
             <h5>{avgRatingString}</h5> 
           </Rating>
