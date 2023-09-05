@@ -115,7 +115,7 @@ display : flex;
 flex-direction : column;
 justify-content : center;
 gap : 20px;
-margin-top : 25px;
+margin-top : 22px;
 `
 
 const ServiceBox = styled(Box)`
@@ -179,6 +179,8 @@ const RestaurantMenu = () => {
   );
   // console.log(categories)
 
+   // Props Drilling
+  const dummy = "Dummy Data";
 
   return (
   <>
@@ -249,7 +251,8 @@ const RestaurantMenu = () => {
                 key={category?.card?.card.title}
                 data={category?.card?.card}
                 showItems={index === showIndex ? true : false}
-                setShowIndex= {() => setShowIndex(index)}
+                setShowIndex={() => setShowIndex(index)}
+                dummy = {dummy}
               />
             ))
           }

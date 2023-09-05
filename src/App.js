@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react'
+import React, {lazy, Suspense, useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import Navbar from './Components/Header/Navbar'
 import HomePage from './Pages/HomePage'
@@ -7,11 +7,13 @@ import Error from './Pages/Error'
 import About from './Pages/About'
 import Contact from './Pages/Contact'
 import Restaurants from './Pages/Restaurants'
+import Login from './Pages/Authentication/Login'
 import Cart from './Pages/Cart'
 import { Box } from '@mui/material'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import RestaurantMenu from './Pages/RestaurantMenu/RestaurantMenu'
 // import Grocery from './Components/Grocery/Grocery'
+import UserContext from '../utils/userContext'
 
 // * Modularity is also known as:
 // * Chunking
@@ -24,14 +26,27 @@ import RestaurantMenu from './Pages/RestaurantMenu/RestaurantMenu'
 // const Grocery = lazy(() => import('./Components/Grocery/Grocery'));
 
 const MainComponent = () => {
+
+  const [userName, setUserName] = useState()
+
+  useEffect(() => {
+    const data = {
+      name : "User"
+    }
+    setUserName(data.name)
+  },[])
+
   return (
     <>
       <Box>
-         <Navbar />
-        <Box style={{ marginTop: '3rem' }}>
+        <UserContext.Provider value={{loggedInUser : userName, setUserName}}>
+          <Navbar />
+        
+          <Box style={{ marginTop: '3rem' }}>
           {/* Outlet is like a tunnel so all the children according to the routes go inside and come over here in place of this Outlet. */}
              <Outlet/>  
           </Box>
+        </UserContext.Provider>
       </Box>
     </>
   )
@@ -78,6 +93,10 @@ const appRouter = createBrowserRouter([
         path: '/restaurantmenu/:resId',
         element: <RestaurantMenu/>,
       },
+      {
+        path: '/login',
+        element: <Login/>
+      }
     ],
     errorElement : <Error/>,
   },

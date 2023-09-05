@@ -13,7 +13,7 @@ margin-top : 20px;
 }
 `
 
-const RestaurantCategory = ({data, showItems, setShowIndex}) => {
+const RestaurantCategory = ({data, showItems, setShowIndex, dummy}) => {
   // console.log(data)
 
   const handleClick = () => {
@@ -31,7 +31,7 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
         </AccordionSummary>
         <AccordionDetails>
           {
-            showItems && <ItemList items={data.itemCards} />
+            showItems && <ItemList items={data.itemCards} dummy={dummy}/>
           }
         </AccordionDetails>
       </Accordion>

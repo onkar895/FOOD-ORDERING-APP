@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../../utils/userContext';
 // import useOnlineStatus from '../../../utils/useOnlineStatus';
+import PersonIcon from '@mui/icons-material/Person';
 
 const HeaderBox = styled(Toolbar)`
     display: flex;
@@ -92,7 +94,7 @@ padding: 2px;
 width: 7vw ;
 align-items: center;
 cursor: pointer;
-font-weight: bold;
+font-weight: bolder;
 border : 1.5px solid rgb(211,47,47);
 text-transform : capitalize;
 
@@ -102,11 +104,28 @@ text-transform : capitalize;
 }
 `
 
+const LoginUserBox = styled(Box)`
+display : flex;
+align-items : center;
+gap : 25px;
+`
+
+const LoggedInBox = styled(Box)`
+display : flex;
+align-items : center;
+color : rgb(211,47,47);
+gap : 3px;
+font-weight : bolder;
+`
+
+
 const Navbar = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
+  // Using Context
+  const {loggedInUser} = useContext(UserContext)
+  // console.log(loggedInUser);
 
-  // console.log("Header Render")
+    const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
 
   //1. If no dependency array => useEffect is called on every render
   //2. If dependency array is empty = [] => useEffect is called on Initial render(just Once)
@@ -169,15 +188,22 @@ const Navbar = () => {
             {/* <li>
               {onlineStatus ? "Online ✅" : "Offline 🔴"}
             </li> */}
-        </ul>
+          </ul>
+          
+          <LoginUserBox>
 
-          <ButtonBox
-            variant='outlined'
-            color = 'error'
-            onClick={() => {
-          isLoggedIn === "LogIn" ? setIsLoggedIn("LogOut") : setIsLoggedIn("LogIn")
-          }}>  {isLoggedIn}
-        </ButtonBox>
+            <ButtonBox variant='outlined' color='error' onClick={() => navigate("/login")} onBlur={() => isLoggedIn === "LogIn" ? setIsLoggedIn("LogOut") : setIsLoggedIn("LogIn")}>
+              {isLoggedIn}
+            </ButtonBox>
+
+            <LoggedInBox>
+              <PersonIcon/>
+              {loggedInUser}
+            </LoggedInBox>
+            
+          </LoginUserBox>
+
+         
           
       </NavItems>
        

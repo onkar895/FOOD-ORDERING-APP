@@ -51,7 +51,7 @@ overflow:  hidden;
 
 & h4 {
   background-color: #E5E4E2;
-  width : 18vw;
+  width : 16.8vw;
   padding : 6px;
   border-radius: 5px;
 }
@@ -66,7 +66,7 @@ overflow:  hidden;
 
 const Rating = styled(Box)`
  background-color: #E5E4E2;
- width : 18vw;
+ width : 16.8vw;
  padding : 6px;
  border-radius: 5px;
 `
