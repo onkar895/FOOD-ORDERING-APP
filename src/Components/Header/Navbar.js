@@ -1,12 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../../../utils/userContext';
 // import useOnlineStatus from '../../../utils/useOnlineStatus';
 import PersonIcon from '@mui/icons-material/Person';
+import { useSelector } from 'react-redux';
+
+
 
 const HeaderBox = styled(Toolbar)`
     display: flex;
@@ -79,14 +83,35 @@ margin-right : 2.4rem;
 }
 `
 
-const CartBox = styled(Box)`
+const MainBox = styled(Box)`
 display : flex;
-align-items : center;
-gap : 3px;
+align-items:center;
+gap :2px;
 
- & > img {
- width: 1.3vw;
- }
+: hover {
+  color : rgb(211,47,47);
+}
+`
+
+const CartBox = styled(Box)`
+position : relative;
+display : flex;
+align-items:  center;
+
+& > svg {
+  margin-bottom : 4px;
+  font-size: 32px ;
+}
+`
+
+const CartItemBox = styled(Box)`
+position: absolute;
+top: 10px;
+left: 10.6px;
+font-size: 16px;
+font-weight : bolder;
+font-family: "Trebuchet MS";
+
 `
 
 const ButtonBox = styled(Button)`
@@ -125,7 +150,8 @@ const Navbar = () => {
   const {loggedInUser} = useContext(UserContext)
   // console.log(loggedInUser);
 
-    const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
+  const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
+  
 
   //1. If no dependency array => useEffect is called on every render
   //2. If dependency array is empty = [] => useEffect is called on Initial render(just Once)
@@ -142,6 +168,10 @@ const Navbar = () => {
       fontWeight: isActive ? 'bolder' : '',
     }
   }
+
+  // Subscribing to the store using Selector
+  const cartItems = useSelector((store) => store.cart.items)
+  // console.log(cartItems)
 
   // const onlineStatus = useOnlineStatus()
 
@@ -174,10 +204,15 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink style={navLinkStyle} to='/cart'>
-                <CartBox>
-                  Cart
-                  <ShoppingCartIcon fontSize='18px'/>
-                </CartBox>
+              <MainBox>
+                <Box>Cart</Box>
+                  <CartBox>
+                    <ShoppingBagOutlinedIcon/>
+                    <CartItemBox>
+                      {cartItems.length }
+                    </CartItemBox> 
+                  </CartBox>
+                </MainBox>
               </NavLink>
             </li>
             {/* <li>

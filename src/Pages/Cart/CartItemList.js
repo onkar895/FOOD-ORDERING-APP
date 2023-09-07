@@ -1,9 +1,11 @@
 import React from 'react'
-import { Box, styled, Typography, Button } from '@mui/material'
+import { Box, styled, Typography} from '@mui/material'
 import { SWIGGY_MENU_IMG_API } from '../../../utils/Constants'
 import DemoImage from '../../Assets/DemoImage.jpg'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../../Store/cartSlice'
+import { addItem, removeItem } from '../../Store/cartSlice'
+import { useSelector } from 'react-redux';
+import CloseIcon from '@mui/icons-material/Close';
 import {ToastContainer, toast } from 'react-toastify'
 
 
@@ -13,6 +15,7 @@ justify-content:  space-between;
 align-items : center;
 margin-top : 1rem;
 padding : 20px;
+gap : 20px;
 box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
 `
 
@@ -58,28 +61,42 @@ position : relative;
   width : 10vw;
   height : 15vh;
 }
+`
 
-& button {
-  position : absolute;
-  top : 4.3rem;
-  left : 1.56rem;
-  font-family: "Trebuchet MS";
-  padding : 4px 20px;
+const AddRemoveBox = styled(Box)`
+display : flex;
+align-items : center;
+box-shadow : 0 0 5px 0  rgba(208,208,208,0.8);
+margin-left : 2rem;
+color :grey;
+
+& > button {
+padding : 10px 18px;
+background : none;
+border : none;
+
+:hover {
+  cursor : pointer;
   color : rgb(211,47,47);
-  background: white;
-
-  :hover {
-    color : white;
-    background: rgb(211,47,47);
-  }
+}
 }
 `
 
+const RemoveItemBox = styled(Box)`
+cursor : pointer;
+margin-left : 1.5rem;
 
-const ItemList = ({ items, dummy }) => { 
+:hover {
+  color : rgb(211,47,47);
+}
+`
+
+const CartItemList = ({ items, dummy }) => { 
   // console.log(dummy)
 
   const dispatch = useDispatch()
+
+   const cartItems = useSelector((store) => store.cart.items)
 
   const handleAddItem = (item) => {
     // Dispatch an action
@@ -90,38 +107,52 @@ const ItemList = ({ items, dummy }) => {
       toast.error("Not Added", {
            position: "top-center",
         })
-      
     // So here, whatever you pass inside the addItem , it will go as a 2nd argument in addItems function inside the action.payload 
     //  console.log(item)
   }
 
- 
+  const handleRemoveItem = (item) => {
+    // Dispatch an action
+    dispatch(removeItem(item)) ?
+      toast.success("Removed from Cart", {
+        position: "top-center",
+      }) :
+      toast.error("Not Removed", {
+        position: "top-center",
+      })
+  }
 
   return (
     <Box>
       {
           items && items.map((item) => (
             <>
-            <MainContainer>
-              <CardContent key={item?.card.info.id}>
+              <MainContainer>
+                <MenuImageBox>
+                  <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={""} />
+                </MenuImageBox>
+                <CardContent key={item?.card.info.id}>
+                  
                 <Box>
-                  <h3>{item.card.info.name}</h3>
+                  <Typography>{item.card.info.name}</Typography>
                 </Box>
+                
                 <PriceBox>
                     <h4>{"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice/100).toFixed(0)}</h4>
                     <h6>50% OFF | <span>USE FOODIEIT</span></h6>
                 </PriceBox>
-                <Box sx={{ textAlign: 'justify'}}>
-                  <Typography>{item.card.info.description}</Typography>
-                </Box>
-              </CardContent>
-               
-              <MenuImageBox>
-                <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={""} />
-                  <Button variant='outlined' size='small' color='error'
-                    onClick={() => handleAddItem(item)}
-                  >Add +</Button>
-              </MenuImageBox>
+                  
+                </CardContent>
+
+                <AddRemoveBox>
+                  <button onClick={() => handleRemoveItem(item)}><h4>-</h4></button>
+                  <span> {cartItems.length }</span>
+                  <button onClick={() => handleAddItem(item)}><h4>+</h4></button>
+                </AddRemoveBox>
+                <RemoveItemBox onClick={() => handleRemoveItem(item)}>
+                  <CloseIcon />
+                </RemoveItemBox>
+
             </MainContainer>
             <ToastContainer/>
           </>
@@ -132,4 +163,5 @@ const ItemList = ({ items, dummy }) => {
   )
 }
 
-export default ItemList
+
+export default CartItemList

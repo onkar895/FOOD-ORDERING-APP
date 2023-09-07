@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Box, styled, Typography} from '@mui/material'
 import RatingImage from '../../Assets/Rating.png'
 import StarIcon from '@mui/icons-material/Star';
 import { SWIGGY_CDN_LINK } from '../../../utils/Constants';
+import UserContext from '../../../utils/userContext';
 
 const RestCard = styled(Box)`
 display : flex;
@@ -86,6 +87,8 @@ const Card = ({
   costForTwo,
   avgRatingString, }) => {
   
+  const {Area} = useContext(UserContext)
+  
   return (
     <RestCard >
       <img src={ SWIGGY_CDN_LINK + cloudinaryImageId} alt='Images'/>
@@ -97,7 +100,7 @@ const Card = ({
           {cuisines.join(",")}
         </Typography>
 
-        <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey'}}>{ areaName }</Typography>
+        <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>{areaName}, {Area}</Typography>
 
         <RatingContainer>
           <Rating sx={{backgroundColor: avgRatingString >= 4 || avgRatingString == "--" ? "#00AD1D" : "#EC3838", }}>

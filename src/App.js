@@ -8,12 +8,14 @@ import About from './Pages/About'
 import Contact from './Pages/Contact'
 import Restaurants from './Pages/Restaurants'
 import Login from './Pages/Authentication/Login'
-import Cart from './Pages/Cart'
+import Cart from './Pages/Cart/Cart'
 import { Box } from '@mui/material'
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import RestaurantMenu from './Pages/RestaurantMenu/RestaurantMenu'
 // import Grocery from './Components/Grocery/Grocery'
 import UserContext from '../utils/userContext'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import appStore from './Store/appStore'
 
 // * Modularity is also known as:
 // * Chunking
@@ -29,6 +31,8 @@ const MainComponent = () => {
 
   const [userName, setUserName] = useState()
 
+  const Area = "Pune"
+
   useEffect(() => {
     const data = {
       name : "User"
@@ -38,16 +42,18 @@ const MainComponent = () => {
 
   return (
     <>
-      <Box>
-        <UserContext.Provider value={{loggedInUser : userName, setUserName}}>
-          <Navbar />
+      
+        <Provider store={appStore}>
+          <UserContext.Provider value={{loggedInUser : userName, setUserName, Area}}>
+            <Navbar />
         
-          <Box style={{ marginTop: '3rem' }}>
-          {/* Outlet is like a tunnel so all the children according to the routes go inside and come over here in place of this Outlet. */}
-             <Outlet/>  
-          </Box>
-        </UserContext.Provider>
-      </Box>
+            <Box style={{ marginTop: '3rem' }}>
+              {/* Outlet is like a tunnel so all the children according to the routes go inside and come over here in place of this Outlet. */}
+              <Outlet/>  
+            </Box>
+          </UserContext.Provider>
+        </Provider>
+      
     </>
   )
 }
