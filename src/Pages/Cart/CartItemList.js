@@ -1,12 +1,12 @@
 import React from 'react'
 import { Box, styled, Typography} from '@mui/material'
-import { SWIGGY_MENU_IMG_API } from '../../../utils/Constants'
+import { SWIGGY_MENU_IMG_API,SWIGGY_CDN_LINK } from '../../../utils/Constants'
 import DemoImage from '../../Assets/DemoImage.jpg'
 import { useDispatch } from 'react-redux'
-import { addItem, removeItem } from '../../Store/cartSlice'
-import { useSelector } from 'react-redux';
-import CloseIcon from '@mui/icons-material/Close';
-import {ToastContainer, toast } from 'react-toastify'
+import { incrementQuantity, decrementQuantity, removeItem } from '../../Store/cartSlice'
+// import CloseIcon from '@mui/icons-material/Close';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const MainContainer = styled(Box)`
@@ -85,34 +85,31 @@ border : none;
 const RemoveItemBox = styled(Box)`
 cursor : pointer;
 margin-left : 1.5rem;
+color : grey;
 
 :hover {
   color : rgb(211,47,47);
 }
 `
 
-const CartItemList = ({ items, dummy }) => { 
+const CartItemList = ({items, dummy,}) => { 
   // console.log(dummy)
-
+  
   const dispatch = useDispatch()
-
-   const cartItems = useSelector((store) => store.cart.items)
 
   const handleAddItem = (item) => {
     // Dispatch an action
-    dispatch(addItem(item)) ?
-      toast.success("Added to Cart", {
-          position: "top-center",
-        }) :
-      toast.error("Not Added", {
-           position: "top-center",
-        })
+    dispatch(incrementQuantity(item))
     // So here, whatever you pass inside the addItem , it will go as a 2nd argument in addItems function inside the action.payload 
     //  console.log(item)
   }
 
   const handleRemoveItem = (item) => {
     // Dispatch an action
+    dispatch(decrementQuantity(item))
+  }
+
+  const handleRemove = (item) => {
     dispatch(removeItem(item)) ?
       toast.success("Removed from Cart", {
         position: "top-center",
@@ -125,40 +122,47 @@ const CartItemList = ({ items, dummy }) => {
   return (
     <Box>
       {
-          items && items.map((item) => (
+        items && items.map((item) => (
+           
             <>
-              <MainContainer>
+              <MainContainer key={item.card.info.id}>
                 <MenuImageBox>
                   <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={""} />
                 </MenuImageBox>
-                <CardContent key={item?.card.info.id}>
-                  
-                <Box>
-                  <Typography>{item.card.info.name}</Typography>
-                </Box>
+                <CardContent key={item?.card.info.id}>    
+                  <Box>
+                    <Typography>{item.card.info.name}</Typography>
+                  </Box>
                 
-                <PriceBox>
+                  <PriceBox>
                     <h4>{"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice/100).toFixed(0)}</h4>
                     <h6>50% OFF | <span>USE FOODIEIT</span></h6>
-                </PriceBox>
+                  </PriceBox>
                   
                 </CardContent>
 
                 <AddRemoveBox>
-                  <button onClick={() => handleRemoveItem(item)}><h4>-</h4></button>
-                  <span> {cartItems.length }</span>
-                  <button onClick={() => handleAddItem(item)}><h4>+</h4></button>
+                  <button onClick={() => handleRemoveItem(item.info)}><h4>-</h4></button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => handleAddItem(item.info)}><h4>+</h4></button>
                 </AddRemoveBox>
-                <RemoveItemBox onClick={() => handleRemoveItem(item)}>
-                  <CloseIcon />
+                <RemoveItemBox onClick={() => handleRemove(item.info)}>
+                  Remove
                 </RemoveItemBox>
 
             </MainContainer>
-            <ToastContainer/>
+            
           </>
+          
           )
           )
-        }
+      }
+      <ToastContainer />
+
+      {/* <Box>
+         <img src={SWIGGY_MENU_IMG_API.imageId} alt={name} />
+      </Box> */}
+       
     </Box>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
@@ -99,15 +98,17 @@ display : flex;
 align-items:  center;
 
 & > svg {
-  margin-bottom : 4px;
-  font-size: 32px ;
+  margin-bottom : 3px;
+  font-size: 30px ;
+  border-radius : 30%;
 }
 `
 
 const CartItemBox = styled(Box)`
 position: absolute;
 top: 10px;
-left: 10.6px;
+left: 10px;
+color : white;
 font-size: 16px;
 font-weight : bolder;
 font-family: "Trebuchet MS";
@@ -170,8 +171,12 @@ const Navbar = () => {
   }
 
   // Subscribing to the store using Selector
-  const cartItems = useSelector((store) => store.cart.items)
+  const cartItems = useSelector((store) => store.items)
   // console.log(cartItems)
+
+  const getTotalQuantity = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  }
 
   // const onlineStatus = useOnlineStatus()
 
@@ -207,9 +212,9 @@ const Navbar = () => {
               <MainBox>
                 <Box>Cart</Box>
                   <CartBox>
-                    <ShoppingBagOutlinedIcon/>
+                    <ShoppingBagIcon/>
                     <CartItemBox>
-                      {cartItems.length }
+                      {getTotalQuantity()}
                     </CartItemBox> 
                   </CartBox>
                 </MainBox>

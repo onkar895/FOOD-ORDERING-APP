@@ -8,7 +8,6 @@ import StarIcon from '@mui/icons-material/Star';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import useRestaurantMenu from '../../../utils/useRestaurantMenu';
 import RestaurantCategory from '../../Pages/RestaurantMenu/RestaurantCategory';
@@ -170,7 +169,7 @@ const RestaurantMenu = () => {
 
 // console.log('resInfo:', resInfo);
   const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  console.log(itemCards);
+  // console.log(itemCards);
 
   const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
     (c) =>

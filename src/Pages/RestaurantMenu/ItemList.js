@@ -3,7 +3,7 @@ import { Box, styled, Typography, Button } from '@mui/material'
 import { SWIGGY_MENU_IMG_API } from '../../../utils/Constants'
 import DemoImage from '../../Assets/DemoImage.jpg'
 import { useDispatch } from 'react-redux'
-import { addItem } from '../../Store/cartSlice'
+import { addToCart } from '../../Store/cartSlice'
 import {ToastContainer, toast } from 'react-toastify'
 
 
@@ -13,6 +13,7 @@ justify-content:  space-between;
 align-items : center;
 margin-top : 1rem;
 padding : 20px;
+gap : 20px;
 box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
 `
 
@@ -81,9 +82,9 @@ const ItemList = ({ items, dummy }) => {
 
   const dispatch = useDispatch()
 
-  const handleAddItem = (item) => {
+  const handleAddToCart = (item) => {
     // Dispatch an action
-    dispatch(addItem(item)) ?
+    dispatch(addToCart(item)) ?
       toast.success("Added to Cart", {
           position: "top-center",
         }) :
@@ -95,15 +96,16 @@ const ItemList = ({ items, dummy }) => {
     //  console.log(item)
   }
 
+  console.log(items)
  
 
   return (
     <Box>
       {
           items && items.map((item) => (
-            <>
-            <MainContainer>
-              <CardContent key={item?.card.info.id}>
+            
+            <MainContainer >
+              <CardContent key={item.card.info.id}>
                 <Box>
                   <h3>{item.card.info.name}</h3>
                 </Box>
@@ -119,15 +121,15 @@ const ItemList = ({ items, dummy }) => {
               <MenuImageBox>
                 <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={""} />
                   <Button variant='outlined' size='small' color='error'
-                    onClick={() => handleAddItem(item)}
+                    onClick={() => handleAddToCart(item)}
                   >Add +</Button>
               </MenuImageBox>
             </MainContainer>
-            <ToastContainer/>
-          </>
+           
           )
           )
-        }
+      }
+       <ToastContainer/>
     </Box>
   )
 }

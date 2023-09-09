@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EmptyCart from '../../Assets/EmptyCart.png'
 import { useNavigate } from 'react-router-dom'
 
+
 const MainCartBox = styled(Box)`
 display : flex;
 flex-direction : column;
@@ -63,7 +64,7 @@ gap : 2rem;
 
 const Cart = () => {
 
-  const cartItems = useSelector((store) => store.cart.items)
+  const cartItems = useSelector((store) => store.items)
 
   const dispatch = useDispatch()
 
@@ -81,23 +82,22 @@ const Cart = () => {
 
 
   return (
+
     <MainCartBox>
       {
         cartItems.length === 0 ? (
-          <>
+          
             <EmptyBox>
               <img src={EmptyCart} alt="" />
               <h2>Your Cart is Empty.</h2>
               <Button onClick={() => navigate('/restaurants')} variant='contained' size='large' color='error'>Explore the Restaurants</Button>
             </EmptyBox>
-              
-          </>
 
         ) : (  
             
         <CartBox>
           <ItemsBox>
-            <CartItemList items={ cartItems } />
+                <CartItemList items={cartItems}/>
           </ItemsBox>
           <ButtonBox>
             <Button variant="contained" size="medium" onClick={() => navigate(-1)}>Continue Ordering</Button>
@@ -107,9 +107,8 @@ const Cart = () => {
         )
       }
       {/* This component will render the toast notifications. */}
-      <ToastContainer />
+     <ToastContainer />  
     </MainCartBox>
-        
     
   )
 }
