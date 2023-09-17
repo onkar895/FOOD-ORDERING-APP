@@ -63,7 +63,7 @@ const appRouter = createBrowserRouter([
     element: <MainComponent />,
     children: [
       {
-        path: '/',
+        path: '/home',
         element: <HomePage/>,
       },
       {
@@ -99,7 +99,7 @@ const appRouter = createBrowserRouter([
         element: <RestaurantMenu/>,
       },
       {
-        path: '/login',
+        path: '/',
         element: <Login/>
       }
     ],

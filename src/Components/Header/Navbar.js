@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +9,9 @@ import UserContext from '../../../utils/userContext';
 // import useOnlineStatus from '../../../utils/useOnlineStatus';
 import PersonIcon from '@mui/icons-material/Person';
 import { useSelector } from 'react-redux';
+import { signOut } from 'firebase/auth'
+import { firebaseAuth } from '../../../utils/Firebase/FirebaseConfig'
+import { onAuthStateChanged } from 'firebase/auth'
 
 
 
@@ -130,13 +134,13 @@ text-transform : capitalize;
 }
 `
 
-const LoginUserBox = styled(Box)`
+const LogOutUserBox = styled(Box)`
 display : flex;
 align-items : center;
 gap : 25px;
 `
 
-const LoggedInBox = styled(Box)`
+const LoggedOutBox = styled(Box)`
 display : flex;
 align-items : center;
 color : rgb(211,47,47);
@@ -150,10 +154,7 @@ const Navbar = () => {
   // Using Context
   const {loggedInUser} = useContext(UserContext)
   // console.log(loggedInUser);
-
-  const [isLoggedIn, setIsLoggedIn] = useState("LogIn")
   
-
   //1. If no dependency array => useEffect is called on every render
   //2. If dependency array is empty = [] => useEffect is called on Initial render(just Once)
   //3. If the dependency array is [isLoggedIn] => useEffect called everytime isLoggedIn is updated
@@ -161,7 +162,11 @@ const Navbar = () => {
     console.log("UseEffect Called")
   }, [])
 
-   const navigate = useNavigate()
+  const navigate = useNavigate()
+  
+  //  onAuthStateChanged(firebaseAuth, (currentUser) => {
+  //   if (!currentUser) navigate('/')
+  // })
    
    const navLinkStyle = ({ isActive }) => {
     return {
@@ -193,7 +198,7 @@ const Navbar = () => {
       <NavItems>
           <ul>
             <li>
-              <NavLink style={navLinkStyle} to='/'>Home</NavLink>
+              <NavLink style={navLinkStyle} to='/home'>Home</NavLink>
             </li>
             <li>
               <NavLink style={navLinkStyle} to='/restaurants'>Menu</NavLink>
@@ -227,18 +232,25 @@ const Navbar = () => {
             </li> */}
           </ul>
           
-          <LoginUserBox>
-
-            <ButtonBox variant='outlined' color='error' onClick={() => navigate("/login")}>
-              {isLoggedIn}
-            </ButtonBox>
-
-            <LoggedInBox>
+          <LogOutUserBox>
+            {/* onClick={() => signOut(firebaseAuth) */}
+            
+             <LoggedOutBox>
               <PersonIcon/>
               {loggedInUser}
-            </LoggedInBox>
+            </LoggedOutBox>
+
+            <ButtonBox variant='outlined' color='error'>
+              LogOut
+               <PowerSettingsNewIcon
+                sx={{
+                  ml: "4px",
+                  fontSize: '20px',
+                }}
+              />
+            </ButtonBox>
             
-          </LoginUserBox>
+          </LogOutUserBox>
 
          
           
