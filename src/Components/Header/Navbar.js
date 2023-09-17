@@ -174,9 +174,6 @@ const Navbar = () => {
   const cartItems = useSelector((store) => store.items)
   // console.log(cartItems)
 
-  const getTotalQuantity = () => {
-    return cartItems.reduce((total, item) => total + item.quantity, 0);
-  }
 
   // const onlineStatus = useOnlineStatus()
 
@@ -214,7 +211,7 @@ const Navbar = () => {
                   <CartBox>
                     <ShoppingBagIcon/>
                     <CartItemBox>
-                      {getTotalQuantity()}
+                      {cartItems.length}
                     </CartItemBox> 
                   </CartBox>
                 </MainBox>
@@ -232,7 +229,7 @@ const Navbar = () => {
           
           <LoginUserBox>
 
-            <ButtonBox variant='outlined' color='error' onClick={() => navigate("/login")} onBlur={() => isLoggedIn === "LogIn" ? setIsLoggedIn("LogOut") : setIsLoggedIn("LogIn")}>
+            <ButtonBox variant='outlined' color='error' onClick={() => navigate("/login")}>
               {isLoggedIn}
             </ButtonBox>
 

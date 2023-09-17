@@ -86,7 +86,9 @@ const ItemList = ({ items, dummy }) => {
     // Dispatch an action
     dispatch(addToCart(item)) ?
       toast.success("Added to Cart", {
-          position: "top-center",
+        position: "top-center",
+        newestOnTop: true,
+        autoClose : 1000,
         }) :
       toast.error("Not Added", {
            position: "top-center",
@@ -96,7 +98,7 @@ const ItemList = ({ items, dummy }) => {
     //  console.log(item)
   }
 
-  console.log(items)
+  // console.log(items)
  
 
   return (
