@@ -7,6 +7,7 @@ import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import EmptyCart from '../../Assets/EmptyCart.png'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../../Components/Header/Navbar'
 
 
 const MainCartBox = styled(Box)`
@@ -82,7 +83,8 @@ const Cart = () => {
 
 
   return (
-
+  <>
+    <Navbar/>
     <MainCartBox>
       {
         cartItems.length === 0 ? (
@@ -109,7 +111,7 @@ const Cart = () => {
       {/* This component will render the toast notifications. */}
      <ToastContainer />  
     </MainCartBox>
-    
+  </>
   )
 }
 

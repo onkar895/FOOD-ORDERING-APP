@@ -4,6 +4,7 @@ import MenuShimmer from '../../Components/Shimmer/MenuShimmer';
 import { SWIGGY_CDN_LINK} from '../../../utils/Constants';
 import { useParams } from 'react-router-dom';  // import useParams for read `resId`
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../Components/Header/Navbar';
 import StarIcon from '@mui/icons-material/Star';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
@@ -182,7 +183,8 @@ const RestaurantMenu = () => {
   const dummy = "Dummy Data";
 
   return (
-  <>
+    <>
+    <Navbar/>
     <MenuContainer>
         
       <IconBox onClick={() => navigate('/restaurants')}>

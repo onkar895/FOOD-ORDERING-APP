@@ -6,6 +6,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Navbar from '../Components/Header/Navbar'
 
 const MainContainer = styled(Box)`
 display : flex;
@@ -94,6 +95,7 @@ const HomePage = () => {
   const navigate = useNavigate()
   return (
     <>
+      <Navbar/>
       <MainContainer>
 
         <InfoContainer>

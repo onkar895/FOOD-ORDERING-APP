@@ -1,10 +1,15 @@
 import React from 'react'
+import Navbar from '../Components/Header/Navbar';
 
 const Contact = () => {
   return (
-    <div style={{marginTop: '90px'}}>
+    <>
+      <Navbar/>
+      <div style={{marginTop: '90px'}}>
       HIII, Contact Us
     </div>
+    </>
+    
   )
 }
 

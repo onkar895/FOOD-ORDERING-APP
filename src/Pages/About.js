@@ -5,6 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Navbar from '../Components/Header/Navbar';
 
 
 const WelcomeBox = styled(Box)`
@@ -88,6 +89,7 @@ margin-top : 2rem;
 const About = () => {
   return (
     <>
+      <Navbar/>
       <WelcomeBox>
         <h1>WELCOME TO FOODIE ZONE!!!</h1>
       </WelcomeBox>

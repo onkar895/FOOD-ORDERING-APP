@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import FoodLogo from '../../Assets/FoodLogo.png'
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { Box, styled, AppBar, Toolbar, Typography, Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
@@ -62,8 +62,6 @@ const HeadingBox = styled(Box)`
 const NavItems = styled(Box)`
 display : flex;
 gap: 2rem;
-margin-right : 2.4rem;
-
 
 & > ul {
     display: flex;
@@ -100,27 +98,34 @@ const CartBox = styled(Box)`
 position : relative;
 display : flex;
 align-items:  center;
+gap : 3px;
 
 & > svg {
   margin-bottom : 3px;
-  font-size: 30px ;
-  border-radius : 30%;
+  font-size: 25px ;
 }
 `
 
 const CartItemBox = styled(Box)`
 position: absolute;
-top: 10px;
-left: 10px;
+display : flex;
+align-items : center;
+justify-content : center;
+background-color: rgb(211,47,47);
+width : 1.5vw;
+border-radius : 50%;
+top: 0;
+left: 15px;
+`
+
+const Item = styled(Box)`
 color : white;
-font-size: 16px;
 font-weight : bolder;
 font-family: "Trebuchet MS";
-
 `
 
 const ButtonBox = styled(Button)`
-padding: 2px;
+padding: 0.5px;
 width: 7vw ;
 align-items: center;
 cursor: pointer;
@@ -138,6 +143,7 @@ const LogOutUserBox = styled(Box)`
 display : flex;
 align-items : center;
 gap : 25px;
+margin-right : 3rem;
 `
 
 const LoggedOutBox = styled(Box)`
@@ -185,17 +191,17 @@ const Navbar = () => {
   return (
     <AppBar sx={{boxShadow : 'none'}}>
       <HeaderBox>
-      <FoodLogoBox>
-          <img src={FoodLogo} alt='FoodLogo' onClick={()=> navigate('/')} />
-        <HeadingBox>
-          <Typography>
-            The Foodie Zone
-          </Typography>
-          <h5> - Taste of Everything</h5>
-        </HeadingBox>
-      </FoodLogoBox>
+        <FoodLogoBox>
+          <img src={FoodLogo} alt='FoodLogo' onClick={()=> navigate('/home')} />
+          <HeadingBox>
+            <Typography>
+              The Foodie Zone
+            </Typography>
+            <h5> - Taste of Everything</h5>
+          </HeadingBox>
+        </FoodLogoBox>
       
-      <NavItems>
+        <NavItems> 
           <ul>
             <li>
               <NavLink style={navLinkStyle} to='/home'>Home</NavLink>
@@ -214,9 +220,11 @@ const Navbar = () => {
               <MainBox>
                 <Box>Cart</Box>
                   <CartBox>
-                    <ShoppingBagIcon/>
+                    <ShoppingBasketIcon/>
                     <CartItemBox>
-                      {cartItems.length}
+                      <Item>
+                        {cartItems.length}
+                      </Item> 
                     </CartItemBox> 
                   </CartBox>
                 </MainBox>
@@ -231,8 +239,8 @@ const Navbar = () => {
               {onlineStatus ? "Online ✅" : "Offline 🔴"}
             </li> */}
           </ul>
-          
-          <LogOutUserBox>
+        </NavItems> 
+        <LogOutUserBox>
             {/* onClick={() => signOut(firebaseAuth) */}
             
              <LoggedOutBox>
@@ -245,17 +253,12 @@ const Navbar = () => {
                <PowerSettingsNewIcon
                 sx={{
                   ml: "4px",
-                  fontSize: '20px',
+                  fontSize: '18px',
                 }}
               />
             </ButtonBox>
             
           </LogOutUserBox>
-
-         
-          
-      </NavItems>
-       
       </HeaderBox>
     </AppBar>
   )
