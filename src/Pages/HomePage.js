@@ -2,11 +2,14 @@ import React from 'react'
 import { Button, Box, styled, Typography} from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import FoodImage from '../Assets/FoodImage.png'
+import HomePageFood from '../Assets/HomePageFood.png'
+import LetsEat from '../Assets/LetsEat.png'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Navbar from '../Components/Header/Navbar'
+import { Home } from '@mui/icons-material'
 
 const MainContainer = styled(Box)`
 display : flex;
@@ -119,7 +122,7 @@ const HomePage = () => {
         </InfoContainer>
 
         <ImageContainer>
-          <img src={FoodImage} alt="FoodImage"/>
+          <img src={HomePageFood} alt="FoodImage"/>
         </ImageContainer>
         
 

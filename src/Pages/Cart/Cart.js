@@ -75,9 +75,13 @@ const Cart = () => {
     dispatch(clearCart()) ?
       toast.success("All Items Removed", {
         position: "top-center",
+        newestOnTop: true,
+        autoClose : 2000,
       }) :
       toast.error("Items Not Removed", {
         position: "top-center",
+        newestOnTop: true,
+        autoClose : 2000,
       }) 
   }
 

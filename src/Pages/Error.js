@@ -16,8 +16,8 @@ const Error = () => {
   return (
     <div style={Style}>
       <h1>OOPS..!!!</h1>
-      <h2>Something Went Wrong</h2>
-      <h3>{err.status} : {err.statusText}</h3>
+      <h2>Sorry, an unexpected error has occurred.</h2>
+      <h3>{err?.status} : {err?.statusText || err?.message}</h3>
     </div>
   )
 }

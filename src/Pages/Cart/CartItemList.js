@@ -3,7 +3,7 @@ import { Box, styled, Typography} from '@mui/material'
 import { SWIGGY_MENU_IMG_API,SWIGGY_CDN_LINK } from '../../../utils/Constants'
 import DemoImage from '../../Assets/DemoImage.jpg'
 import { useDispatch } from 'react-redux'
-import { incrementQuantity, decrementQuantity, removeItem } from '../../Store/cartSlice'
+import { removeItem } from '../../Store/cartSlice'
 // import CloseIcon from '@mui/icons-material/Close';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,8 +14,8 @@ display  :flex;
 justify-content:  space-between;
 align-items : center;
 margin-top : 1rem;
+width : 45vw;
 padding : 20px;
-gap : 20px;
 box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
 `
 
@@ -63,24 +63,24 @@ position : relative;
 }
 `
 
-const AddRemoveBox = styled(Box)`
-display : flex;
-align-items : center;
-box-shadow : 0 0 5px 0  rgba(208,208,208,0.8);
-margin-left : 2rem;
-color :grey;
+// const AddRemoveBox = styled(Box)`
+// display : flex;
+// align-items : center;
+// box-shadow : 0 0 5px 0  rgba(208,208,208,0.8);
+// margin-left : 2rem;
+// color :grey;
 
-& > button {
-padding : 10px 18px;
-background : none;
-border : none;
+// & > button {
+// padding : 10px 18px;
+// background : none;
+// border : none;
 
-:hover {
-  cursor : pointer;
-  color : rgb(211,47,47);
-}
-}
-`
+// :hover {
+//   cursor : pointer;
+//   color : rgb(211,47,47);
+// }
+// }
+// `
 
 const RemoveItemBox = styled(Box)`
 cursor : pointer;
@@ -97,25 +97,29 @@ const CartItemList = ({items, dummy,}) => {
   
   const dispatch = useDispatch()
 
-  const handleAddItem = (item) => {
-    // Dispatch an action
-    dispatch(incrementQuantity(item))
-    // So here, whatever you pass inside the addItem , it will go as a 2nd argument in addItems function inside the action.payload 
-    //  console.log(item)
-  }
+  // const handleAddItem = (item) => {
+  //  Dispatch an action
+  //   dispatch(incrementQuantity(item))
+  //   So here, whatever you pass inside the addItem , it will go as a 2nd argument in addItems function inside the action.payload 
+  //    console.log(item)
+  // }
 
-  const handleRemoveItem = (item) => {
-    // Dispatch an action
-    dispatch(decrementQuantity(item))
-  }
+  // const handleRemoveItem = (item) => {
+  //   // Dispatch an action
+  //   dispatch(decrementQuantity(item))
+  // }
 
   const handleRemove = (item) => {
     dispatch(removeItem(item)) ?
       toast.success("Removed from Cart", {
         position: "top-center",
+        newestOnTop: true,
+        autoClose : 2000,
       }) :
       toast.error("Not Removed", {
         position: "top-center",
+        newestOnTop: true,
+        autoClose : 2000,
       })
   }
 
@@ -125,7 +129,8 @@ const CartItemList = ({items, dummy,}) => {
         items && items.map((item) => (
            
             <>
-              <MainContainer key={item.card.info.id}>
+            <MainContainer key={item.card.info.id}>
+              <Box sx={{ display: 'flex', gap:'20px', alignItems:'center'}}>
                 <MenuImageBox>
                   <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt={""} />
                 </MenuImageBox>
@@ -140,13 +145,14 @@ const CartItemList = ({items, dummy,}) => {
                   </PriceBox>
                   
                 </CardContent>
-
-                <AddRemoveBox>
+               </Box>
+                {/* <AddRemoveBox>
                   <button onClick={() => handleRemoveItem(item.info)}><h4>-</h4></button>
                   <span>{item.quantity}</span>
                   <button onClick={() => handleAddItem(item.info)}><h4>+</h4></button>
-                </AddRemoveBox>
-                <RemoveItemBox onClick={() => handleRemove(item.info)}>
+                </AddRemoveBox> */}
+              
+                <RemoveItemBox onClick={() => handleRemove(item)}>
                   Remove
                 </RemoveItemBox>
 

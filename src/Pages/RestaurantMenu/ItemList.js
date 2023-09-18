@@ -88,7 +88,7 @@ const ItemList = ({ items, dummy }) => {
       toast.success("Added to Cart", {
         position: "top-center",
         newestOnTop: true,
-        autoClose : 1000,
+        autoClose : 2000,
         }) :
       toast.error("Not Added", {
            position: "top-center",

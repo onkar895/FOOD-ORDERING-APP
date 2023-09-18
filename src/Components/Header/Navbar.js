@@ -11,7 +11,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth'
 import { firebaseAuth } from '../../../utils/Firebase/FirebaseConfig'
-import { onAuthStateChanged } from 'firebase/auth'
+
 
 
 
@@ -120,7 +120,6 @@ left: 15px;
 
 const Item = styled(Box)`
 color : white;
-font-weight : bolder;
 font-family: "Trebuchet MS";
 `
 
@@ -173,6 +172,18 @@ const Navbar = () => {
   //  onAuthStateChanged(firebaseAuth, (currentUser) => {
   //   if (!currentUser) navigate('/')
   // })
+
+  const handleSignOut = async (e) => {
+    e.preventDefault();
+    
+    try {
+      await signOut(firebaseAuth)
+      navigate('/')
+      
+    } catch (error) {
+      navigate('/error')
+    }
+  }
    
    const navLinkStyle = ({ isActive }) => {
     return {
@@ -241,14 +252,13 @@ const Navbar = () => {
           </ul>
         </NavItems> 
         <LogOutUserBox>
-            {/* onClick={() => signOut(firebaseAuth) */}
             
              <LoggedOutBox>
               <PersonIcon/>
               {loggedInUser}
             </LoggedOutBox>
 
-            <ButtonBox variant='outlined' color='error'>
+            <ButtonBox onClick={handleSignOut} variant='outlined' color='error'>
               LogOut
                <PowerSettingsNewIcon
                 sx={{

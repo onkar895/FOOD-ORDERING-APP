@@ -270,7 +270,9 @@ const Login = () => {
               <li>
                 <LoggedOutBox>
                   <PersonIcon/>
-                  {loggedInUser}
+                  {
+                    !isSignIn ? (loggedInUser) : "User" 
+                  }
                 </LoggedOutBox>
               </li>
               <li>
