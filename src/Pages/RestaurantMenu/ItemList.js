@@ -3,7 +3,7 @@ import { Box, styled, Typography, Button } from '@mui/material'
 import { SWIGGY_MENU_IMG_API } from '../../../utils/Constants'
 import DemoImage from '../../Assets/DemoImage.jpg'
 import { useDispatch } from 'react-redux'
-import { addToCart } from '../../Store/cartSlice'
+import { addToCart} from '../../Store/cartSlice'
 import {ToastContainer, toast } from 'react-toastify'
 
 
@@ -92,7 +92,7 @@ const ItemList = ({ items, dummy }) => {
         }) :
       toast.error("Not Added", {
            position: "top-center",
-        })
+      })
       
     // So here, whatever you pass inside the addItem , it will go as a 2nd argument in addItems function inside the action.payload 
     //  console.log(item)
@@ -112,7 +112,7 @@ const ItemList = ({ items, dummy }) => {
                   <h3>{item.card.info.name}</h3>
                 </Box>
                 <PriceBox>
-                    <h4>{"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice/100).toFixed(0)}</h4>
+                    <h4>Price: {"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice/100).toFixed(0)}</h4>
                     <h6>50% OFF | <span>USE FOODIEIT</span></h6>
                 </PriceBox>
                 <Box sx={{ textAlign: 'justify'}}>

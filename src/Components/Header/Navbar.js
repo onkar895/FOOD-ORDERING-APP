@@ -14,7 +14,6 @@ import { firebaseAuth } from '../../../utils/Firebase/FirebaseConfig'
 
 
 
-
 const HeaderBox = styled(Toolbar)`
     display: flex;
     justify-content: space-between;
@@ -23,7 +22,6 @@ const HeaderBox = styled(Toolbar)`
     height : 14vh;
     background-color: #ffffff;
     background-image: linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%);
-
 `
 
 const FoodLogoBox = styled(Box)`
@@ -44,18 +42,19 @@ const HeadingBox = styled(Box)`
     display: flex;
     flex-direction: column;
 
-    & > p {
+    & > p:nth-child(1) {
     font-family: "Trebuchet MS";
-    font-size: 28px;
+    font-size: 26px;
     color : rgb(211,47,47);
     font-weight: bolder;
     }
-
-    & h5 {
+    & > p:nth-child(2) {
     font-family: "Trebuchet MS";
-    margin-left: 2.8rem;
-    color: rgb(211,47,47);
-    margin-bottom : 8px;
+    font-size: 12px;
+    margin-left: 3rem;
+    margin-bottom : 3px;
+    color : rgb(211,47,47);
+    font-weight: bolder;
     }
   `
 
@@ -124,7 +123,7 @@ font-family: "Trebuchet MS";
 `
 
 const ButtonBox = styled(Button)`
-padding: 0.5px;
+padding: 1px;
 width: 7vw ;
 align-items: center;
 cursor: pointer;
@@ -135,6 +134,7 @@ text-transform : capitalize;
 :hover {
   background : rgb(211,47,47);
   color : white;
+  box-shadow : 3px 3px 6px rgb(211,47,47);
 }
 `
 
@@ -208,7 +208,7 @@ const Navbar = () => {
             <Typography>
               The Foodie Zone
             </Typography>
-            <h5> - Taste of Everything</h5>
+            <Typography>Taste of Everything</Typography>
           </HeadingBox>
         </FoodLogoBox>
       
@@ -224,7 +224,7 @@ const Navbar = () => {
               <NavLink style={navLinkStyle} to='/about'>About</NavLink>
             </li>
             <li>
-             <NavLink style={navLinkStyle} to='/contact'>Contact</NavLink>
+             <NavLink style={navLinkStyle} to='/help'>Help</NavLink>
             </li>
             <li>
               <NavLink style={navLinkStyle} to='/cart'>

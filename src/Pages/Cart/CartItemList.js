@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, styled, Typography} from '@mui/material'
-import { SWIGGY_MENU_IMG_API,SWIGGY_CDN_LINK } from '../../../utils/Constants'
+import { SWIGGY_MENU_IMG_API} from '../../../utils/Constants'
 import DemoImage from '../../Assets/DemoImage.jpg'
-import { useDispatch } from 'react-redux'
-import { removeItem } from '../../Store/cartSlice'
+import { useDispatch} from 'react-redux'
+import { removeItem} from '../../Store/cartSlice'
 // import CloseIcon from '@mui/icons-material/Close';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -92,7 +92,7 @@ color : grey;
 }
 `
 
-const CartItemList = ({items, dummy,}) => { 
+const CartItemList = ({ items, dummy, }) => {
   // console.log(dummy)
   
   const dispatch = useDispatch()
@@ -114,21 +114,22 @@ const CartItemList = ({items, dummy,}) => {
       toast.success("Removed from Cart", {
         position: "top-center",
         newestOnTop: true,
-        autoClose : 2000,
+        autoClose: 2000,
       }) :
       toast.error("Not Removed", {
         position: "top-center",
         newestOnTop: true,
-        autoClose : 2000,
+        autoClose: 2000,
       })
   }
+
 
   return (
     <Box>
       {
         items && items.map((item) => (
            
-            <>
+          <>
             <MainContainer key={item.card.info.id}>
               <Box sx={{ display: 'flex', gap:'20px', alignItems:'center'}}>
                 <MenuImageBox>
@@ -140,7 +141,7 @@ const CartItemList = ({items, dummy,}) => {
                   </Box>
                 
                   <PriceBox>
-                    <h4>{"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice/100).toFixed(0)}</h4>
+                    <h4>Price : {"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice/100).toFixed(2)}</h4>
                     <h6>50% OFF | <span>USE FOODIEIT</span></h6>
                   </PriceBox>
                   
@@ -157,6 +158,7 @@ const CartItemList = ({items, dummy,}) => {
                 </RemoveItemBox>
 
             </MainContainer>
+
             
           </>
           
@@ -165,9 +167,7 @@ const CartItemList = ({items, dummy,}) => {
       }
       <ToastContainer />
 
-      {/* <Box>
-         <img src={SWIGGY_MENU_IMG_API.imageId} alt={name} />
-      </Box> */}
+     
        
     </Box>
   )

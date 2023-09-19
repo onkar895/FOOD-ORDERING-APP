@@ -27,7 +27,6 @@ align-items : center;
 margin: 1rem 4rem;
 padding : 20px 0;
 box-shadow : 1px 1px 5px grey;
-
 border-radius : 15px;
 
 & > h2 {

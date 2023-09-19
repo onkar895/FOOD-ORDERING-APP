@@ -2,18 +2,17 @@ import React from 'react'
 import { Button, Box, styled, Typography} from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import FoodImage from '../Assets/FoodImage.png'
-import HomePageFood from '../Assets/HomePageFood.png'
-import LetsEat from '../Assets/LetsEat.png'
+import FoodImagePage from '../Assets/FoodImagePage.png'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Navbar from '../Components/Header/Navbar'
-import { Home } from '@mui/icons-material'
+
 
 const MainContainer = styled(Box)`
 display : flex;
-gap : 40px;
+gap : 3rem;
 align-items : center;
 justify-content : center;
 margin : 5rem 5rem 0 6.5rem;
@@ -122,10 +121,9 @@ const HomePage = () => {
         </InfoContainer>
 
         <ImageContainer>
-          <img src={HomePageFood} alt="FoodImage"/>
+          <img src={FoodImagePage} alt="FoodImage"/>
         </ImageContainer>
         
-
       </MainContainer>
 
       <IconContainer>

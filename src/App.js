@@ -5,7 +5,7 @@ import HomePage from './Pages/HomePage'
 import Menu from './Pages/Menu'
 import Error from './Pages/Error'
 import About from './Pages/About'
-import Contact from './Pages/Contact'
+import Help from './Pages/Help'
 import Restaurants from './Pages/Restaurants'
 import Login from './Pages/Authentication/Login'
 import Cart from './Pages/Cart/Cart'
@@ -16,6 +16,7 @@ import UserContext from '../utils/userContext'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import appStore from './Store/appStore'
+
 
 // * Modularity is also known as:
 // * Chunking
@@ -74,8 +75,8 @@ const appRouter = createBrowserRouter([
         element: <About/>,
       },
       {
-        path: '/contact',
-        element: <Contact/>,
+        path: '/help',
+        element: <Help/>,
       },
       {
         path: '/cart',
@@ -104,7 +105,7 @@ const appRouter = createBrowserRouter([
       {
         path: '/error',
         element : <Error/>,
-      }
+      },
     ],
    
   },
