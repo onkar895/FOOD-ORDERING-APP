@@ -4,6 +4,7 @@ import UserContext from '../../../utils/userContext'
 import { checkValidData } from '../../../utils/Validate'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import { firebaseAuth, provider } from '../../../utils/Firebase/FirebaseConfig'
+import { signInWithPopup, onAuthStateChanged, signInWithRedirect } from 'firebase/auth'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,7 +18,6 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import LoginIcon from '@mui/icons-material/Login';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import MobileScreenShareOutlinedIcon from '@mui/icons-material/MobileScreenShareOutlined';
-import { current } from '@reduxjs/toolkit'
 
 
 const HeaderBox = styled(Toolbar)`
@@ -333,8 +333,26 @@ const Login = () => {
     }
   }
 
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault()
+    try {
+      await signInWithPopup(firebaseAuth, provider)
+      // await signInWithRedirect(firebaseAuth, provider)
+      navigate('/home')
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
- 
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
+      setUser(currentUser)
+    })
+    return () => {
+      unSubscribe();
+    }
+  })
+
 
   const toggleSignInForm = () => {
     setIsSignIn(!isSignIn)
@@ -463,8 +481,12 @@ const Login = () => {
                 isSignIn && 
                 <Box sx={{color:'white'}}><h5>OR Sign In Using</h5></Box>
               }
-            
-             
+
+              {
+                isSignIn && 
+                <GoogleButtonBox onClick={handleGoogleSignIn} fullWidth><img src={Google} alt=""/><h4>Sign In With Google</h4></GoogleButtonBox>
+              }
+              
             <NewUserBox>
               <SignUpLink onClick={toggleSignInForm}><Typography>{isSignIn ? "New User? Sign Up Now" : "Already Registerd? Sign In Now" }</Typography></SignUpLink>
             </NewUserBox>
