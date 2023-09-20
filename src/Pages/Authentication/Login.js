@@ -4,7 +4,6 @@ import UserContext from '../../../utils/userContext'
 import { checkValidData } from '../../../utils/Validate'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import { firebaseAuth, provider } from '../../../utils/Firebase/FirebaseConfig'
-import { signInWithPopup, onAuthStateChanged, signInWithRedirect } from 'firebase/auth'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -334,25 +333,8 @@ const Login = () => {
     }
   }
 
-  const handleGoogleSignIn = async (e) => {
-    e.preventDefault()
-    try {
-       await signInWithPopup(firebaseAuth, provider)
-      // await signInWithRedirect(firebaseAuth, provider)
-      navigate('/home')
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
-      setUser(currentUser)
-    })
-    return () => {
-      unSubscribe();
-    }
-  })
+ 
 
   const toggleSignInForm = () => {
     setIsSignIn(!isSignIn)
@@ -481,11 +463,7 @@ const Login = () => {
                 isSignIn && 
                 <Box sx={{color:'white'}}><h5>OR Sign In Using</h5></Box>
               }
-              
-              {
-                isSignIn && 
-                <GoogleButtonBox onClick={handleGoogleSignIn} fullWidth><img src={Google} alt=""/><Typography>Sign In With Google</Typography></GoogleButtonBox>
-              }
+            
              
             <NewUserBox>
               <SignUpLink onClick={toggleSignInForm}><Typography>{isSignIn ? "New User? Sign Up Now" : "Already Registerd? Sign In Now" }</Typography></SignUpLink>
