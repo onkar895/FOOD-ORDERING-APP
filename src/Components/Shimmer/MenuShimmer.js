@@ -7,7 +7,7 @@ width : 68%;
 height : 160px;
 margin: 6rem 0 0 12rem;
 background-color: #E5E4E2;
-border-radius : 10px;
+border-radius : 10.2px;
 `
 
 const ShimmerBox = styled(Box)`
