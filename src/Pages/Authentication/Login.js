@@ -484,7 +484,7 @@ const Login = () => {
 
               {
                 isSignIn && 
-                <GoogleButtonBox onClick={handleGoogleSignIn} fullWidth><img src={Google} alt=""/><h4>Sign In With Google</h4></GoogleButtonBox>
+                <GoogleButtonBox onClick={handleGoogleSignIn} fullWidth><img src={Google} alt=""/><Typography>Sign In With Google</Typography></GoogleButtonBox>
               }
               
             <NewUserBox>
