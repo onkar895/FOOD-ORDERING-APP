@@ -1,10 +1,10 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Box, styled, Paper, TextField, Button, Typography, Link, AppBar, Toolbar, Modal} from '@mui/material'
 import UserContext from '../../../utils/userContext'
 import { checkValidData } from '../../../utils/Validate'
 import FoodLogo from '../../Assets/FoodLogo.png'
 import { firebaseAuth, provider } from '../../../utils/Firebase/FirebaseConfig'
-import { signInWithPopup } from 'firebase/auth'
+import { signInWithPopup, onAuthStateChanged, signInWithRedirect } from 'firebase/auth'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,7 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import LoginIcon from '@mui/icons-material/Login';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import MobileScreenShareOutlinedIcon from '@mui/icons-material/MobileScreenShareOutlined';
+import { current } from '@reduxjs/toolkit'
 
 
 const HeaderBox = styled(Toolbar)`
@@ -106,6 +107,12 @@ font-family: "Trebuchet MS";
 background : white;
 color : black;
 padding : 8px;
+text-transform : capitalize;
+
+& p {
+  font-size : 15px;
+  font-weight : bolder;
+}
 
 :hover {
   background : white;
@@ -279,6 +286,8 @@ const Login = () => {
 
   const [open, setOpen] = useState(false);
 
+  const [user, setUser] = useState({})
+
   const navigate = useNavigate()
 
 
@@ -325,15 +334,25 @@ const Login = () => {
     }
   }
 
-  const handleGoogleClick = async (e) => {
+  const handleGoogleSignIn = async (e) => {
     e.preventDefault()
     try {
-      await signInWithPopup(firebaseAuth, provider)
+       await signInWithPopup(firebaseAuth, provider)
+      // await signInWithRedirect(firebaseAuth, provider)
       navigate('/home')
     } catch (error) {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
+      setUser(currentUser)
+    })
+    return () => {
+      unSubscribe();
+    }
+  })
 
   const toggleSignInForm = () => {
     setIsSignIn(!isSignIn)
@@ -465,7 +484,7 @@ const Login = () => {
               
               {
                 isSignIn && 
-                <GoogleButtonBox onClick={handleGoogleClick} fullWidth><img src={Google} alt=""/><h4>Sign In With Google</h4></GoogleButtonBox>
+                <GoogleButtonBox onClick={handleGoogleSignIn} fullWidth><img src={Google} alt=""/><Typography>Sign In With Google</Typography></GoogleButtonBox>
               }
              
             <NewUserBox>
