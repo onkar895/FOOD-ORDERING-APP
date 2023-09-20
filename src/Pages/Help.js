@@ -6,6 +6,10 @@ import Navbar from "../Components/Header/Navbar";
 import HelpShimmer from "../Components/Shimmer/HelpShimmer";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
+const MainContainer = styled(Box)`
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+`
+
 const MainBox = styled(Paper)`
 width : 60%;
 margin : 3rem auto;
@@ -68,59 +72,60 @@ const Help = () => {
   <>
     <Navbar/>
     
-    faqs && (
-      <MainBox>
+    <MainContainer>
+      faqs && (
+        <MainBox>
     
-        <ContentBox>
-          <Box sx={{display:'flex', gap:'6px', alignItems:'center', textAlign:'start', color:'rgb(211,47,47)'}}>
-            <h1>WE ARE ALWAYS READY TO HELP</h1>
-            <ArrowForwardIcon sx={{fontSize:'36px'}} />
-          </Box>
+          <ContentBox>
+            <Box sx={{display:'flex', gap:'6px', alignItems:'center', textAlign:'start', color:'rgb(211,47,47)'}}>
+              <h1>WE ARE ALWAYS READY TO HELP</h1>
+              <ArrowForwardIcon sx={{fontSize:'36px'}} />
+            </Box>
           
-          {
-            faqs?.map((item, index) => {
-              return (
-                (item.description || item.hyperLink) &&
-                (
-                  <Box key={item.title}>
-                    <InfoBox>
-                      <Box
-                        onClick={() => handleClick(index)}
-                        sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor:'pointer' }}>
-                        <h3>{item.title}</h3>
-                        {
-                          activeIndex !== index && (
-                          <Button color="error">
-                            {activeIndex ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
-                          </Button>
+            {
+              faqs?.map((item, index) => {
+                return (
+                  (item.description || item.hyperLink) &&
+                  (
+                    <Box key={item.title}>
+                      <InfoBox>
+                        <Box
+                          onClick={() => handleClick(index)}
+                          sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor:'pointer' }}>
+                          <h3>{item.title}</h3>
+                          {
+                            activeIndex !== index && (
+                            <Button color="error">
+                              {activeIndex ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
+                            </Button>
+                            )
+                          }
+                        </Box>
+                      
+                         {
+                          activeIndex === index &&
+                          (
+                            <DropDownContent>
+                              {item.description && (
+                              <Typography>{item.description}</Typography>
+                              )}
+                              {item.hyperLink && (
+                               <a href="#" style={{color:'rgb(211,47,47)'}}>{item.hyperLink}</a>
+                              )}
+                            </DropDownContent>
                           )
                         }
-                      </Box>
-                      
-                      {
-                        activeIndex === index &&
-                        (
-                          <DropDownContent>
-                            {item.description && (
-                            <Typography>{item.description}</Typography>
-                            )}
-                            {item.hyperLink && (
-                             <a href="#" style={{color:'rgb(211,47,47)'}}>{item.hyperLink}</a>
-                            )}
-                          </DropDownContent>
-                        )
-                      }
-                    </InfoBox>     
-                  </Box>  
-                )
-              );
-            })
-          }
+                      </InfoBox>     
+                    </Box>  
+                  )
+                );
+              })
+            }
           
-        </ContentBox>
-      </MainBox>
-      
+          </ContentBox>
+        </MainBox>
       )
+    </MainContainer>  
   </>
   )
 }

@@ -1,14 +1,15 @@
 import React from 'react'
 import { Box, Typography, styled, Button } from '@mui/material'
 import CartItemList from '../Cart/CartItemList'
-import { clearCart} from '../../Store/cartSlice'
-import { useSelector, useDispatch } from 'react-redux'
-import {ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux'
 import EmptyCart from '../../Assets/EmptyCart.png'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../Components/Header/Navbar'
 
+
+const MainContainer = styled(Box)`
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+`
 
 const MainCartBox = styled(Box)`
 display : flex;
@@ -31,25 +32,15 @@ const ItemsBox = styled(Box)`
 width : 100%;
 `
 
-const ButtonBox = styled(Box)`
-display : flex;
-gap : 20px;
-
-& button {
-  font-family: "Trebuchet MS";
-  text-transform : capitalize;
-}
-
-& button:nth-child(2) {
-  padding : 10px 40px;
-}
-`
-
 const EmptyBox = styled(Box)`
 display : flex;
 flex-direction : column;
 align-items : center;
 gap : 2rem;
+
+& > img {
+  width : 50vw;
+}
 
  & h2  {
   font-family: "Trebuchet MS";
@@ -67,54 +58,35 @@ const Cart = () => {
 
   const cartItems = useSelector((store) => store.items)
 
-  const dispatch = useDispatch()
-
   const navigate = useNavigate()
-
-  const handleClearCart = () => {
-    dispatch(clearCart()) ?
-      toast.success("All Items Removed", {
-        position: "top-center",
-        newestOnTop: true,
-        autoClose : 2000,
-      }) :
-      toast.error("Items Not Removed", {
-        position: "top-center",
-        newestOnTop: true,
-        autoClose : 2000,
-      }) 
-  }
 
 
   return (
   <>
-    <Navbar/>
-    <MainCartBox>
-      {
-        cartItems.length === 0 ? (
+      <Navbar />
+      <MainContainer>
+        <MainCartBox>
+          {
+            cartItems.length === 0 ? (
           
-            <EmptyBox>
-              <img src={EmptyCart} alt="" />
-              <h2>Your Cart is Empty.</h2>
-              <Button onClick={() => navigate('/restaurants')} variant='contained' size='large' color='error'>Explore the Restaurants</Button>
-            </EmptyBox>
+              <EmptyBox>
+                <img src={EmptyCart} alt="" />
+                <h2>Your Cart is Empty.</h2>
+                <Button onClick={() => navigate('/restaurants')} variant='contained' size='large' color='error'>Explore the Restaurants</Button>
+              </EmptyBox>
 
-        ) : (  
+            )  :  (  
             
-        <CartBox>
-          <ItemsBox>
-                <CartItemList items={cartItems}/>
-          </ItemsBox>
-          <ButtonBox>
-            <Button variant="contained" size="medium" onClick={() => navigate(-1)}>Continue Ordering</Button>
-            <Button variant="contained" size="medium" color="error" onClick={handleClearCart}>Clear Cart</Button>
-          </ButtonBox>
-        </CartBox>
-        )
-      }
-      {/* This component will render the toast notifications. */}
-     <ToastContainer />  
-    </MainCartBox>
+              <CartBox>
+                <ItemsBox>
+                    <CartItemList items={cartItems} />
+                </ItemsBox>
+              </CartBox>
+            )
+          }
+        </MainCartBox>
+         
+      </MainContainer>
   </>
   )
 }

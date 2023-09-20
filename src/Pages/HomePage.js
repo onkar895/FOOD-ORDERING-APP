@@ -10,6 +10,13 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Navbar from '../Components/Header/Navbar'
 
 
+const MainBox = styled(Box)`
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+`
+
+const HeaderBox = styled(Box)`
+`
+
 const MainContainer = styled(Box)`
 display : flex;
 gap : 3rem;
@@ -97,42 +104,42 @@ const HomePage = () => {
   const navigate = useNavigate()
   return (
     <>
-      <Navbar/>
-      <MainContainer>
-
-        <InfoContainer>
-          <h1>We Deliver <br/> Delicious & <br/> Healthy  <span>Food</span></h1>
-          <Box>
-            <Typography>Our job is to filling your hunger with delicious food</Typography>
-            <Typography>and with fast and free delivery.</Typography>
-          </Box>
-          <Order>
-             <h3>Order Online to get <span>40% OFF...</span></h3>
-          </Order>
+      <Navbar />
+      <MainBox>
+        <HeaderBox>
+          <MainContainer>
+            <InfoContainer>
+              <h1>We Deliver <br/> Delicious & <br/> Healthy  <span>Food</span></h1>
+              <Box>
+                <Typography>Our job is to filling your hunger with delicious food</Typography>
+                <Typography>and with fast and free delivery.</Typography>
+              </Box>
+              <Order>
+                <h3>Order Online to get <span>40% OFF...</span></h3>
+              </Order>
           
-          <ButtonContainer>
-            <Button
-              variant="outlined" color="error"
-              onClick={() => navigate('/restaurants')}>
-              Explore Restaurants
-            </Button>
-          </ButtonContainer>
+              <ButtonContainer>
+                <Button
+                  variant="outlined" color="error"
+                  onClick={() => navigate('/restaurants')}>
+                  Explore Restaurants
+                </Button>
+              </ButtonContainer>
+            </InfoContainer>
 
-        </InfoContainer>
-
-        <ImageContainer>
-          <img src={FoodImagePage} alt="FoodImage"/>
-        </ImageContainer>
-        
-      </MainContainer>
-
-      <IconContainer>
-        <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: '	black',  }} /></a>
-        <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'	black'}} /></a>
-        <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{ cursor: 'pointer', color: '	black' }} /></a>
-        <a href="mailto:onkarkarale4@gmail.com"><MailOutlineIcon sx={{ cursor: 'pointer', color: 'black' }}/></a>
-      </IconContainer>
-   
+            <ImageContainer>
+              <img src={FoodImagePage} alt="FoodImage"/>
+            </ImageContainer>
+          </MainContainer>
+          
+          <IconContainer>
+            <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: '	black',  }} /></a>
+            <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'	black'}} /></a>
+            <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{ cursor: 'pointer', color: '	black' }} /></a>
+            <a href="mailto:onkarkarale4@gmail.com"><MailOutlineIcon sx={{ cursor: 'pointer', color: 'black' }}/></a>
+          </IconContainer>
+        </HeaderBox>
+      </MainBox>
     </>
   )
 }

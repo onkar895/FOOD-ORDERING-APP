@@ -14,6 +14,9 @@ import useRestaurantMenu from '../../../utils/useRestaurantMenu';
 import RestaurantCategory from '../../Pages/RestaurantMenu/RestaurantCategory';
 
 
+const MainContainer = styled(Box)`
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+`
 
 const MenuContainer = styled(Box)`
 display : flex;
@@ -25,7 +28,6 @@ padding : 1rem 0;
 flex-direction : column;
 align-items : center;
 justify-content : center;
-
 `
 
 const IconBox = styled(Box)`
@@ -184,81 +186,76 @@ const RestaurantMenu = () => {
 
   return (
     <>
-    <Navbar/>
-    <MenuContainer>
+      <Navbar />
+      <MainContainer>
+        <MenuContainer>
         
-      <IconBox onClick={() => navigate('/restaurants')}>
-        <ArrowBackIcon/>
-      </IconBox>
+          <IconBox onClick={() => navigate('/restaurants')}>
+            <ArrowBackIcon/>
+          </IconBox>
 
-      <HeaderBox>
+          <HeaderBox>
+            <InfoBox>
+              <ImageBox>
+                <img src={SWIGGY_CDN_LINK + cloudinaryImageId} alt={name} />
+              </ImageBox>
 
-        <InfoBox>
-
-          <ImageBox>
-             <img src={SWIGGY_CDN_LINK + cloudinaryImageId} alt={name} />
-          </ImageBox>
-
-          <Info>
-              
-            <h2>{name}</h2>
-            <Typography>{cuisines && cuisines.join(', ')}</Typography>
-            <Typography>{locality}, {areaName}, {sla?.lastMileTravelString} </Typography>
+              <Info> 
+                <h2>{name}</h2>
+                <Typography>{cuisines && cuisines.join(', ')}</Typography>
+                <Typography>{locality}, {areaName}, {sla?.lastMileTravelString} </Typography>
             
-            <RatingBox>
+                <RatingBox>
 
-              <Rating style={{ color: avgRatingString >= 4 ? "#228B22" : "#EC3838" }}>
-                <StarIcon />
-                <Typography>{avgRatingString}</Typography>
-              </Rating>
+                  <Rating style={{ color: avgRatingString >= 4 ? "#228B22" : "#EC3838" }}>
+                    <StarIcon />
+                    <Typography>{avgRatingString}</Typography>
+                  </Rating>
 
-              <TotalRating>
-                <h4>({totalRatingsString})</h4>
-              </TotalRating>
+                  <TotalRating>
+                    <h4>({totalRatingsString})</h4>
+                  </TotalRating>
 
-            </RatingBox>
+                </RatingBox>
+              </Info>
+            </InfoBox>
 
-          </Info>
+            <TimeBox>
 
-        </InfoBox>
-
-        <TimeBox>
-
-            <Box sx={{ display: 'flex', gap: '0.8rem', alignItems: 'center', width:'16.5vw' }}> 
-              <Box sx={{display : 'flex', gap :'4px',  alignItems: 'center'}}>
-                 <AccessTimeFilledIcon />
-                 <h4>{sla?.slaString}</h4>
+              <Box sx={{ display: 'flex', gap: '0.8rem', alignItems: 'center', width:'16.5vw' }}> 
+                <Box sx={{display : 'flex', gap :'4px',  alignItems: 'center'}}>
+                   <AccessTimeFilledIcon />
+                   <h4>{sla?.slaString}</h4>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <CurrencyRupeeIcon sx={{fontSize: '20px'}}/>
+                  <h4>{costForTwo / 100} for two</h4>
+                </Box>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <CurrencyRupeeIcon sx={{fontSize: '20px'}}/>
-                <h4>{costForTwo / 100} for two</h4>
-              </Box>
-            </Box>
 
-            <ServiceBox>
-              <RadioButtonCheckedIcon/>
-              <h4>{sla?.serviceability}</h4>
-            </ServiceBox>
-
-        </TimeBox>
-
-      </HeaderBox>
+              <ServiceBox>
+                <RadioButtonCheckedIcon/>
+                <h4>{sla?.serviceability}</h4>
+              </ServiceBox>
+            </TimeBox>  
+          </HeaderBox>
         
-      <MenuInfo>
-          {
-            categories.map((category, index) => (
-              // Controlled Component : A component is controlled when it's managed by its parent using props.
-              <RestaurantCategory
-                key={category?.card?.card.title}
-                data={category?.card?.card}
-                showItems={index === showIndex ? true : false}
-                setShowIndex={() => setShowIndex(index)}
-                dummy = {dummy}
-              />
-            ))
-          }
-      </MenuInfo>
-    </MenuContainer>
+          <MenuInfo>
+            {
+              categories.map((category, index) => (
+                // Controlled Component : A component is controlled when it's managed by its parent using props.
+                <RestaurantCategory
+                  key={category?.card?.card.title}
+                  data={category?.card?.card}
+                  showItems={index === showIndex ? true : false}
+                  setShowIndex={() => setShowIndex(index)}
+                  dummy = {dummy}
+                />
+              ))
+            }
+          </MenuInfo>
+        </MenuContainer>
+      </MainContainer>
   </>
   );
 };

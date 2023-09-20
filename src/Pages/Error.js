@@ -6,7 +6,8 @@ const Style = {
   flexDirection: 'column',
   gap: '5px',
   color: 'red',
-  textAlign: 'center'
+  textAlign: 'center',
+  backgroundImage: 'linear-gradient(toBottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%)'
 }
 
 const Error = () => {

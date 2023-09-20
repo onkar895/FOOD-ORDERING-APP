@@ -123,7 +123,7 @@ font-family: "Trebuchet MS";
 `
 
 const ButtonBox = styled(Button)`
-padding: 1px;
+padding: 3px;
 width: 7vw ;
 align-items: center;
 cursor: pointer;

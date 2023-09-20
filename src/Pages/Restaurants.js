@@ -6,6 +6,10 @@ import Shimmer from '../Components/Shimmer/Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../../utils/useOnlineStatus';
 
+const MainBox = styled(Box)`
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+`
+
 const CardContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
@@ -130,7 +134,7 @@ const Restaurants = () => {
   // if restaurant has data => actual Data shown
   return (
       <>
-      <Box>
+      <MainBox>
         <Box sx={{display : 'flex', justifyContent:'space-between'}}>
           <Box sx={{ display: 'flex', gap: '10px', justifyContent: 'start', alignItems: 'center', margin: '60px 0 0 64px' }}>
             <SearchContainer>
@@ -189,7 +193,7 @@ const Restaurants = () => {
               </CardContainer>
             </>
         )}
-      </Box>
+      </MainBox>
     </>
   )
 }

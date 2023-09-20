@@ -3,12 +3,14 @@ import { Box, styled, Paper, TextField, Button, Typography, Link, AppBar, Toolba
 import UserContext from '../../../utils/userContext'
 import { checkValidData } from '../../../utils/Validate'
 import FoodLogo from '../../Assets/FoodLogo.png'
-import { firebaseAuth } from '../../../utils/Firebase/FirebaseConfig'
+import { firebaseAuth, provider } from '../../../utils/Firebase/FirebaseConfig'
+import { signInWithPopup } from 'firebase/auth'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 import FoodImage from '../../Assets/FoodImage2.png'
+import Google from '../../Assets/google.png'
 import Image from '../../Assets/Image.png'
 import UserContext from '../../../utils/userContext';
 import PersonIcon from '@mui/icons-material/Person';
@@ -81,7 +83,7 @@ margin-right : 2.4rem;
 `
 
 const ButtonBox = styled(Button)`
-padding: 1px;
+padding: 3px;
 width: 7vw ;
 align-items: center;
 cursor: pointer;
@@ -93,6 +95,25 @@ font-weight : bold;
   background : rgb(211,47,47);
   color : white;
   box-shadow : 3px 3px 6px rgb(211,47,47);
+}
+`
+
+const GoogleButtonBox = styled(Button)`
+display : flex;
+align-items : center;
+gap : 10px;
+font-family: "Trebuchet MS";
+background : white;
+color : black;
+padding : 8px;
+
+:hover {
+  background : white;
+  color : black;
+}
+
+& > img {
+  width : 2vw;
 }
 `
 
@@ -144,7 +165,7 @@ const MainContainer = styled(Box)`
 display : flex;
 align-items : center;
 justify-content : center;
-margin-top : 6%;
+margin-top : 3.5%;
 `
 
 const ImageBox = styled(Box)`
@@ -152,6 +173,8 @@ display : flex;
 align-items : center;
 justify-content : center;
 margin-top : 5rem;
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+
 
 & > img:nth-child(1) {
   width : 56vw;
@@ -169,7 +192,7 @@ gap : 3rem;
 justify-content : center;
 width : 28%;
 background-color:  rgba(0,0,0,0.4);
-height : 75vh;
+height : 85vh;
 filter: drop-shadow(2px 2px 6px black);
 border-radius: 10px;
 `
@@ -302,6 +325,16 @@ const Login = () => {
     }
   }
 
+  const handleGoogleClick = async (e) => {
+    e.preventDefault()
+    try {
+      await signInWithPopup(firebaseAuth, provider)
+      navigate('/home')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const toggleSignInForm = () => {
     setIsSignIn(!isSignIn)
   } 
@@ -365,15 +398,22 @@ const Login = () => {
         <MainContainer>
         <PaperBox>
           {
-            isSignIn && 
-              <Header>
+            isSignIn
+            ? <Header>
                 <Box sx={{display: 'flex', alignItems:'center', gap:'10px', color:'white'}}>
                   <h2>Welcome Back</h2>
                   <SentimentSatisfiedAltIcon/>
                 </Box>
-              <Typography>Sign In with your email address and password</Typography>
-            </Header>
-          }
+                <Typography>Sign In with your email address and password</Typography>
+              </Header>
+            : <Header>
+                <Box sx={{display: 'flex', alignItems:'center', gap:'10px', color:'white'}}>
+                  <h2>Welcome Back</h2>
+                  <SentimentSatisfiedAltIcon/>
+                </Box>
+                <Typography>Sign Up with your email address and password</Typography>
+              </Header>
+            }
           <InputBox>
             <h3>{isSignIn ? "Sign In" : "Sign Up"}</h3>
             { 
@@ -404,18 +444,29 @@ const Login = () => {
               variant='filled'
               label='Password'
               required fullWidth>
-            </TextField>
+              </TextField>
+              
 
             <Typography sx={{color:'red', fontSize:'14px', fontFamily:"Trebuchet MS", fontWeight:'bold'}}>{errMessage}</Typography>
 
-            <Button sx={{ fontFamily: "Trebuchet MS"}}
+            <Button sx={{ fontFamily: "Trebuchet MS", padding:'8px 0'}}
               variant='contained'
               size='medium'
               color='error'
               required fullWidth
               onClick={handleClick} >
               {isSignIn ? "Sign In" : "Sign Up"}
-            </Button>
+              </Button>
+
+              {
+                isSignIn && 
+                <Box sx={{color:'white'}}><h5>OR Sign In Using</h5></Box>
+              }
+              
+              {
+                isSignIn && 
+                <GoogleButtonBox onClick={handleGoogleClick} fullWidth><img src={Google} alt=""/><h4>Sign In With Google</h4></GoogleButtonBox>
+              }
              
             <NewUserBox>
               <SignUpLink onClick={toggleSignInForm}><Typography>{isSignIn ? "New User? Sign Up Now" : "Already Registerd? Sign In Now" }</Typography></SignUpLink>

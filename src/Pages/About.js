@@ -6,7 +6,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Navbar from '../Components/Header/Navbar';
+import AboutImage from '../Assets/AboutImage.jpg'
 
+
+const MainContainer = styled(Box)`
+background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+`
 
 const WelcomeBox = styled(Box)`
 display : flex;
@@ -51,6 +56,15 @@ const Container = styled(Box)`
 
 `
 
+const ImageBox = styled(Box)`
+& > img {
+  border-radius : 10px;
+  width : 75vw;
+  height : 80vh;
+  margin-bottom : 10px;
+}
+`
+
 const SubContainer = styled(Box)`
     display: flex;
     flex-direction: column;
@@ -88,65 +102,69 @@ margin-top : 2rem;
 const About = () => {
   return (
     <>
-      <Navbar/>
-      <WelcomeBox>
-        <h1>WELCOME TO FOODIE ZONE!!!</h1>
-      </WelcomeBox>
+      <Navbar />
+      <MainContainer>
+        <WelcomeBox>
+          <h1>WELCOME TO FOODIE ZONE!!!</h1>
+        </WelcomeBox>
       
-      <HeaderBox>
+        <HeaderBox>
+
+          <ImageBox>
+            <img src={AboutImage} alt=""/>
+          </ImageBox>
        
-        <h2>OUR STORY</h2>
-        <Box>
-          <Typography>
-            Everything we do is a celebration of fresh food - from how we source our restaurants and quality food
-          </Typography>
-          <Typography sx={{textAlign : 'center'}}>
-            <strong>to serving up new ways for you to enjoy it. Since, 2018 we've been  committed to</strong> 
-          </Typography>
-          <Typography>
-            bringing you the best restaurants and food experience on our website you won't find anywhere else.
-          </Typography>
-        </Box>
+          <h2>OUR STORY</h2>
+          <Box>
+            <Typography>
+              Everything we do is a celebration of fresh food - from how we source our restaurants and quality food
+            </Typography>
+            <Typography sx={{textAlign : 'center'}}>
+              <strong>to serving up new ways for you to enjoy it. Since, 2018 we've been  committed to</strong> 
+            </Typography>
+            <Typography>
+              bringing you the best restaurants and food experience on our website you won't find anywhere else.
+            </Typography>
+          </Box>
 
-        <Container>
+          <Container>
   
-          <SubContainer>
-            <Box>
-              <VerifiedIcon/> 
-              <Typography>
-                The Foodie Zone offers delivery of <strong>delicious and healthy food.</strong> 
-              </Typography>
-            </Box>
-            <Box>
-              <VerifiedIcon/>
-              <Typography>
+            <SubContainer>
+              <Box>
+                <VerifiedIcon/> 
+                <Typography>
+                  The Foodie Zone offers delivery of <strong>delicious and healthy food.</strong> 
+                </Typography>
+              </Box>
+              <Box>
+                <VerifiedIcon/>
+                <Typography>
                   Our focus is on satisfying hunger with tasty meals and quick, <strong>free delivery.</strong>
-              </Typography>
-            </Box>
-            <Box>
-              <VerifiedIcon/> 
-              <Typography>Customers can order online and receive a <strong> 40% discount </strong> on their orders.</Typography>
-            </Box>
-            <Box>
-              <VerifiedIcon/> 
-              <Typography>The service combines <strong>taste and health</strong> in its food offerings.</Typography>
-            </Box>
-            <Box>
-              <VerifiedIcon/> 
-              <Typography>The emphasis is on <strong>convenience, taste, and affordability</strong> for customers.</Typography>
-            </Box>
-          </SubContainer>
+                </Typography>
+              </Box>
+              <Box>
+                <VerifiedIcon/> 
+                <Typography>Customers can order online and receive a <strong> 40% discount </strong> on their orders.</Typography>
+              </Box>
+              <Box>
+                <VerifiedIcon/> 
+                <Typography>The service combines <strong>taste and health</strong> in its food offerings.</Typography>
+              </Box>
+              <Box>
+                <VerifiedIcon/> 
+                <Typography>The emphasis is on <strong>convenience, taste, and affordability</strong> for customers.</Typography>
+              </Box>
+            </SubContainer>
 
-          <IconContainer>
-            <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: 'rgb(211,47,47)'}} /></a>
-            <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'black'}} /></a>
-            <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{ cursor: 'pointer', color: '#0A66C2' }} /></a>
-            <a href="mailto:onkarkarale4@gmail.com"><MailOutlineIcon sx={{ cursor: 'pointer', color: 'red' }}/></a>
-          </IconContainer>
-
-        </Container>
-
-      </HeaderBox>
+            <IconContainer>
+              <a href="https://www.instagram.com/o_n_k_a_r_0895/"> <InstagramIcon sx={{cursor:'pointer', color: 'rgb(211,47,47)'}} /></a>
+              <a href="https://github.com/onkar895/FOOD-ORDERING-APP"><GitHubIcon sx={{cursor:'pointer', color:'black'}} /></a>
+              <a href="https://www.linkedin.com/in/omkarkarale541/"><LinkedInIcon sx={{ cursor: 'pointer', color: '#0A66C2' }} /></a>
+              <a href="mailto:onkarkarale4@gmail.com"><MailOutlineIcon sx={{ cursor: 'pointer', color: 'red' }}/></a>
+            </IconContainer>
+          </Container>
+        </HeaderBox>
+      </MainContainer>
     </>
   )
 }
