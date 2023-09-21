@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux'
 import EmptyCart from '../../Assets/EmptyCart.png'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../Components/Header/Navbar'
+import Footer from '../../Components/Footer/Footer'
 
 
 const MainContainer = styled(Box)`
-background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+// background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
 `
 
 const MainCartBox = styled(Box)`
@@ -25,7 +26,7 @@ flex-direction : column;
 gap : 2rem;
 align-items : center;
 justify-content : center;
-margin-top : 6rem;
+margin-top : 3rem;
 `
 
 const ItemsBox = styled(Box)`
@@ -87,6 +88,7 @@ const Cart = () => {
         </MainCartBox>
          
       </MainContainer>
+      <Footer/>
   </>
   )
 }

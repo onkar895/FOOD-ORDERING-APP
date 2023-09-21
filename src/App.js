@@ -54,6 +54,7 @@ const MainComponent = () => {
             </Box>
           </UserContext.Provider>
         </Provider>
+        
     </>
   )
 }

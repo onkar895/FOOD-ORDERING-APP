@@ -7,12 +7,13 @@ import { Link } from 'react-router-dom';
 import useOnlineStatus from '../../utils/useOnlineStatus';
 
 const MainBox = styled(Box)`
-background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+// background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
 `
 
 const CardContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
+  padding-bottom : 2rem;
 
   & > a {
      text-decoration: none;

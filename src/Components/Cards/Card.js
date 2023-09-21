@@ -97,7 +97,7 @@ const Card = ({
 
          <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey',   
           textAlign: 'inherit'}}>
-          {cuisines.join(",")}
+          {cuisines.join(", ")}
         </Typography>
 
         <Typography sx={{ fontFamily: "Trebuchet MS", color: 'grey' }}>{areaName}, {Area}</Typography>

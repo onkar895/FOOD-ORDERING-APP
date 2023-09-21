@@ -5,9 +5,10 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import Navbar from "../Components/Header/Navbar";
 import HelpShimmer from "../Components/Shimmer/HelpShimmer";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Footer from "../Components/Footer/Footer";
 
 const MainContainer = styled(Box)`
-background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+// background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
 `
 
 const MainBox = styled(Paper)`
@@ -125,7 +126,8 @@ const Help = () => {
           </ContentBox>
         </MainBox>
       )
-    </MainContainer>  
+      </MainContainer>  
+      <Footer/>
   </>
   )
 }

@@ -12,10 +12,11 @@ import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import useRestaurantMenu from '../../../utils/useRestaurantMenu';
 import RestaurantCategory from '../../Pages/RestaurantMenu/RestaurantCategory';
+import Footer from '../../Components/Footer/Footer';
 
 
 const MainContainer = styled(Box)`
-background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+// background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
 `
 
 const MenuContainer = styled(Box)`
@@ -256,6 +257,7 @@ const RestaurantMenu = () => {
           </MenuInfo>
         </MenuContainer>
       </MainContainer>
+      <Footer/>
   </>
   );
 };

@@ -14,14 +14,14 @@ const HeaderBox = styled(Box)`
 display : flex;
 align-items : start;
 gap : 6rem;
-margin-bottom : 4rem;
+margin-left: 6rem;
 `
 
 const MainContainer = styled(Box)`
 display  :flex;
 justify-content:  space-between;
 align-items : center;
-margin-top : 1rem;
+margin-bottom : 1.5rem;
 width : 45vw;
 padding : 20px;
 box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
@@ -247,7 +247,7 @@ const CartItemList = ({ items, dummy, }) => {
 
   return (
     <> 
-      <h1 sx={{textAlign:'center'}}>Cart</h1>
+      <h1 style={{textAlign:'center', marginBottom:'3rem', color:'rgb(211,47,47)'}}>Cart</h1>
       <HeaderBox>
         <Box>
           {
