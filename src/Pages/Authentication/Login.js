@@ -53,7 +53,7 @@ const HeadingBox = styled(Box)`
     0%   {color: #f32170;}
     25%  {color: #ff6b08;}
     50%  {color: #cf23cf;}
-    100% {color: orange;}
+    100% {color: #F88379;}
   }
 
    & > p:nth-child(1) {
