@@ -49,12 +49,23 @@ const HeadingBox = styled(Box)`
   display: flex;
   flex-direction: column;
 
+  @keyframes example {
+    0%   {color: #f32170;}
+    25%  {color: #ff6b08;}
+    50%  {color: #cf23cf;}
+    100% {color: orange;}
+  }
+
    & > p:nth-child(1) {
     font-family: "Trebuchet MS";
     font-size: 26px;
     color : rgb(211,47,47);
     font-weight: bolder;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
     }
+
     & > p:nth-child(2) {
     font-family: "Trebuchet MS";
     font-size: 12px;
@@ -62,6 +73,9 @@ const HeadingBox = styled(Box)`
     margin-bottom : 6px;
     color : rgb(211,47,47);
     font-weight: bolder;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
     }
   `
 

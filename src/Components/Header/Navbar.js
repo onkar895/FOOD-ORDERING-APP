@@ -47,7 +47,7 @@ const HeadingBox = styled(Box)`
     25%  {color: #ff6b08;}
     50%  {color: #cf23cf;}
     100% {color: orange;}
-}
+  }
 
     & > p:nth-child(1) {
     font-family: "Trebuchet MS";
@@ -55,7 +55,7 @@ const HeadingBox = styled(Box)`
     color : rgb(211,47,47);
     font-weight: bolder;
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     }
 
@@ -67,7 +67,7 @@ const HeadingBox = styled(Box)`
     color : rgb(211,47,47);
     font-weight: bolder;
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     }
   `
