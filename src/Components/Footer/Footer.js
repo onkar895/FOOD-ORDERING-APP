@@ -13,7 +13,7 @@ background : rgb(240,240,245);
 width :100% ;
 height : 18vh;
 padding : 0 5rem;
-margin-top : 2rem;
+margin-top : 5rem;
 
 & > div {
 
@@ -41,7 +41,7 @@ height : 60vh;
 
 const GridContainer = styled(Grid)`
 display : flex;
-margin : 1rem 0 0 2rem;
+margin : 2rem 0 0 2rem;
 
 & > p {
   font-weight : bold;
@@ -215,14 +215,11 @@ const Footer = () => {
 
         </Grid>
 
-        </GridContainer>
+      </GridContainer>
         
-        <Box>
-          
-        </Box>
-
-      </FooterContainer>
-      <SubFooter/>
+    </FooterContainer>
+      
+    <SubFooter/>
   </>
 
 
