@@ -117,7 +117,7 @@ font-weight : bold;
 & button:nth-child(2) {
   font-family: "Trebuchet MS";
   text-transform : capitalize;
-  padding : 15px 46.5px;
+  padding : 12px 46.5px;
   background-color : rgba(211,47,47,0.1);
 
   :hover {
@@ -198,12 +198,12 @@ const CartItemList = ({ items, dummy, }) => {
       toast.success("Removed from Cart", {
         position: "top-center",
         newestOnTop: true,
-        autoClose: 2000,
+        autoClose: 1000,
       }) :
       toast.error("Not Removed", {
         position: "top-center",
         newestOnTop: true,
-        autoClose: 2000,
+        autoClose: 1000,
       })
   }
 
@@ -212,12 +212,12 @@ const CartItemList = ({ items, dummy, }) => {
       toast.success("All Items Removed", {
         position: "top-center",
         newestOnTop: true,
-        autoClose : 2000,
+        autoClose : 1000,
       }) :
       toast.error("Items Not Removed", {
         position: "top-center",
         newestOnTop: true,
-        autoClose : 2000,
+        autoClose : 1000,
       }) 
   }
 
@@ -315,7 +315,7 @@ const CartItemList = ({ items, dummy, }) => {
               <h3>Total Amount :</h3>
               <h3> ₹ {parseFloat(FinalAmount).toFixed(2)}</h3>
             </TotalBox>
-            <Box sx={{marginTop:'15px'}}>
+            <Box sx={{marginTop:'15px',}}>
               <Button onClick={handleClick}
                 variant='contained'
                 color='error'

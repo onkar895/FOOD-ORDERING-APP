@@ -11,9 +11,9 @@ justify-content : space-between;
 align-items : center;
 background : rgb(240,240,245);
 width :100% ;
-height : 20vh;
-padding : 1rem 5rem;
-margin-top : 4rem;
+height : 18vh;
+padding : 0 5rem;
+margin-top : 2rem;
 
 & > div {
 

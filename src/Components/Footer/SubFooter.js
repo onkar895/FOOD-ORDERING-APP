@@ -38,23 +38,23 @@ display : flex;
 align-items : center;
 justify-content : center;
 gap : 6px;
-padding : 10px;
+padding : 12px;
 background-image: linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%);
 
  @keyframes example {
   0%   {color: #f32170;}
   25%  {color: #ff6b08;}
   50%  {color: #cf23cf;}
-  100% {color: orange;}
+  100% {color: #F88379;}
 }
 
 & p {
   font-weight : bold;
   font-family: "Trebuchet MS";
-  font-size : 16px;
+  font-size : 18px;
 }
 
-& h4 {
+& h3 {
   animation-name: example;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -99,7 +99,7 @@ const SubFooter = () => {
       </Container>
       <SubContainer>
         <Typography>Made with ❤️ by</Typography>
-        <h4>Onkar Karale 😊</h4>
+        <h3>Onkar Karale 😊</h3>
       </SubContainer>
     </MainContainer>
   )
