@@ -44,14 +44,14 @@ Follow these steps to set up and run the application locally:
 
 LOCALHOST=1234
 
-4.  Install dependencies:
+2.  Install dependencies:
 
     ```
     cd FOOD ORDERING APP
     npm install
     ```
 
-5.  Inside the cd FOOD ORDERING APP
+3.  Inside the cd FOOD ORDERING APP
     ```
     run this-- npm start
     "start" stands to parcel index.html
