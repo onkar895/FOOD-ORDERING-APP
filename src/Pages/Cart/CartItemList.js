@@ -94,7 +94,7 @@ const RemoveItemBox = styled(Box)`
 cursor : pointer;
 margin-left : 1.5rem;
 color : grey;
- color : rgb(211,47,47);
+color : rgb(211,47,47);
 font-weight : 500;
 `
 
@@ -107,6 +107,7 @@ font-weight : bold;
   font-family: "Trebuchet MS";
   text-transform : capitalize;
   background-color : rgba(55,118,210,0.1);
+
 
   :hover {
     color : white;

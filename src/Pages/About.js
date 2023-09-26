@@ -17,7 +17,7 @@ const WelcomeBox = styled(Box)`
 display : flex;
 align-items:  center;
 justify-content : center;
-margin-top : 5rem;
+margin-top : 6rem;
 background: linear-gradient(to right, #f32170, #ff6b08, #f32170, #cf23cf,#ff6b08, #f32170, #ff6b08);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
