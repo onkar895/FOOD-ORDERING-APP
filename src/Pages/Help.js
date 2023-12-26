@@ -55,7 +55,7 @@ const Help = () => {
 
   const getFAQs = async () => {
     const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/support/issues/faq"
+      "https://corsproxy.org/?https://www.swiggy.com/dapi/support/issues/faq"
     );
     const data1 = await data.json();
     setFaqs(data1?.data?.issues?.data);
