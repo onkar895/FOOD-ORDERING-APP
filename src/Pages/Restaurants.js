@@ -87,8 +87,8 @@ const Restaurants = () => {
       const json = await data.json();
 
       // Optional Chaining
-      const restaurants = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-      
+      const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
       setListOfRestaurants(restaurants);
       setFilteredRestaurants(restaurants);
       console.log(restaurants);
@@ -127,7 +127,8 @@ const Restaurants = () => {
 
   
   // NOT render component (Early return)
-  if (!listOfRestaurants) return <h1 style={{marginTop:'8rem', textAlign:'center', color:'red'}}>SORRY 🙄, RESTAURANTS  NOT AVAILABLE AT THE MOMENT, <br/> PLZ TRY AFTER SOME TIME</h1>
+  if (!listOfRestaurants)
+    return <h1 style={{ marginTop: '8rem', textAlign: 'center', color: 'red' }}>SORRY 🙄, RESTAURANTS  NOT AVAILABLE AT THE MOMENT, <br /> PLZ TRY AFTER SOME TIME</h1>
 
 
   // Conditional Rendering
