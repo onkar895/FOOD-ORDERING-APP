@@ -37,7 +37,7 @@ Follow these steps to set up and run the application locally:
 
 1. Clone the repository:
 
-    ```
+    ```js
     git clone https://github.com/your-username/FOOD ORDERING APP.git
     cd FOOD ORDERING APP
     ```
@@ -46,13 +46,13 @@ LOCALHOST=1234
 
 2.  Install dependencies:
 
-    ```
+    ```js
     cd FOOD ORDERING APP
     npm install
     ```
 
 3.  Inside the cd FOOD ORDERING APP
-    ```
+    ```js
     run this-- npm start
     "start" stands to parcel index.html
     mentioned it in your package.json file like -
