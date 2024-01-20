@@ -4,7 +4,7 @@
 
 For an optimal experience, please access the website in desktop view, as it is currently not responsive. 👀
 
-Live Project : https://food-ordering-6xznbq71n-onkar895.vercel.app/
+Live Project : https://food-ordering-app-gilt.vercel.app/
 
 ## Technologies Used :
 

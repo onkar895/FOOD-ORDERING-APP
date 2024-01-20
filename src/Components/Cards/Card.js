@@ -90,7 +90,7 @@ const Card = ({
   const {Area} = useContext(UserContext)
   
   return (
-    <RestCard >
+    <RestCard>
       <img src={ SWIGGY_CDN_LINK + cloudinaryImageId} alt='Images'/>
       <CardInfo>
         <h2>{name}</h2>
@@ -112,8 +112,6 @@ const Card = ({
           </Box>
           <Box><h4>{costForTwo}</h4></Box>
         </RatingContainer>
-      
-        
       </CardInfo>
     </RestCard>
     
