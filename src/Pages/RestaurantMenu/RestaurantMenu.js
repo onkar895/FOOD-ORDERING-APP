@@ -146,13 +146,15 @@ const RestaurantMenu = () => {
   // It just have to worry about that I have this resInfo, I have got my restaurant Data inside it and I just want to display it. So,now it does'nt have to manage its own state. It's somehow magically acces to this resInfo.
   const resInfo = useRestaurantMenu(resId)  // Custom Hook which is defined in utils folder.
 
+  console.log(resInfo)
+
   if (resInfo === null) {
     return <MenuShimmer />;
   }
 
   // Ensure the necessary nested properties are available
-  const cardInfo = resInfo?.cards?.[0]?.card?.card?.info;
-
+  const cardInfo = resInfo?.cards?.[2]?.card?.card?.info;
+  console.log(cardInfo)
   if (!cardInfo) {
     return <Box>Menu information not available.</Box>;
   }
@@ -171,16 +173,15 @@ const RestaurantMenu = () => {
     } = cardInfo;
   
 
-// console.log('resInfo:', resInfo);
-  const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  // const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   // console.log(itemCards);
 
-  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
     (c) =>
       c.card?.card?.['@type'] === 
       'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
   );
-  // console.log(categories)
+  console.log(categories)
 
    // Props Drilling
   const dummy = "Dummy Data";
@@ -243,7 +244,7 @@ const RestaurantMenu = () => {
         
           <MenuInfo>
             {
-              categories.map((category, index) => (
+             categories && categories.map((category, index) => (
                 // Controlled Component : A component is controlled when it's managed by its parent using props.
                 <RestaurantCategory
                   key={category?.card?.card.title}
