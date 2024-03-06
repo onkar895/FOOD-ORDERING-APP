@@ -153,7 +153,7 @@ const RestaurantMenu = () => {
   }
 
   // Ensure the necessary nested properties are available
-  const cardInfo = resInfo?.cards?.[2]?.card?.card?.info;
+  const cardInfo = resInfo?.cards?.[0]?.card?.card?.info;
   console.log(cardInfo)
   if (!cardInfo) {
     return <Box>Menu information not available.</Box>;
@@ -176,7 +176,7 @@ const RestaurantMenu = () => {
   // const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   // console.log(itemCards);
 
-  const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
     (c) =>
       c.card?.card?.['@type'] === 
       'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
