@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Typography, styled, Button } from '@mui/material';
 import MenuShimmer from '../../Components/Shimmer/MenuShimmer';
 import { SWIGGY_CDN_LINK} from '../../../utils/Constants';
@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';  // import useParams for read `res
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../Components/Header/Navbar';
 import StarIcon from '@mui/icons-material/Star';
+import { useLocation } from 'react-router-dom';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
@@ -139,6 +140,12 @@ const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(null)
 
   const navigate = useNavigate()
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const { resId } = useParams()  // call useParams and get value of restaurant id using object destructuring
 
