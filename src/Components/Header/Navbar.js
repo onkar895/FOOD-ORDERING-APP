@@ -248,7 +248,7 @@ const Navbar = () => {
                     <ShoppingBasketIcon/>
                     <CartItemBox>
                       <Item>
-                        {cartItems.length}
+                        {cartItems?.length}
                       </Item> 
                     </CartItemBox> 
                   </CartBox>

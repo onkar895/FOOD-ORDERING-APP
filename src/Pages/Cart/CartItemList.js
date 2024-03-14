@@ -195,7 +195,7 @@ const CartItemList = ({ items, dummy, }) => {
   const navigate = useNavigate()
 
   const handleRemove = (item) => {
-    dispatch(removeItem(item)) ?
+    dispatch(removeItem({item})) ?
       toast.success("Removed from Cart", {
         position: "top-center",
         newestOnTop: true,
@@ -277,7 +277,7 @@ const CartItemList = ({ items, dummy, }) => {
                     <button onClick={() => handleAddItem(item)}><h4>+</h4></button>
                   </AddRemoveBox> */}
               
-                  <RemoveItemBox onClick={() => handleRemove(item)}>
+                  <RemoveItemBox onClick={() => handleRemove()}>
                      Remove
                   </RemoveItemBox>
               
