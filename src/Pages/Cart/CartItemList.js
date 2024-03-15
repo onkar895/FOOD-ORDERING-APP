@@ -145,11 +145,11 @@ padding: 10px 0 15px 0;
 
   & p {
     font-family: "Trebuchet MS";
-    font-size: 18px;
+    font-size: 14px;
     color : black;
   }
 
-  & h3 {
+  & h4 {
      font-family: "Trebuchet MS";
      color: black;
   }
@@ -248,7 +248,7 @@ const CartItemList = ({ items, dummy, }) => {
 
   return (
     <> 
-      <h1 style={{textAlign:'center', marginBottom:'3rem', color:'rgb(211,47,47)'}}>Cart</h1>
+      <h1 style={{textAlign:'center', marginBottom:'1rem', color:'rgb(211,47,47)'}}>Cart</h1>
       <HeaderBox>
         <Box>
           {
@@ -278,7 +278,7 @@ const CartItemList = ({ items, dummy, }) => {
                   </AddRemoveBox> */}
               
                   <RemoveItemBox onClick={() => handleRemove()}>
-                     Remove
+                     <h5>Remove</h5>
                   </RemoveItemBox>
               
               </MainContainer> 
@@ -294,15 +294,15 @@ const CartItemList = ({ items, dummy, }) => {
             <InfoBox>
               <Box>
                 <Typography>Price: ({items.length} Items)</Typography>
-                <h3>{`₹ ${TotalAmount}`}</h3>
+                <h4>{`₹ ${parseFloat(TotalAmount).toFixed(2)}`}</h4>
               </Box>
               <Box>
                 <Typography>Discount (10%):</Typography>
-                <h3>- ₹ {parseFloat(Discount).toFixed(2)}</h3>
+                <h4>- ₹ {parseFloat(Discount).toFixed(2)}</h4>
               </Box>
               <Box>
                 <Typography>Delivery Charges (5%):</Typography>
-                <h3>+ ₹ {parseFloat(DeliveryCharges).toFixed(2)}</h3>
+                <h4>+ ₹ {parseFloat(DeliveryCharges).toFixed(2)}</h4>
               </Box>
               {/* <Box>
                 <Typography>Taxes (8%):</Typography>

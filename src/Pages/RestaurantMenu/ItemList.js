@@ -106,7 +106,7 @@ const ItemList = ({ items, dummy }) => {
       {
           items && items.map((item) => (
             
-            <MainContainer >
+            <MainContainer>
               <CardContent key={item.card.info.id}>
                 <Box>
                   <h3>{item.card.info.name}</h3>

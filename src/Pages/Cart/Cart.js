@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Box, Typography, styled, Button } from '@mui/material'
 import CartItemList from '../Cart/CartItemList'
 import { useSelector } from 'react-redux'
 import EmptyCart from '../../Assets/EmptyCart.png'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Navbar from '../../Components/Header/Navbar'
 import Footer from '../../Components/Footer/Footer'
 
@@ -40,7 +40,7 @@ align-items : center;
 gap : 2rem;
 
 & > img {
-  width : 50vw;
+  width : 45vw;
 }
 
  & h2  {
@@ -60,6 +60,12 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.items)
 
   const navigate = useNavigate()
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
 
   return (
