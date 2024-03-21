@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card, {withPromotedLabel} from '../Components/Cards/Card'
 import { Box, styled, Button, TextField } from '@mui/material';
-import { SWIGGY_API_URL } from '../../utils/Constants';
+import { SWIGGY_API_URL, SWIGGY_API_URL_CORS } from '../../utils/Constants';
 import Shimmer from '../Components/Shimmer/Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../../utils/useOnlineStatus';
@@ -83,7 +83,7 @@ const Restaurants = () => {
 
   const getRestaurants = async () => {
     try {
-      const data = await fetch(SWIGGY_API_URL);
+      const data = await fetch(SWIGGY_API_URL_CORS || SWIGGY_API_URL);
       const json = await data.json();
 
       // Optional Chaining
