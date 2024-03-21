@@ -83,7 +83,7 @@ const Restaurants = () => {
 
   const getRestaurants = async () => {
     try {
-      const data = await fetch(SWIGGY_API_URL_CORS || SWIGGY_API_URL);
+      const data = await fetch(SWIGGY_API_URL_CORS);
       const json = await data.json();
 
       // Optional Chaining

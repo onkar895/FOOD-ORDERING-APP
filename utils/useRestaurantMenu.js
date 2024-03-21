@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { SWIGGY_MENU_API } from '../utils/Constants';
+import { SWIGGY_MENU_API, SWIGGY_MENU_API_CORS } from '../utils/Constants';
 
 // Now here we have the resId and it has to fetch the data and return the restInfo back to where that hook is being called from.  So, we are taking the resId and returning the resInfo.
 const useRestaurantMenu = (resId) => {
@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
   // fetchData
   const fetchMenu = async () => {
     try {
-      const data = await fetch(SWIGGY_MENU_API + resId);
+      const data = await fetch(SWIGGY_MENU_API_CORS + resId);
       const json = await data.json();
       // console.log(json);
       setResInfo(json.data);
