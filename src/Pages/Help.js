@@ -6,6 +6,7 @@ import Navbar from "../Components/Header/Navbar";
 import HelpShimmer from "../Components/Shimmer/HelpShimmer";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Footer from "../Components/Footer/Footer";
+import { FAQ } from "../../utils/Constants";
 
 const MainContainer = styled(Box)`
 // background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
@@ -45,25 +46,25 @@ const DropDownContent = styled(Box)`
 `
 
 const Help = () => {
-  const [faqs, setFaqs] = useState(null);
+  // const [faqs, setFaqs] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
 
-  useEffect(() => {
-    getFAQs();
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   getFAQs();
+  //   // eslint-disable-next-line
+  // }, []);
 
-  const getFAQs = async () => {
-    const data = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/support/issues/faq');
-    const data1 = await data.json();
-    setFaqs(data1?.data?.issues?.data);
-  };
+  // const getFAQs = async () => {
+  //   const data = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/support/issues/faq');
+  //   const data1 = await data.json();
+  //   setFaqs(data1?.data?.issues?.data);
+  // };
 
   const handleClick = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  if (faqs === null) {
+  if (FAQ === null) {
     return <HelpShimmer />;
   }
 
@@ -72,7 +73,7 @@ const Help = () => {
     <Navbar/>
     
     <MainContainer>
-      faqs && (
+      FAQ && (
         <MainBox>
     
           <ContentBox>
@@ -82,7 +83,7 @@ const Help = () => {
             </Box>
           
             {
-              faqs?.map((item, index) => {
+              FAQ?.map((item, index) => {
                 return (
                   (item.description || item.hyperLink) &&
                   (
