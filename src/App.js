@@ -44,7 +44,6 @@ const MainComponent = () => {
 
   return (
     <>
-      
         <Provider store={appStore}>
           <UserContext.Provider value={{loggedInUser : userName, setUserName, Area}}>
         
@@ -70,7 +69,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/restaurants',
-        element: <Menu/>,
+         element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Menu/>
+          </Suspense>
+        )
       },
       {
         path: '/about',
