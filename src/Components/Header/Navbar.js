@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../../../utils/userContext';
 // import useOnlineStatus from '../../../utils/useOnlineStatus';
+import { onAuthStateChanged} from 'firebase/auth'
 import PersonIcon from '@mui/icons-material/Person';
 import { useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth'
@@ -171,7 +172,7 @@ font-weight : bolder;
 const Navbar = () => {
 
   // Using Context
-  const {loggedInUser} = useContext(UserContext)
+  const {loggedInUser, userName, user} = useContext(UserContext)
   // console.log(loggedInUser);
   
   //1. If no dependency array => useEffect is called on every render
@@ -183,9 +184,9 @@ const Navbar = () => {
 
   const navigate = useNavigate()
   
-  //  onAuthStateChanged(firebaseAuth, (currentUser) => {
-  //   if (!currentUser) navigate('/')
-  // })
+   onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (!currentUser) navigate('/')
+  })
 
   const handleSignOut = async (e) => {
     e.preventDefault();
@@ -269,7 +270,7 @@ const Navbar = () => {
             
              <LoggedOutBox>
               <PersonIcon/>
-              {loggedInUser}
+              {userName ? loggedInUser : user?.displayName}
             </LoggedOutBox>
 
             <ButtonBox onClick={handleSignOut} variant='outlined' color='error'>

@@ -14,6 +14,8 @@ import RestaurantMenu from './Pages/RestaurantMenu/RestaurantMenu'
 // import Grocery from './Components/Grocery/Grocery'
 import UserContext from '../utils/userContext'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth'
+import { firebaseAuth } from '../utils/Firebase/FirebaseConfig'
 import { Provider } from 'react-redux'
 import appStore from './Store/appStore'
 
@@ -32,8 +34,19 @@ import appStore from './Store/appStore'
 const MainComponent = () => {
 
   const [userName, setUserName] = useState()
+  const [user, setUser] = useState({})
 
   const Area = "Pune"
+
+   useEffect(() => {
+    const unSubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
+      setUser(currentUser)
+      console.log("user", currentUser)
+    })
+    return () => {
+      unSubscribe();
+    }
+  },[])
 
   useEffect(() => {
     const data = {
@@ -45,7 +58,7 @@ const MainComponent = () => {
   return (
     <>
         <Provider store={appStore}>
-          <UserContext.Provider value={{loggedInUser : userName, setUserName, Area}}>
+          <UserContext.Provider value={{loggedInUser : userName, setUserName,user, Area}}>
         
             <Box style={{ marginTop: '3rem' }}>
               {/* Outlet is like a tunnel so all the children according to the routes go inside and come over here in place of this Outlet. */}

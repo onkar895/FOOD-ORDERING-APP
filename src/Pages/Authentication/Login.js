@@ -358,14 +358,15 @@ const Login = () => {
     }
   }
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
-      setUser(currentUser)
-    })
-    return () => {
-      unSubscribe();
-    }
-  })
+  // useEffect(() => {
+  //   const unSubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
+  //     setUser(currentUser)
+  //     console.log("user", currentUser)
+  //   })
+  //   return () => {
+  //     unSubscribe();
+  //   }
+  // },[])
 
 
   const toggleSignInForm = () => {
