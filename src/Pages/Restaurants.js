@@ -87,7 +87,7 @@ const Restaurants = () => {
       const json = await data.json();
 
       // Optional Chaining
-      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
       setListOfRestaurants(restaurants);
       setFilteredRestaurants(restaurants);
