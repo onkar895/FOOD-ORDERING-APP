@@ -348,7 +348,6 @@ const Login = () => {
        closeOnClick: true, // Close the toast when clicked
        pauseOnHover: true, // Pause autoClose on hover for better readability
 });
-      
     } else {
       try {
         await signInWithEmailAndPassword(firebaseAuth, email.current.value, password.current.value)
