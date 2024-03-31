@@ -331,11 +331,23 @@ const Login = () => {
       } catch (err) {
         setErrMessage(err.message)
       }
-      toast.success("Signed Up Successfully", {
-        position: "top-center",
-        newestOnTop: true,
-        autoClose : 1000,
-      }) 
+      toast.success(
+      <div>
+        <div style={{fontSize:'14px', textAlign: "center", color:'gray'}}>
+            "Congratulations! Your account has been successfully created. 
+        </div>
+        <div style={{fontSize:'12px', textAlign: "center", color:'black'}}>
+          Click below to Sign In Now."
+        </div>
+      </div> ,
+        {
+       position: "top-center",
+       newestOnTop: true,
+       autoClose: 5000, // Adjusted autoClose time
+       closeButton: true, // Added a close button for better user control
+       closeOnClick: true, // Close the toast when clicked
+       pauseOnHover: true, // Pause autoClose on hover for better readability
+});
       
     } else {
       try {
