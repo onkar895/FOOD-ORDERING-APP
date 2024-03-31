@@ -231,7 +231,7 @@ const regularCards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.card
 
             <TimeBox>
 
-              <Box sx={{ display: 'flex', gap: '0.8rem', alignItems: 'center', width:'16.5vw' }}> 
+              <Box sx={{ display: 'flex', gap: '0.8rem', alignItems: 'center' }}> 
                 <Box sx={{display : 'flex', gap :'4px',  alignItems: 'center'}}>
                    <AccessTimeFilledIcon />
                    <h4>{sla?.slaString}</h4>

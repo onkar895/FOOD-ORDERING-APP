@@ -334,10 +334,10 @@ const Login = () => {
       toast.success(
       <div>
         <div style={{fontSize:'14px', textAlign: "center", color:'gray'}}>
-            "Congratulations! Your account has been successfully created. 
+            "Congratulations!" Your account has been successfully created. 
         </div>
         <div style={{fontSize:'12px', textAlign: "center", color:'black'}}>
-          Click below to Sign In Now."
+          Click on the "Sign In Now" text below to Sign In.."
         </div>
       </div> ,
         {
