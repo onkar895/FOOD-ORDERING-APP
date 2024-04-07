@@ -1,5 +1,6 @@
 // Image CDN URL for Restaurant card
-export const SWIGGY_CDN_LINK = 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'
+export const SWIGGY_CDN_LINK = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'
+// 'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/'
 
 // Swiggy API to get Restaurant data with corsproxy
 export const SWIGGY_API_URL =
