@@ -49,25 +49,25 @@ const HeadingBox = styled(Box)`
     }
 
     & > p:nth-child(1) {
-        font-family: "Trebuchet MS";
+        font-family : ubuntu;
         font-size: 26px;
         color: rgb(211,47,47);
         font-weight: bolder;
-        animation-name: example;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
+        // animation-name: example;
+        // animation-duration: 6s;
+        // animation-iteration-count: infinite;
     }
 
     & > p:nth-child(2) {
-        font-family: "Trebuchet MS";
+       font-family : ubuntu;
         font-size: 12px;
         margin-left: 3rem;
         margin-bottom: 3px;
         color: rgb(211,47,47);
         font-weight: bolder;
-        animation-name: example;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
+        // animation-name: example;
+        // animation-duration: 6s;
+        // animation-iteration-count: infinite;
     }
 `;
 

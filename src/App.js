@@ -18,6 +18,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { firebaseAuth } from '../utils/Firebase/FirebaseConfig'
 import { Provider } from 'react-redux'
 import appStore from './Store/appStore'
+import './index.css'
 
 
 
