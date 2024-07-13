@@ -60,7 +60,6 @@ const MainComponent = () => {
     <>
         <Provider store={appStore}>
           <UserContext.Provider value={{loggedInUser : userName, setUserName,user, Area}}>
-        
             <Box style={{ marginTop: '3rem' }}>
               {/* Outlet is like a tunnel so all the children according to the routes go inside and come over here in place of this Outlet. */}
               <Outlet/>  
