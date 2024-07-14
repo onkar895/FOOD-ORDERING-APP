@@ -72,7 +72,7 @@ const ButtonBox = styled(Button)(({ theme }) => ({
 const Restaurants = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  isMediumScreen = useMediaQuery(theme.breakpoints.between('sm','md'))
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm','md'))
 
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState('');

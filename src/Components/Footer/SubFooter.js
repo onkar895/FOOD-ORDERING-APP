@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, styled, Box, useTheme, useMediaQuery } from '@mui/material';
+import { Typography, styled, Box} from '@mui/material';
 import FoodLogo from '../../Assets/FoodLogo.png';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -87,8 +87,6 @@ const SubContainer = styled(Box)(({ theme }) => ({
 }));
 
 const SubFooter = () => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <MainContainer>
@@ -114,7 +112,7 @@ const SubFooter = () => {
       </Container>
       <SubContainer>
         <Typography>Made with ❤️ by</Typography>
-        <Typography variant='h5' sx={{ animationName: 'example', animationDuration: '4s', animationIterationCount: 'infinite', textAlign: 'center' }}>
+        <Typography variant='h6' sx={{ animationName: 'example', animationDuration: '4s', animationIterationCount: 'infinite', textAlign: 'center' }}>
           Onkar Karale 😊
         </Typography>
       </SubContainer>

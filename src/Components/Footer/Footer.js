@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, styled, Box, Link, useTheme, useMediaQuery } from '@mui/material';
+import { Grid, Typography, styled, Box, Link, useTheme } from '@mui/material';
 import AppStore from '../../Assets/app_store.png';
 import PlayStore from '../../Assets/play_store.jpg';
 import SubFooter from './SubFooter';
@@ -59,8 +59,8 @@ const FooterContainer = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down('sm')]: {
     height: 'auto',
-    padding: '1rem',
     width: '100%',
+    padding: '1rem',
   },
 
   [theme.breakpoints.down('md')]: {
@@ -100,6 +100,7 @@ const Panel = styled(Box)(({ theme }) => ({
 const LeftPanel = styled(Panel)(({ theme }) => ({
   display: 'flex',
   gap: '6rem',
+  marginRight:'3rem',
 
   '& > div': {
     '& p': {
@@ -128,6 +129,7 @@ const LeftPanel = styled(Panel)(({ theme }) => ({
 const RightPanel = styled(Panel)(({ theme }) => ({
   borderLeft: '1px solid grey',
   paddingLeft: '25px',
+  marginRight:'3rem',
   [theme.breakpoints.down('md')]: {
     borderLeft: 'none',
     paddingLeft: '0',
@@ -136,7 +138,6 @@ const RightPanel = styled(Panel)(({ theme }) => ({
 
 const Footer = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>

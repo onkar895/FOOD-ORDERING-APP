@@ -157,8 +157,12 @@ export const GoogleButtonBox = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     padding: '10px',
+    
     '& p': {
       fontSize: '12px'
+    },
+    '& > img': {
+      width: '4vw'
     }
   }
 }))
