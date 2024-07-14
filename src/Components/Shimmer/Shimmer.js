@@ -11,7 +11,6 @@ width : 243px;
 height : 310px;
 margin : 1.8rem 0 0 3.8rem;
 border-radius : 10px;
-background-color: rgb(255,255,255);
 box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
 padding : 5px;
 }
@@ -22,7 +21,7 @@ width : 95%;
 height : 52%;
 margin : 5px;
 border-radius : 10px;
-background-color: #E5E4E2;
+background-color: #B2BEB5;
 `
 
 
@@ -30,7 +29,7 @@ const HeaderBox = styled(Box)`
 width : 40vw;
 margin: 2rem 0 0 3.8rem;
 height : 3vw;
-background-color: #E5E4E2;
+background-color: #B2BEB5;
 border-radius : 5px;
 `
 
@@ -43,21 +42,21 @@ flex-wrap : wrap;
 overflow:  hidden;
 
 & h2 {
-  background-color: #E5E4E2;
+  background-color: #B2BEB5;
   width : 12vw;
   padding : 8px;
   border-radius: 5px;
 }
 
 & h4 {
-  background-color: #E5E4E2;
+  background-color: #B2BEB5;
   width : 16.8vw;
   padding : 6px;
   border-radius: 5px;
 }
 
 & span {
-  background-color: #E5E4E2;
+  background-color: #B2BEB5;
   width : 8vw;
   padding : 6px;
   border-radius: 5px;
@@ -65,7 +64,7 @@ overflow:  hidden;
 `
 
 const Rating = styled(Box)`
- background-color: #E5E4E2;
+ background-color: #B2BEB5;
  width : 16.8vw;
  padding : 6px;
  border-radius: 5px;

@@ -134,9 +134,10 @@ export const NavItems = styled(Box)(({ theme }) => ({
 export const MobileNavItems = styled(Box)(({ theme, visible }) => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems:'start',
+  alignItems: 'center',
+  letterSpacing: '.1rem',
   gap: '2rem',
-   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0.3) 0%, rgba(230,99,103,0.2) 100%)',
+   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0.3) 0%, rgba(230,99,103,0.1) 100%)',
   backgroundColor: '#ffffff',
   padding: '2rem 1.4rem',
   fontSize: '20px',
@@ -232,7 +233,7 @@ export const ButtonBox = styled(Button)(({ theme }) => ({
     boxShadow: '3px 3px 6px rgb(211,47,47)',
   },
   [theme.breakpoints.down('sm')]: {
-     padding: '5px 15px',
+     padding: '8px 50px',
   },
 }));
 

@@ -18,10 +18,12 @@ const MainBox = styled(Box)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  padding: 2rem;
 
-  @media (max-width: 960px) {
-    margin-top: 0;
+   @media (max-width: 960px) {
+      position: relative;
+        margin-top: 0;
+        padding: 0;
   }
 `;
 
@@ -79,6 +81,7 @@ const ButtonContainer = styled(Box)`
   & > button {
     border: 2px solid rgb(211, 47, 47);
     font-family: "Trebuchet MS";
+    
   }
 
   & > button:hover {

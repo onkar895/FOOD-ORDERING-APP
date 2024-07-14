@@ -11,9 +11,8 @@ flex-direction : column;
 width : 260px;
 height : 330px;
 margin : 20px 0 0 48px;
-background-color: white;
+background-color: rgb(252,239,240);
 border-radius : 10px;
-// filter: drop-shadow(5px 5px 5px black);
 
 :hover {
   filter: drop-shadow(3px 3px 3px black);
