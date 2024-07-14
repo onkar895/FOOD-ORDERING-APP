@@ -6,15 +6,20 @@ export const HeaderBox = styled(Toolbar)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  height: '14vh',
+  height:'15vh',
+  padding:'10px 0',
   border: 'none',
   backgroundColor: '#ffffff',
-  backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%)',
+  backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0.3) 0%, rgba(230,99,103,0.1) 100%)',
+
   [theme.breakpoints.down('sm')]: {
-    height: '10vh',
+    padding: '0 10px',
+    height:'10vh',
   },
-  [theme.breakpoints.down('md')]: {
-    height: '12vh',
+  
+  [theme.breakpoints.between('sm','md')]: {
+    padding: '5px 15px',
+    height:'12vh',
   },
 }));
 
@@ -42,15 +47,17 @@ export const HeadingBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     display: 'flex',
     flexDirection: 'column',
+   
     '& > p:nth-child(1), & > p:nth-child(2)': {
       fontFamily: 'ubuntu',
       fontSize: '26px',
       color: 'rgb(211,47,47)',
       fontWeight: 'bolder',
+      letterSpacing: '.1rem',
     },
     '& > p:nth-child(2)': {
       fontSize: '12px',
-      marginLeft: '3rem',
+      marginLeft: '2.5rem',
       marginBottom: '3px',
     },
   },
@@ -61,11 +68,13 @@ export const HeadingBox = styled(Box)(({ theme }) => ({
     fontWeight: 'bolder',
     display: 'flex',
     flexDirection: 'column',
+
     '& > p:nth-child(1)': {
       fontFamily: 'ubuntu',
       fontSize: '26px',
       color: 'rgb(211,47,47)',
       fontWeight: 'bolder',
+      letterSpacing: '.1rem',
     },
     '& > p:nth-child(2)': {
       fontSize: '12px',
@@ -127,6 +136,7 @@ export const MobileNavItems = styled(Box)(({ theme, visible }) => ({
   flexDirection: 'column',
   alignItems:'start',
   gap: '2rem',
+   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0.3) 0%, rgba(230,99,103,0.2) 100%)',
   backgroundColor: '#ffffff',
   padding: '2rem 1.4rem',
   fontSize: '20px',
