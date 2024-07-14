@@ -24,8 +24,8 @@ const MenuContainer = styled(Box)`
 display : flex;
 // box-shadow : 1px 1px 5px grey;
 border : 1px solid rgba(208,208,208,0.8);
-width : 72%;
-margin: 6rem auto;
+width : 80%;
+margin: 8rem auto;
 padding : 1rem 0;
 flex-direction : column;
 align-items : center;
@@ -33,7 +33,7 @@ justify-content : center;
 `
 
 const IconBox = styled(Box)`
-margin:0 53.5rem 1rem 0;
+margin: 0 53.5rem 1rem 0;
 cursor : pointer;
 color : grey;
 
@@ -183,7 +183,7 @@ const RestaurantMenu = () => {
   // const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   // console.log(itemCards);
 const regularCards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-  const categories = regularCards.filter(
+  const categories = regularCards?.filter(
     (c) =>
       c.card?.card?.['@type'] === 
       'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'

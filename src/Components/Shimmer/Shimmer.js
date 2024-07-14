@@ -17,7 +17,7 @@ const ShimmerBox = styled(Box)(({ theme }) => ({
       width: '100%',
       justifyContent: 'center',
       height: '45vh',
-      margin: '0.5rem',
+      margin: '1rem',
     },
 
     [theme.breakpoints.between('sm','md')]: {

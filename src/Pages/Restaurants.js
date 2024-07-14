@@ -27,8 +27,8 @@ const SearchContainer = styled(Box)(({ theme }) => ({
     color: 'grey',
   },
 
-  [theme.breakpoints.between('sm', 'md')]: {
-    margin: '2rem 0',
+  [theme.breakpoints.between('sm','md')]: {
+    margin: '2rem auto',
   },
 }));
 
@@ -58,7 +58,7 @@ const ButtonBox = styled(Button)(({ theme }) => ({
     color: 'white',
   },
   [theme.breakpoints.down('md')]: {
-    margin: '5.6rem 2rem 0 0',
+    margin: '5.6rem 5rem 0 0',
     width: '25vw',
     height: '4.2vh',
   },
@@ -144,12 +144,12 @@ const Restaurants = () => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', justifyContent: 'space-between' }}>
+      <Box sx={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', justifyContent: 'space-between', }}>
         <Box sx={{ display: 'flex', gap: '5px', justifyContent: 'center', alignItems: 'center', margin: isSmallScreen ? '4rem 0.8rem 0 0.8rem' : '60px 0 0 64px',}}
         >
           <SearchContainer>
             <TextField
-              sx={{ width: isSmallScreen ? '70vw' : '32vw', width : isMediumScreen ? "45vw" : "32vw" }}
+              sx={{ width: isSmallScreen ? '70vw' : '32vw'}}
               variant='outlined'
               color='error'
               size='small'
@@ -173,7 +173,7 @@ const Restaurants = () => {
         <Shimmer />
       ) : (
         <>
-          <Box sx={{ margin: isSmallScreen ? "1rem" : "30px 0 0 64px", textAlign : isSmallScreen ? "center" : "start", letterSpacing: '.1rem', fontSize: isSmallScreen ? "1rem" : "", textAlign : isMediumScreen ? "center" : "start" }}>
+          <Box sx={{ margin: isSmallScreen ? "1rem" : "30px 0 0 64px", textAlign : isSmallScreen ? "center" : "start", letterSpacing: '.1rem', fontSize: isSmallScreen ? "1rem" : "", }}>
             <h2>Restaurants with online food delivery in Pune</h2>
           </Box>
           <CardContainer>

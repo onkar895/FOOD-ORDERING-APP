@@ -31,9 +31,9 @@ const RestCard = styled(Box)(({ theme }) => ({
   },
 
   [theme.breakpoints.down('sm')]: {
-    width: '100%',
+    width: '96%',
     height: 'auto',
-    margin: '20px 7.5px',
+    margin: '10px 13px',
   },
 }));
 

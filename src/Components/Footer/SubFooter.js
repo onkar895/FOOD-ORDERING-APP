@@ -1,96 +1,111 @@
-import React from 'react'
-import { Typography, styled, Box } from '@mui/material'
-import FoodLogo from '../../Assets/FoodLogo.png'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import MailOutlineIcon from '@mui/icons-material/MailOutline'
+import React from 'react';
+import { Typography, styled, Box, useTheme, useMediaQuery } from '@mui/material';
+import FoodLogo from '../../Assets/FoodLogo.png';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 const MainContainer = styled(Box)`
-display : flex;
-flex-direction : column;
-`
+  display: flex;
+  flex-direction: column;
+`;
 
-const Container = styled(Box)`
-display : flex;
-align-items : center;
-justify-content: space-between;
-background :  rgb(2,6,12);
-width :100% ;
-height : 15vh;
-padding : 1rem 6rem;
-color : white;
-margin-top: 0.1rem;
+const Container = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  background: 'rgb(2, 6, 12)',
+  width: '100%',
+  height: '15vh',
+  padding: '1rem 6rem',
+  color: 'white',
+  marginTop: '0.1rem',
 
-& > img {
-  width : 6vw;
-}
 
-& p {
-  font-family: "Trebuchet MS";
-  font-size : 18px;
-  font-weight: 900;
-}
-`
+  [theme.breakpoints.down('sm')]: {
+    padding: '1rem 2rem',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: 'auto',
+    gap:'15px'
+  },
+  [theme.breakpoints.down('md')]: {
+    padding: '1rem 2rem',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: 'auto',
+    gap:'20px'
+  },
+}));
 
-const SubContainer = styled(Box)`
-display : flex;
-align-items : center;
-justify-content : center;
-gap : 6px;
-padding : 12px;
-background-image: linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%);
+const LogoImage = styled('img')(({ theme }) => ({
+  width: '6vw',
+  [theme.breakpoints.down('md')]: {
+    width: '15vw',
+    marginBottom: '1rem',
+  },
+}));
 
- @keyframes example {
-  0%   {color: #f32170;}
-  25%  {color: #ff6b08;}
-  50%  {color: #cf23cf;}
-  100% {color: #F88379;}
-}
+const FooterText = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Trebuchet MS',
+  fontSize: '18px',
+  fontWeight: 900,
+  [theme.breakpoints.down('md')]: {
+    textAlign: 'center',
+  },
+}));
 
-& p {
-  font-weight : bold;
-  font-family: "Trebuchet MS";
-  font-size : 18px;
-}
+const IconContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: '20px',
+  alignItems: 'center',
+  justifyContent: 'center',
+  '& > a:hover': {
+    transform: 'scale(1.2)',
+    transition: '0.3s',
+  },
+}));
 
-& h3 {
-  animation-name: example;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-}
-`
-
-const IconContainer = styled(Box)`
-display : flex;
-gap : 20px;
-align-items : center;
-justify-content : center;
-
-& > a:hover {
-    transform : scale(1.2);
-    transition : 0.3s;
-}
-
-`
+const SubContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '6px',
+  padding: '12px',
+  backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%)',
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '5px',
+  },
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '8px',
+  },
+}));
 
 const SubFooter = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <MainContainer>
       <Container>
-        <img src={FoodLogo} alt='' />
-        <Typography>
+        <LogoImage src={FoodLogo} alt='' />
+        <FooterText>
           © 2023 The Foodie Zone
-        </Typography>
+        </FooterText>
         <IconContainer>
-          <a href='https://www.instagram.com/o_n_k_a_r_0895/'>
-            <InstagramIcon sx={{cursor: 'pointer', color: '	white'  }} />
+          <a href='https://www.instagram.com/o_n_k_a_r_0895/' target='_blank' rel='noopener noreferrer'>
+            <InstagramIcon sx={{ cursor: 'pointer', color: 'white' }} />
           </a>
-          <a href='https://github.com/onkar895/FOOD-ORDERING-APP'>
-            <GitHubIcon sx={{cursor: 'pointer', color: '	white'}} />
+          <a href='https://github.com/onkar895/FOOD-ORDERING-APP' target='_blank' rel='noopener noreferrer'>
+            <GitHubIcon sx={{ cursor: 'pointer', color: 'white' }} />
           </a>
-          <a href='https://www.linkedin.com/in/omkarkarale541/'>
-            <LinkedInIcon sx={{ cursor: 'pointer', color: '	white' }} />
+          <a href='https://www.linkedin.com/in/omkarkarale541/' target='_blank' rel='noopener noreferrer'>
+            <LinkedInIcon sx={{ cursor: 'pointer', color: 'white' }} />
           </a>
           <a href='mailto:onkarkarale4@gmail.com'>
             <MailOutlineIcon sx={{ cursor: 'pointer', color: 'white' }} />
@@ -99,10 +114,12 @@ const SubFooter = () => {
       </Container>
       <SubContainer>
         <Typography>Made with ❤️ by</Typography>
-        <h3>Onkar Karale 😊</h3>
+        <Typography variant='h5' sx={{ animationName: 'example', animationDuration: '4s', animationIterationCount: 'infinite', textAlign: 'center' }}>
+          Onkar Karale 😊
+        </Typography>
       </SubContainer>
     </MainContainer>
-  )
-}
+  );
+};
 
-export default SubFooter
+export default SubFooter;
