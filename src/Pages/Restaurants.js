@@ -1,99 +1,108 @@
 import React, { useEffect, useState } from 'react';
-import Card, {withPromotedLabel} from '../Components/Cards/Card'
-import { Box, styled, Button, TextField } from '@mui/material';
-import { SWIGGY_API_URL, SWIGGY_API_URL_CORS } from '../../utils/Constants';
+import Card, { withPromotedLabel } from '../Components/Cards/Card';
+import { Box, styled, Button, TextField, useTheme, useMediaQuery } from '@mui/material';
+import { SWIGGY_API_URL } from '../../utils/Constants';
 import Shimmer from '../Components/Shimmer/Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../../utils/useOnlineStatus';
 
-const MainBox = styled(Box)`
-background-image: linear-gradient(to top, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
-`
+const CardContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  '& > a': {
+    textDecoration: 'none',
+  },
+}));
 
-const CardContainer = styled(Box)`
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom : 2rem;
+const SearchContainer = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-  & > a {
-     text-decoration: none;
-  }
-`
+  '& > input': {
+    fontFamily: 'Trebuchet MS',
+    borderRadius: '5px',
+    color: 'grey',
+  },
 
-const SearchContainer = styled(Box)`
-  position: relative;
-  display: flex;
-  justify-content: center; /* Changed to 'flex-end' for better alignment */
-  align-items: center;
+  [theme.breakpoints.between('sm', 'md')]: {
+    margin: '2rem 0',
+  },
+}));
 
-  & > input {
-    font-family: "Trebuchet MS";
-    border-radius: 5px;
-    color: grey;
-  }
-`
+const ButtonContainer = styled(Button)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '7.5px 25px',
+  textTransform: 'capitalize',
+  borderRadius: '5px',
+  background: 'rgb(211,47,47)',
+  fontFamily: 'Trebuchet MS',
+  ':hover': {
+    background: 'rgb(211,47,47)',
+  },
+}));
 
-const ButtonContainer = styled(Button)`
-display : flex;
-align-items : center;
-justify-content : center;
-padding : 7.5px 25px;
-text-transform : capitalize;
-border-radius : 5px;
-background : rgb(211,47,47);
-font-family: "Trebuchet MS";
-
-:hover {
-background : rgb(211,47,47);
-}
-`
-
-const ButtonBox = styled(Button)`
-text-transform : capitalize;
-margin: 3.6rem 4rem 0 0;
-width : 16vw;
-height : 6.5vh;
-border : 1.5px solid rgb(211,47,47);
-font-weight : bold;
-
-:hover {
-background : rgb(211,47,47);
-color : white;
-}
-`
+const ButtonBox = styled(Button)(({ theme }) => ({
+  textTransform: 'capitalize',
+  margin: '4rem 4.4rem 0 0',
+  width: '16vw',
+  height: '6.5vh',
+  border: '1.5px solid rgb(211,47,47)',
+  fontWeight: 'bold',
+  ':hover': {
+    background: 'rgb(211,47,47)',
+    color: 'white',
+  },
+  [theme.breakpoints.down('md')]: {
+    margin: '5.6rem 2rem 0 0',
+    width: '25vw',
+    height: '4.2vh',
+  },
+  [theme.breakpoints.down('sm')]: {
+    margin: '1.5rem 0.8rem',
+    width: '94vw',
+    height: '5vh',
+  },
+}));
 
 const Restaurants = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  isMediumScreen = useMediaQuery(theme.breakpoints.between('sm','md'))
 
-   // Local State Variable - Super powerful variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState('');
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
-  const RestaurantCardPromoted = withPromotedLabel(Card)
+  const RestaurantCardPromoted = withPromotedLabel(Card);
 
   // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
   // empty dependency array :  once after render
   // dep array [searchInput] : once after initial render + everytime after render (my searchInput changes)
   useEffect(() => {
-    //API Call
     getRestaurants();
   }, []);
-
-  // console.log(listOfRestaurants)
 
   const getRestaurants = async () => {
     try {
       const data = await fetch(SWIGGY_API_URL);
       const json = await data.json();
 
-      // Optional Chaining
-      const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
+      const restaurants =
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+        json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      
       setListOfRestaurants(restaurants);
       setFilteredRestaurants(restaurants);
-      console.log(restaurants);
     } catch (error) {
-      console.log(error, "error while getting the restaurants");
+      console.log(error, 'error while getting the restaurants');
     }
   };
 
@@ -102,16 +111,16 @@ const Restaurants = () => {
 
   if (onlineStatus === false)
     return (
-      <h1 style={{ marginTop: '6rem', textAlign:'center', color:'red' }}>
+      <h1 style={{ marginTop: '6rem', textAlign: 'center', color: 'red' }}>
         Looks like you're offline!! Please check your internet connection
       </h1>
-  )
+    );
 
   const handleSearchInputChange = (e) => {
     const inputValue = e.target.value;
     setSearchInput(inputValue);
 
-    // Filter the restaurant cards and update the UI
+     // Filter the restaurant cards and update the UI
     const filteredData = listOfRestaurants.filter((res) =>
       res.info.name.toLowerCase().includes(inputValue.toLowerCase())
     );
@@ -120,84 +129,68 @@ const Restaurants = () => {
 
   const handleTopRatedClick = () => {
     const filteredList = listOfRestaurants.filter(
-      (res) => res.info.avgRating > 4
+      (res) => res.info.avgRating > 4.1
     );
     setFilteredRestaurants(filteredList);
   };
 
-  
-  // NOT render component (Early return)
   if (!listOfRestaurants)
-    return <h1 style={{ marginTop: '8rem', textAlign: 'center', color: 'red' }}>SORRY 🙄, RESTAURANTS  NOT AVAILABLE AT THE MOMENT, <br /> PLZ TRY AFTER SOME TIME</h1>
+    return (
+      <h1 style={{ marginTop: '8rem', textAlign: 'center', color: 'red' }}>
+        SORRY 🙄, RESTAURANTS NOT AVAILABLE AT THE MOMENT,
+        <br /> PLZ TRY AFTER SOME TIME
+      </h1>
+    );
 
-
-  // Conditional Rendering
-  // if restaurant is empty => shimmer UI
-  // if restaurant has data => actual Data shown
   return (
-      <>
-      <MainBox>
-        <Box sx={{display : 'flex', justifyContent:'space-between'}}>
-          <Box sx={{ display: 'flex', gap: '10px', justifyContent: 'start', alignItems: 'center', margin: '60px 0 0 64px' }}>
-            <SearchContainer>
-              <TextField sx={{ width: '32vw'}}
-                variant='outlined'
-                color='error' 
-                size='small'
-                fullWidth required
-                type='text'
-                placeholder='Search for Restaurants and Food....'
-                name='search'
-                value={searchInput}
-                onChange={handleSearchInputChange}
-              />
-            </SearchContainer>
-        
-            <ButtonContainer
-              variant='contained'>
-               Search
-            </ButtonContainer>
+    <>
+      <Box sx={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', gap: '5px', justifyContent: 'center', alignItems: 'center', margin: isSmallScreen ? '4rem 0.8rem 0 0.8rem' : '60px 0 0 64px',}}
+        >
+          <SearchContainer>
+            <TextField
+              sx={{ width: isSmallScreen ? '70vw' : '32vw', width : isMediumScreen ? "45vw" : "32vw" }}
+              variant='outlined'
+              color='error'
+              size='small'
+              fullWidth
+              required
+              type='text'
+              placeholder='Search for Restaurants and Food....'
+              name='search'
+              value={searchInput}
+              onChange={handleSearchInputChange}
+            />
+          </SearchContainer>
+          <ButtonContainer variant='contained'>Search</ButtonContainer>
+        </Box>  
+        <ButtonBox variant='outlined' color='error' size='small' onClick={handleTopRatedClick}>
+          Top Rated Restaurants
+        </ButtonBox>
+      </Box>
+
+      {listOfRestaurants.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <>
+          <Box sx={{ margin: isSmallScreen ? "1rem" : "30px 0 0 64px", textAlign : isSmallScreen ? "center" : "start", letterSpacing: '.1rem', fontSize: isSmallScreen ? "1rem" : "", textAlign : isMediumScreen ? "center" : "start" }}>
+            <h2>Restaurants with online food delivery in Pune</h2>
           </Box>
-
-          <ButtonBox
-            variant='outlined'
-            color='error'
-            size ='small'
-            onClick={handleTopRatedClick}>
-              Top Rated Restaurants
-          </ButtonBox>
-        </Box>
-
-        {
-          listOfRestaurants.length === 0 ? (
-           <Shimmer />
-          ) : (
-            <>
-              <Box sx={{ margin: '30px 0 0 64px' }}>
-                  <h2>Restaurants with online food delivery in Pune</h2>
-              </Box>
-              <CardContainer>
-                 {/* mapping restaurants array and passing JSON array data to Card component as props with unique key as restaurant.info.id */}
-                  {
-                    filteredRestaurants.map((restaurant) => (
-                     <Link
-                       key={restaurant.info.id}
-                       to={"/restaurantmenu/" + restaurant.info.id}>
-                       {
-                          restaurant.info.promoted
-                            ? (<RestaurantCardPromoted {...restaurant?.info} />)
-                            : (<Card key={restaurant?.info?.id} {...restaurant?.info} />)
-                       }
-                        
-                     </Link>
-                    ))
-                  }
-              </CardContainer>
-            </>
-        )}
-      </MainBox>
+          <CardContainer>
+            {filteredRestaurants.map((restaurant) => (
+              <Link key={restaurant.info.id} to={'/restaurantmenu/' + restaurant.info.id}>
+                {restaurant.info.promoted ? (
+                  <RestaurantCardPromoted {...restaurant?.info} />
+                ) : (
+                  <Card key={restaurant?.info?.id} {...restaurant?.info} />
+                )}
+              </Link>
+            ))}
+          </CardContainer>
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Restaurants
+export default Restaurants;

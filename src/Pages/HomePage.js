@@ -10,7 +10,7 @@ import Navbar from '../Components/Header/Navbar';
 import styled from 'styled-components';
 
 const MainBox = styled(Box)`
-  background-image: linear-gradient(to top, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
+  background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
   width: 100%;
   min-height: 90vh;
   position: fixed;
@@ -81,7 +81,8 @@ const ButtonContainer = styled(Box)`
   & > button {
     border: 2px solid rgb(211, 47, 47);
     font-family: "Trebuchet MS";
-    
+    padding: 6px 20px;
+    border-radius: 8px;
   }
 
   & > button:hover {

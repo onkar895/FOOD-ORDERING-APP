@@ -6,9 +6,11 @@ import Footer from '../Components/Footer/Footer'
 const Menu = () => {
   return (
     <>
-      <Navbar/>
-      <Restaurants />
-      <Footer/>
+      <div>
+        <Navbar/>
+        <Restaurants />
+        <Footer/>
+      </div>
     </>
   )
 }

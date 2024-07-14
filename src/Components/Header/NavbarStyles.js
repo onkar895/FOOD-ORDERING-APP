@@ -10,11 +10,11 @@ export const HeaderBox = styled(Toolbar)(({ theme }) => ({
   padding:'10px 0',
   border: 'none',
   backgroundColor: '#ffffff',
-  backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0.3) 0%, rgba(230,99,103,0.1) 100%)',
+  backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)',
 
   [theme.breakpoints.down('sm')]: {
     padding: '0 10px',
-    height:'10vh',
+    height: '10vh',
   },
   
   [theme.breakpoints.between('sm','md')]: {
@@ -137,16 +137,15 @@ export const MobileNavItems = styled(Box)(({ theme, visible }) => ({
   alignItems: 'center',
   letterSpacing: '.1rem',
   gap: '2rem',
-   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0.3) 0%, rgba(230,99,103,0.1) 100%)',
   backgroundColor: '#ffffff',
   padding: '2rem 1.4rem',
-  fontSize: '20px',
+  fontSize: '16px',
   position: 'absolute',
   top: '100%',
   left: 0,
   right: 0,
   zIndex: 1000,
-  boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.3)',
+  boxShadow: '0px 5px 6px rgba(0, 0, 0, 0.3)',
   transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.3s ease-in-out',
   opacity: visible ? 1 : 0,
   transform: visible ? 'translateY(0)' : 'translateY(-10px)',

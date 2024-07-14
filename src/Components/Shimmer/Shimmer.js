@@ -1,102 +1,139 @@
-import { Box, styled, Typography } from '@mui/material'
-import React from 'react'
+import { Box, styled } from '@mui/material';
+import React from 'react';
 
+const ShimmerBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
 
-const ShimmerBox = styled(Box)`
-display : flex;
-flex-wrap : wrap;
+  '& > div': {
+    width: '243px',
+    height: '310px',
+    margin: '0.4rem 0 0 3.8rem',
+    borderRadius: '10px',
+    boxShadow: '0 0 4px 0 rgba(208,208,208,0.8)',
+    padding: '5px',
 
-& > div {
-width : 243px;
-height : 310px;
-margin : 1.8rem 0 0 3.8rem;
-border-radius : 10px;
-box-shadow : 0 0 4px 0  rgba(208,208,208,0.8);
-padding : 5px;
-}
-`
-const ImageBox = styled(Box)`
-display : flex;
-width : 95%;
-height : 52%;
-margin : 5px;
-border-radius : 10px;
-background-color: #B2BEB5;
-`
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      justifyContent: 'center',
+      height: '45vh',
+      margin: '0.5rem',
+    },
 
+    [theme.breakpoints.between('sm','md')]: {
+      width: '35%',
+      justifyContent: 'center',
+      height: '30vh',
+      margin: '1.8rem 3.5rem',
+    },
+  },
+}));
 
-const HeaderBox = styled(Box)`
-width : 40vw;
-margin: 2rem 0 0 3.8rem;
-height : 3vw;
-background-color: #B2BEB5;
-border-radius : 5px;
-`
+const ImageBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  width: '95%',
+  height: '52%',
+  margin: '5px',
+  borderRadius: '10px',
+  backgroundColor: 'rgb(229, 228, 226)',
+}));
 
-const CardInfo = styled(Box)`
-margin: 10px 0 0 8px;
-display : flex;
-flex-direction : column;
-gap : 15px;
-flex-wrap : wrap;
-overflow:  hidden;
+const HeaderBox = styled(Box)(({ theme }) => ({
+  width: '40vw',
+  margin: '2rem 4rem',
+  height: '5vh',
+  backgroundColor: 'rgb(229, 228, 226)',
+  borderRadius: '5px',
 
-& h2 {
-  background-color: #B2BEB5;
-  width : 12vw;
-  padding : 8px;
-  border-radius: 5px;
-}
+  [theme.breakpoints.down('sm')]: {
+    width: '90vw',
+    height: '6vw',
+    margin: '1rem auto',
+  },
+  [theme.breakpoints.between('sm','md')]: {
+    width: '80vw',
+    height: '4vw',
+    margin: '1rem auto',
+  },
+}));
 
-& h4 {
-  background-color: #B2BEB5;
-  width : 16.8vw;
-  padding : 6px;
-  border-radius: 5px;
-}
+const CardInfo = styled(Box)(({ theme }) => ({
+  margin: '10px 0 0 8px',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '15px',
+  flexWrap: 'wrap',
+  overflow: 'hidden',
 
-& span {
-  background-color: #B2BEB5;
-  width : 8vw;
-  padding : 6px;
-  border-radius: 5px;
-}
-`
+  '& h2': {
+    backgroundColor: 'rgb(229, 228, 226)',
+    width: '12vw',
+    padding: '8px',
+    borderRadius: '5px',
 
-const Rating = styled(Box)`
- background-color: #B2BEB5;
- width : 16.8vw;
- padding : 6px;
- border-radius: 5px;
-`
+    [theme.breakpoints.down('sm')]: {
+      width: '50vw',
+      padding: '8px',
+    },
+  },
+  '& h4': {
+    backgroundColor: 'rgb(229, 228, 226)',
+    width: '16.8vw',
+    padding: '6px',
+    borderRadius: '5px',
+    [theme.breakpoints.down('sm')]: {
+      width: '86vw',
+      padding: '6px',
+    },
+  },
+  '& span': {
+    backgroundColor: 'rgb(229, 228, 226)',
+    width: '8vw',
+    padding: '6px',
+    borderRadius: '5px',
+
+    [theme.breakpoints.down('sm')]: {
+      width: '50vw',
+      padding: '6px',
+    },
+  },
+}));
+
+const Rating = styled(Box)(({ theme }) => ({
+  backgroundColor: 'rgb(229, 228, 226)',
+  width: '16.8vw',
+  padding: '6px',
+  borderRadius: '5px',
+  [theme.breakpoints.down('sm')]: {
+    width: '86vw',
+    padding: '6px',
+  },
+}));
 
 const Shimmer = () => {
   return (
     <>
-      <HeaderBox>
-
-      </HeaderBox>
+      <HeaderBox />
       <ShimmerBox>
         {
-        // creating a new Array instance using Array() constructor and map through every element of array 
+          // creating a new Array instance using Array() constructor and map through every element of array
           Array(20)
-          .fill("")
-          .map((_, index) => (
-            <Box key={index}>
-                <ImageBox></ImageBox>
+            .fill("")
+            .map((_, index) => (
+              <Box key={index}>
+                <ImageBox />
                 <CardInfo>
                   <h2></h2>
                   <h4></h4>
                   <span></span>
-                  <Rating></Rating>
+                  <Rating />
                 </CardInfo>
-              
-            </Box>
-          ))
+              </Box>
+            ))
         }
       </ShimmerBox>
     </>
-  )
+  );
 }
 
-export default Shimmer
+export default Shimmer;

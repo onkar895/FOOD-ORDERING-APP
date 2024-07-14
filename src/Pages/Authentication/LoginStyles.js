@@ -1,23 +1,26 @@
 import { Box, styled, Paper, Button, Link, Toolbar } from '@mui/material'
 
-export const HomeContainer = styled(Box)(({ theme }) => ({
-  backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%)',
-  position: 'fixed'
-}))
-
 export const HeaderBox = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   height: '14vh',
   backgroundColor: '#ffffff',
-  backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%)',
+  backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)',
+
   [theme.breakpoints.down('sm')]: {
-    height: '10vh'
+    height: '10vh',
+    backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)'
   },
   [theme.breakpoints.between('sm', 'md')]: {
     height: '12vh'
   }
+}))
+
+export const HomeContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: '#ffffff',
+  backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)',
+  position: 'fixed'
 }))
 
 export const FoodLogoBox = styled(Box)(({ theme }) => ({
@@ -124,6 +127,10 @@ export const ButtonBox = styled(Button)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     padding: '3px 12px',
+    margin: '3rem'
+  },
+  [theme.breakpoints.between('sm', 'md')]: {
+    padding: '6px 20px',
     marginLeft: '3rem'
   }
 }))
@@ -220,7 +227,7 @@ export const MainContainer = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   marginTop: '3.5%',
   [theme.breakpoints.down('sm')]: {
-    marginTop: '50%'
+    marginTop: '30%'
   },
   [theme.breakpoints.between('sm', 'md')]: {
     marginTop: '30%'
@@ -232,8 +239,7 @@ export const ImageBox = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
-  height: '100vh',
-  backgroundImage: 'linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%)',
+  minHeight: '100vh',
 
   '& > img': {
     width: '45%',
@@ -242,20 +248,20 @@ export const ImageBox = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column-reverse',
-    marginTop: '4rem',
+    marginTop: '1rem',
 
     '& > img': {
       width: '100%',
-      height: '80vh'
+      height: 'auto'
     }
   },
   [theme.breakpoints.between('sm', 'md')]: {
-    flexDirection: 'column',
-    marginTop: '10rem',
+    flexDirection: 'column-reverse',
+    marginTop: '8rem',
 
     '& > img': {
-      width: '100%',
-      height: '100vh'
+      width: '100vw',
+      height: 'auto'
     }
   }
 }))
