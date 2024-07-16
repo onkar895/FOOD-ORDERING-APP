@@ -39,7 +39,7 @@ const MenuContainer = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     width: '100%',
-    margin: '2rem auto',
+    margin: '1rem auto',
     padding: '0.5rem 0',
   },
 }));
@@ -107,6 +107,7 @@ const ImageBox = styled(Box)(({ theme }) => ({
 const Info = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
+
   gap: '5px',
   '& > h2': {
     fontSize: '22px',
@@ -132,8 +133,7 @@ const RatingBox = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'start',
   [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column',
-    gap: '8px',
+    gap: '15px',
   },
 }));
 
@@ -146,6 +146,9 @@ const Rating = styled(Box)(({ theme }) => ({
   '& p': {
     fontWeight: '900',
     fontFamily: 'Trebuchet MS',
+  },
+   [theme.breakpoints.down('sm')]: {
+    justifyContent: 'start',
   },
 }));
 
@@ -204,7 +207,7 @@ const RestaurantMenu = () => {
   }
 
   // Ensure the necessary nested properties are available
-  const cardInfo = resInfo?.cards?.[2]?.card?.card?.info;
+  const cardInfo = resInfo?.cards?.[2]?.card?.card?.info ||  resInfo?.cards?.[1]?.card?.card?.info || resInfo?.cards?.[3]?.card?.card?.info || resInfo?.cards?.[4]?.card?.card?.info || resInfo?.cards?.[0]?.card?.card?.info;
   console.log(cardInfo)
   if (!cardInfo) {
     return <Box>Menu information not available.</Box>;
@@ -223,15 +226,20 @@ const RestaurantMenu = () => {
       cloudinaryImageId,
     } = cardInfo;
   
+  const isMobile = () => {
+    return window.innerWidth <= 768;
+  }
 
   // const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   // console.log(itemCards);
-const regularCards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-  const categories = regularCards?.filter(
-    (c) =>
-      c.card?.card?.['@type'] === 
-      'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
-  );
+const regularCards = isMobile()
+  ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+  : resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||resInfo?.cards[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+const categories = regularCards?.filter(
+  (c) =>
+    c.card?.card?.['@type'] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
+) || [];
   console.log(categories)
 
    // Props Drilling

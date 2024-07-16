@@ -1,10 +1,10 @@
-import React from 'react'
-import { Box, styled, Typography, Button } from '@mui/material'
-import { SWIGGY_MENU_IMG_API } from '../../../utils/Constants'
-import DemoImage from '../../Assets/DemoImage.jpg'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../../Store/cartSlice'
-import { ToastContainer, toast } from 'react-toastify'
+import React from 'react';
+import { Box, styled, Typography, Button } from '@mui/material';
+import { SWIGGY_MENU_IMG_API } from '../../../utils/Constants';
+import DemoImage from '../../Assets/DemoImage.jpg';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../Store/cartSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 const MainContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -21,7 +21,7 @@ const MainContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     padding: '10px'
   }
-}))
+}));
 
 const CardContent = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -40,13 +40,13 @@ const CardContent = styled(Box)(({ theme }) => ({
       fontSize: '12px'
     }
   }
-}))
+}));
 
 const HeadingBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     textAlign: 'center'
   }
-}))
+}));
 
 const PriceBox = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -69,7 +69,7 @@ const PriceBox = styled(Box)(({ theme }) => ({
       padding: '1px 3px'
     }
   }
-}))
+}));
 
 const MenuImageBox = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -101,50 +101,55 @@ const MenuImageBox = styled(Box)(({ theme }) => ({
       background: 'rgb(211,47,47)'
     }
   }
-}))
+}));
 
 const ItemList = ({ items, dummy }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item))
       ? toast.success('Added to Cart', {
-        position: 'top-center',
-        newestOnTop: true,
-        autoClose: 2000
-      })
+          position: 'top-center',
+          newestOnTop: true,
+          autoClose: 2000
+        })
       : toast.error('Not Added', {
-        position: 'top-center'
-      })
-  }
+          position: 'top-center'
+        });
+  };
 
   return (
     <Box>
       {items && items.map((item) => (
-                                                                                                                          <MainContainer key={item.card.info.id}>
-                                                                                                                            <CardContent>
-                                                                                                                              <HeadingBox>
-                                                                                                                                <h3>{item.card.info.name}</h3>
-                                                                                                                              </HeadingBox>
-                                                                                                                              <PriceBox>
-                                                                                                                                <h4>Price: {"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice / 100).toFixed(0)}</h4>
-                                                                                                                                <h6>50% OFF | <span>USE FOODIEIT</span></h6>
-                                                                                                                              </PriceBox>
-                                                                                                                              <Box sx={{ textAlign: 'justify' }}>
-                                                                                                                                <Typography>{item.card.info.description}</Typography>
-                                                                                                                              </Box>
-                                                                                                                            </CardContent>
-                                                                                                                            <MenuImageBox>
-                                                                                                                              <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt="" />
-                                                                                                                              <Button variant='outlined' size='small' color='error'
-                                                                                                                                onClick={() => handleAddToCart(item)}
-                                                                                                                              >Add +</Button>
-                                                                                                                            </MenuImageBox>
-                                                                                                                          </MainContainer>
-                                                                                                                        ))}
+        <MainContainer key={item.card.info.id}>
+          <CardContent>
+            <HeadingBox>
+              <h3>{item.card.info.name}</h3>
+            </HeadingBox>
+            <PriceBox>
+              <h4>Price: ₹{(item.card.info.price / 100 || item.card.info.defaultPrice / 100).toFixed(0)}</h4>
+              <h6>50% OFF | <span>USE FOODIEIT</span></h6>
+            </PriceBox>
+            <Box sx={{ textAlign: 'justify' }}>
+              <Typography>{item.card.info.description}</Typography>
+            </Box>
+          </CardContent>
+          <MenuImageBox>
+            <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt="" />
+            <Button
+              variant="outlined"
+              size="small"
+              color="error"
+              onClick={() => handleAddToCart(item)}
+            >
+              Add +
+            </Button>
+          </MenuImageBox>
+        </MainContainer>
+      ))}
       <ToastContainer />
     </Box>
-  )
-}
+  );
+};
 
-export default ItemList
+export default ItemList;

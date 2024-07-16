@@ -49,7 +49,7 @@ const RestCard = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     width: '95%',
-    height: 'auto',
+    height: '65vh',
     margin: '10px auto',
   },
 }));
@@ -82,8 +82,8 @@ const CardInfo = styled(Box)(({ theme }) => ({
     color: 'black',
   },
   [theme.breakpoints.down('sm')]: {
-    margin: '10px auto',
-    textAlign: 'center',
+    margin: '10px 5px',
+    textAlign: 'start',
     '& h2': {
       fontSize: '18px',
     },
@@ -100,7 +100,8 @@ const RatingContainer = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   marginTop: '5px',
   [theme.breakpoints.down('sm')]: {
-    gap: '10px',
+    gap: '20px',
+     justifyContent: 'start',
   },
 }));
 
