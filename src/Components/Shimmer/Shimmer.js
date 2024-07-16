@@ -4,11 +4,11 @@ import React from 'react';
 const ShimmerBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
-
+  
   '& > div': {
     width: '243px',
     height: '310px',
-    margin: '0.4rem 0 0 3.8rem',
+    margin: '0.4rem 0 3rem 3.8rem',
     borderRadius: '10px',
     boxShadow: '0 0 4px 0 rgba(208,208,208,0.8)',
     padding: '5px',

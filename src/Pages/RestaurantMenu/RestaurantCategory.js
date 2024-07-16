@@ -3,39 +3,99 @@ import { Accordion, Box, Typography, AccordionSummary, AccordionDetails, styled 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ItemList from '../../Pages/RestaurantMenu/ItemList'
 
+const Header = styled(Box)(({ theme }) => ({
+  marginTop: '20px',
+  '& span': {
+    fontSize: '18px',
+    fontWeight: 900
+  },
+  [theme.breakpoints.down('md')]: {
+    marginTop: '15px',
+    '& span': {
+      fontSize: '16px'
+    }
+  },
+  [theme.breakpoints.down('sm')]: {
+    marginTop: '10px',
+    '& span': {
+      fontSize: '14px'
+    }
+  },
+  [theme.breakpoints.down('xs')]: {
+    marginTop: '5px',
+    '& span': {
+      fontSize: '12px'
+    }
+  }
+}))
 
-const Header = styled(Box)`
-margin-top : 20px;
+const StyledAccordion = styled(Accordion)(({ theme }) => ({
+  padding: '10px 0',
+  boxShadow: '1px 1px 3px darkgray',
+  [theme.breakpoints.down('md')]: {
+    padding: '8px 0'
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '6px 0'
+  },
+  [theme.breakpoints.down('xs')]: {
+    padding: '4px 0'
+  }
+}))
 
-& span {
-  font-size: 18px;
-  font-weight : 900;
-}
-`
+const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  '& .MuiAccordionSummary-expandIcon': {
+    fontSize: '30px'
+  },
+  [theme.breakpoints.down('md')]: {
+    '& .MuiAccordionSummary-expandIcon': {
+      fontSize: '28px'
+    }
+  },
+  [theme.breakpoints.down('sm')]: {
+    '& .MuiAccordionSummary-expandIcon': {
+      fontSize: '26px'
+    }
+  },
+  [theme.breakpoints.down('xs')]: {
+    '& .MuiAccordionSummary-expandIcon': {
+      fontSize: '24px'
+    }
+  }
+}))
 
-const RestaurantCategory = ({data, showItems, setShowIndex, dummy}) => {
-  // console.log(data)
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  fontSize: '18px',
+  fontWeight: 900,
+  [theme.breakpoints.down('md')]: {
+    fontSize: '16px'
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '14px'
+  },
+  [theme.breakpoints.down('xs')]: {
+    fontSize: '12px'
+  }
+}))
 
+const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
   const handleClick = () => {
     setShowIndex()
   }
 
   return (
     <Header>
-
-      <Accordion onClick={handleClick} sx={{padding:'10px 0', boxShadow: '1px 1px 3px darkgray;'}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{fontSize:'30px'}} />} aria-controls='panel1a-content' id='panel1a-header'>
-          <Typography variant='span'>
-            {data.title} ({data.itemCards.length})
-          </Typography>
-        </AccordionSummary>
+      <StyledAccordion onClick={handleClick}>
+        <StyledAccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel1a-content' id='panel1a-header'>
+          <StyledTypography variant='span'>
+            {data.title} (
+            {data.itemCards.length})
+          </StyledTypography>
+        </StyledAccordionSummary>
         <AccordionDetails>
-          {
-            showItems && <ItemList items={data.itemCards} dummy={dummy}/>
-          }
+          {showItems && <ItemList items={data.itemCards} dummy={dummy} />}
         </AccordionDetails>
-      </Accordion>
-
+      </StyledAccordion>
     </Header>
   )
 }

@@ -19,7 +19,7 @@ import Footer from '../../Components/Footer/Footer';
 const MainContainer = styled(Box)(({ theme }) => ({
   padding: '0 20px',
   [theme.breakpoints.down('sm')]: {
-    padding: '50px 30px 0 13px',
+    padding: '50px 10px 0  10px',
   },
 }));
 
@@ -34,7 +34,7 @@ const MenuContainer = styled(Box)(({ theme }) => ({
   border: '1px solid rgba(208,208,208,0.8)',
   [theme.breakpoints.down('md')]: {
     width: '100%',
-    margin: '4rem auto',
+    margin: '10rem auto',
     padding: '0.5rem 0',
   },
   [theme.breakpoints.down('sm')]: {
@@ -45,7 +45,7 @@ const MenuContainer = styled(Box)(({ theme }) => ({
 }));
 
 const IconBox = styled(Box)(({ theme }) => ({
-  margin: '0 53.5rem 1rem 0',
+  margin: '0 57.5rem 1.5rem 0',
   cursor: 'pointer',
   color: 'grey',
   '&:hover': {
@@ -57,10 +57,10 @@ const IconBox = styled(Box)(({ theme }) => ({
     fontSize: '40px',
   },
   [theme.breakpoints.down('md')]: {
-    margin: '0 1rem 1rem 0',
+    margin: '0 41.5rem 1rem 0',
   },
   [theme.breakpoints.down('sm')]: {
-    margin: '0 0.5rem 1rem 0',
+    margin: '0 18rem 1rem 0',
   },
 }));
 
@@ -89,8 +89,13 @@ const InfoBox = styled(Box)(({ theme }) => ({
 const ImageBox = styled(Box)(({ theme }) => ({
   filter: 'drop-shadow(3px 3px 3px black)',
   '& > img': {
-    width: '15vw',
+    width: '18vw',
     borderRadius: '8px',
+  },
+   [theme.breakpoints.down('md')]: {
+    '& > img': {
+      width: '28vw',
+    },
   },
   [theme.breakpoints.down('sm')]: {
     '& > img': {
@@ -157,8 +162,7 @@ const TimeBox = styled(Box)(({ theme }) => ({
   gap: '20px',
   marginTop: '22px',
   [theme.breakpoints.down('sm')]: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 }));
 

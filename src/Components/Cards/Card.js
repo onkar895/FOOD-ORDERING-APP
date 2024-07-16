@@ -10,29 +10,34 @@ const CardWrapper = styled(Box)(({ theme }) => ({
   width: '260px',
   margin: '20px 21px',
   [theme.breakpoints.down('sm')]: {
-    width: '90%',
+    width: '100%',
     margin: '10px auto',
   },
 }));
 
 const PromotedLabel = styled(Box)(({ theme }) => ({
   position: 'absolute',
-  top: 0,
-  left: 0,
+  top: 30,
+  left: 32,
   backgroundColor: 'black',
   color: 'white',
   padding: '5px 10px',
-  borderRadius: '0 0 5px 0',
+  borderRadius: '5px',
   zIndex: 1,
-  fontSize: '14px',
+  fontSize: '12px',
   fontWeight: 'bold',
+
+  [theme.breakpoints.down('sm')]: {
+     top: 22,
+     left: 10,
+  },
 }));
 
 const RestCard = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   width: '260px',
-  height: '350px',
+  height: '380px',
   margin: '20px 21px',
   backgroundColor: '#ffffff',
   borderRadius: '10px',
