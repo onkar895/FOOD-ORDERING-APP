@@ -4,6 +4,30 @@ import StarIcon from '@mui/icons-material/Star';
 import { SWIGGY_CDN_LINK } from '../../../utils/Constants';
 import UserContext from '../../../utils/userContext';
 
+const CardWrapper = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  display: 'inline-block',
+  width: '260px',
+  margin: '20px 21px',
+  [theme.breakpoints.down('sm')]: {
+    width: '90%',
+    margin: '10px auto',
+  },
+}));
+
+const PromotedLabel = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  backgroundColor: 'black',
+  color: 'white',
+  padding: '5px 10px',
+  borderRadius: '0 0 5px 0',
+  zIndex: 1,
+  fontSize: '14px',
+  fontWeight: 'bold',
+}));
+
 const RestCard = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
@@ -19,7 +43,7 @@ const RestCard = styled(Box)(({ theme }) => ({
     transition: '0.3s',
   },
   [theme.breakpoints.down('sm')]: {
-    width: '90%',
+    width: '95%',
     height: 'auto',
     margin: '10px auto',
   },
@@ -135,10 +159,10 @@ const Card = ({
 export const withPromotedLabel = (Card) => {
   return (props) => {
     return (
-      <Box sx={{ backgroundColor: 'black', color: 'white', padding: '5px 3px', margin: '2rem' }}>
-        <label>Promoted</label>
+      <CardWrapper>
+        <PromotedLabel sx={{backgroundColor:'black', color:'white'}}>Promoted</PromotedLabel>
         <Card {...props} />
-      </Box>
+      </CardWrapper>
     );
   };
 };

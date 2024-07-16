@@ -136,7 +136,7 @@ const Navbar = () => {
           sx={{ display: { xs: 'block', md: 'none' } }} // Show only on extra small screens
           onClick={toggleMenu}
         >
-          <MenuIcon sx={{color:'black', fontSize: '2rem'}} />
+          <MenuIcon sx={{color:'black', fontSize: '2rem',}} />
         </IconButton>
 
         {/* Mobile menu with user info and logout */}
