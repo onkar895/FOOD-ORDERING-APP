@@ -156,13 +156,13 @@ export const GoogleButtonBox = styled(Button)(({ theme }) => ({
     width: '2vw'
   },
   [theme.breakpoints.down('sm')]: {
-    padding: '10px',
-    
+    padding: '12px',
+
     '& p': {
       fontSize: '12px'
     },
     '& > img': {
-      width: '4vw'
+      width: '5vw'
     }
   }
 }))

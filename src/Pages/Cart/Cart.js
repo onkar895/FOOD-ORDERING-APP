@@ -1,102 +1,106 @@
-import React, {useEffect} from 'react'
-import { Box, Typography, styled, Button } from '@mui/material'
-import CartItemList from '../Cart/CartItemList'
-import { useSelector } from 'react-redux'
-import EmptyCart from '../../Assets/EmptyCart.png'
-import { useNavigate, useLocation } from 'react-router-dom'
-import Navbar from '../../Components/Header/Navbar'
-import Footer from '../../Components/Footer/Footer'
+import React, { useEffect } from 'react';
+import { Box, Typography, styled, Button } from '@mui/material';
+import CartItemList from '../Cart/CartItemList';
+import { useSelector } from 'react-redux';
+import EmptyCart from '../../Assets/EmptyCart.png';
+import { useNavigate, useLocation } from 'react-router-dom';
+import Navbar from '../../Components/Header/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
+const MainContainer = styled(Box)(({ theme }) => ({
+  paddingBottom: theme.spacing(0),
+}));
 
-const MainContainer = styled(Box)`
-// background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
-`
+const MainCartBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(4),
+  alignItems: 'center',
+  justifyContent: 'center',
+  [theme.breakpoints.down('sm')]: {
+    gap: theme.spacing(2),
+    marginTop: '8rem',
+  },
+  [theme.breakpoints.between('sm','md')]: {
+    gap: theme.spacing(2),
+    marginTop: '8rem',
+  },
+}));
 
-const MainCartBox = styled(Box)`
-display : flex;
-flex-direction : column;
-gap : 2rem;
-align-items : center;
-justify-content : center;
-`
+const CartBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(4),
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginTop: theme.spacing(6),
+  [theme.breakpoints.down('sm')]: {
+    marginTop: theme.spacing(4),
+  },
+}));
 
-const CartBox = styled(Box)`
-display : flex;
-flex-direction : column;
-gap : 2rem;
-align-items : center;
-justify-content : center;
-margin-top : 3rem;
-`
+const ItemsBox = styled(Box)(({ theme }) => ({
+  width: '100%',
+}));
 
-const ItemsBox = styled(Box)`
-width : 100%;
-`
-
-const EmptyBox = styled(Box)`
-display : flex;
-flex-direction : column;
-align-items : center;
-gap : 2rem;
-
-& > img {
-  width : 45vw;
-}
-
- & h2  {
-  font-family: "Trebuchet MS";
-  color : rgb(211,47,47);
- }
-
- & button {
-  font-family: "Trebuchet MS";
-  text-transform : capitalize;
- }
-
-`
+const EmptyBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: theme.spacing(4),
+  '& > img': {
+    width: '40vw',
+  },
+  '& h2': {
+    fontFamily: 'Trebuchet MS',
+    color: 'rgb(211,47,47)',
+    textAlign: 'center',
+  },
+  '& button': {
+    fontFamily: 'Trebuchet MS',
+    textTransform: 'capitalize',
+  },
+  [theme.breakpoints.down('sm')]: {
+    '& > img': {
+      width: '80vw',
+    },
+  },
+}));
 
 const Cart = () => {
-
-  const cartItems = useSelector((store) => store.items)
-
-  const navigate = useNavigate()
-
+  const cartItems = useSelector((store) => store.items);
+  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
-
   return (
-  <>
+    <>
       <Navbar />
       <MainContainer>
         <MainCartBox>
-          {
-            cartItems.length === 0 ? (
-          
-              <EmptyBox>
-                <img src={EmptyCart} alt="" />
-                <h2>Your Cart is Empty.</h2>
-                <Button onClick={() => navigate('/restaurants')} variant='contained' size='large' color='error'>Explore the Restaurants</Button>
-              </EmptyBox>
-
-            )  :  (  
-            
-              <CartBox>
-                <ItemsBox>
-                    <CartItemList items={cartItems} />
-                </ItemsBox>
-              </CartBox>
-            )
-          }
+          {cartItems.length === 0 ? (
+            <EmptyBox>
+              <img src={EmptyCart} alt="" />
+              <Typography variant="h5">Your Cart is Empty.</Typography>
+              <Button onClick={() => navigate('/restaurants')} variant="contained" size="large" color="error">
+                Explore the Restaurants
+              </Button>
+            </EmptyBox>
+          ) : (
+            <CartBox>
+              <ItemsBox>
+                <CartItemList items={cartItems} />
+              </ItemsBox>
+            </CartBox>
+          )}
         </MainCartBox>
-         
       </MainContainer>
-      <Footer/>
-  </>
-  )
-}
+      <Footer />
+    </>
+  );
+};
 
-export default Cart
+export default Cart;

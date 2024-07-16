@@ -79,8 +79,8 @@ const MenuImageBox = styled(Box)(({ theme }) => ({
     width: '10vw',
     height: '15vh',
     [theme.breakpoints.down('sm')]: {
-      width: '30vw',
-      height: '20vh'
+      width: '70vw',
+      height: '22vh'
     }
   },
   '& button': {
@@ -92,9 +92,9 @@ const MenuImageBox = styled(Box)(({ theme }) => ({
     color: 'rgb(211,47,47)',
     background: 'white',
     [theme.breakpoints.down('sm')]: {
-      top: '5.5rem',
-      left: '1.5rem',
-      padding: '2px 10px'
+      top: '8rem',
+      left: '5.8rem',
+      padding: '3px 25px'
     },
     ':hover': {
       color: 'white',
@@ -121,27 +121,27 @@ const ItemList = ({ items, dummy }) => {
   return (
     <Box>
       {items && items.map((item) => (
-                                                                                    <MainContainer key={item.card.info.id}>
-                                                                                      <CardContent>
-                                                                                        <HeadingBox>
-                                                                                          <h3>{item.card.info.name}</h3>
-                                                                                        </HeadingBox>
-                                                                                        <PriceBox>
-                                                                                          <h4>Price: {"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice / 100).toFixed(0)}</h4>
-                                                                                          <h6>50% OFF | <span>USE FOODIEIT</span></h6>
-                                                                                        </PriceBox>
-                                                                                        <Box sx={{ textAlign: 'justify' }}>
-                                                                                          <Typography>{item.card.info.description}</Typography>
-                                                                                        </Box>
-                                                                                      </CardContent>
-                                                                                      <MenuImageBox>
-                                                                                        <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt="" />
-                                                                                        <Button variant='outlined' size='small' color='error'
-                                                                                          onClick={() => handleAddToCart(item)}
-                                                                                        >Add +</Button>
-                                                                                      </MenuImageBox>
-                                                                                    </MainContainer>
-                                                                                  ))}
+                                                                                                                          <MainContainer key={item.card.info.id}>
+                                                                                                                            <CardContent>
+                                                                                                                              <HeadingBox>
+                                                                                                                                <h3>{item.card.info.name}</h3>
+                                                                                                                              </HeadingBox>
+                                                                                                                              <PriceBox>
+                                                                                                                                <h4>Price: {"₹"} {(item.card.info.price / 100 || item.card.info.defaultPrice / 100).toFixed(0)}</h4>
+                                                                                                                                <h6>50% OFF | <span>USE FOODIEIT</span></h6>
+                                                                                                                              </PriceBox>
+                                                                                                                              <Box sx={{ textAlign: 'justify' }}>
+                                                                                                                                <Typography>{item.card.info.description}</Typography>
+                                                                                                                              </Box>
+                                                                                                                            </CardContent>
+                                                                                                                            <MenuImageBox>
+                                                                                                                              <img src={item.card.info.imageId ? SWIGGY_MENU_IMG_API + item.card.info.imageId : DemoImage} alt="" />
+                                                                                                                              <Button variant='outlined' size='small' color='error'
+                                                                                                                                onClick={() => handleAddToCart(item)}
+                                                                                                                              >Add +</Button>
+                                                                                                                            </MenuImageBox>
+                                                                                                                          </MainContainer>
+                                                                                                                        ))}
       <ToastContainer />
     </Box>
   )
