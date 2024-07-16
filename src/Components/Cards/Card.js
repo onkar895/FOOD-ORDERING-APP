@@ -9,54 +9,57 @@ const RestCard = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   width: '260px',
   height: '350px',
-  margin:'20px 21px',
+  margin: '20px 21px',
   backgroundColor: '#ffffff',
   borderRadius: '10px',
-
   ':hover': {
     filter: 'drop-shadow(3px 3px 3px black)',
     cursor: 'pointer',
     transform: 'scale(0.92)',
     transition: '0.3s',
   },
-
-  '& > img': {
-    display: 'flex',
-    width: '90%',
-    height: '45%',
-    margin: '12px',
-    borderRadius: '10px',
-    objectFit: 'cover',
-    filter: 'drop-shadow(3px 3px 3px black)',
-  },
-
   [theme.breakpoints.down('sm')]: {
-    width: '96%',
+    width: '90%',
     height: 'auto',
-    margin: '10px 13px',
+    margin: '10px auto',
+  },
+}));
+
+const CardImage = styled('img')(({ theme }) => ({
+  display: 'flex',
+  width: '90%',
+  height: '45%',
+  margin: '12px auto',
+  borderRadius: '10px',
+  objectFit: 'cover',
+  filter: 'drop-shadow(3px 3px 3px black)',
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    height: 'auto',
   },
 }));
 
 const CardInfo = styled(Box)(({ theme }) => ({
-  margin: '10px 0 0 12px',
+  margin: '10px 12px',
   display: 'flex',
   flexDirection: 'column',
   gap: '5px',
-  flexWrap: 'wrap',
   overflow: 'hidden',
-
   '& h2': {
     color: 'black',
     fontSize: '22px',
   },
-
   '& h4': {
     color: 'black',
   },
-  
   [theme.breakpoints.down('sm')]: {
+    margin: '10px auto',
+    textAlign: 'center',
     '& h2': {
-      fontSize: '22px',
+      fontSize: '18px',
+    },
+    '& h4': {
+      fontSize: '16px',
     },
   },
 }));
@@ -64,11 +67,11 @@ const CardInfo = styled(Box)(({ theme }) => ({
 const RatingContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: '16.6px',
-  justifyContent: 'start',
+  justifyContent: 'center',
   alignItems: 'center',
   marginTop: '5px',
   [theme.breakpoints.down('sm')]: {
-    gap: '15px',
+    gap: '10px',
   },
 }));
 
@@ -107,16 +110,15 @@ const Card = ({
 
   return (
     <RestCard>
-      <img src={SWIGGY_CDN_LINK + cloudinaryImageId} alt='Images' />
+      <CardImage src={SWIGGY_CDN_LINK + cloudinaryImageId} alt='Images' />
       <CardInfo>
         <h2>{name}</h2>
-        <Typography sx={{ fontFamily: 'Trebuchet MS', color: 'grey', textAlign: 'inherit' }}>
+        <Typography sx={{ fontFamily: 'Trebuchet MS', color: 'grey' }}>
           {cuisines?.join(', ')}
         </Typography>
         <Typography sx={{ fontFamily: 'Trebuchet MS', color: 'grey' }}>{areaName}, {Area}</Typography>
         <RatingContainer>
-          <Rating
-            sx={{ backgroundColor: avgRatingString >= 4 || avgRatingString == '--' ? '#00AD1D' : '#EC3838' }}>
+          <Rating sx={{ backgroundColor: avgRatingString >= 4 || avgRatingString == '--' ? '#00AD1D' : '#EC3838' }}>
             <StarIcon sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center', fontSize: '18px' }} />
             <h5>{avgRatingString}</h5>
           </Rating>
@@ -133,7 +135,7 @@ const Card = ({
 export const withPromotedLabel = (Card) => {
   return (props) => {
     return (
-      <Box sx={{backhroundColor:'black', color:'white', padding:'5px 3px', margin:'2rem'}}>
+      <Box sx={{ backgroundColor: 'black', color: 'white', padding: '5px 3px', margin: '2rem' }}>
         <label>Promoted</label>
         <Card {...props} />
       </Box>

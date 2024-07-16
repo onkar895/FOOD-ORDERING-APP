@@ -16,124 +16,164 @@ import RestaurantCategory from '../../Pages/RestaurantMenu/RestaurantCategory';
 import Footer from '../../Components/Footer/Footer';
 
 
-const MainContainer = styled(Box)`
-// background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
-`
+const MainContainer = styled(Box)(({ theme }) => ({
+  padding: '0 20px',
+  [theme.breakpoints.down('sm')]: {
+    padding: '50px 30px 0 13px',
+  },
+}));
 
-const MenuContainer = styled(Box)`
-display : flex;
-// box-shadow : 1px 1px 5px grey;
-border : 1px solid rgba(208,208,208,0.8);
-width : 80%;
-margin: 8rem auto;
-padding : 1rem 0;
-flex-direction : column;
-align-items : center;
-justify-content : center;
-`
+const MenuContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '80%',
+  margin: '8rem auto',
+  padding: '1rem 0',
+  border: '1px solid rgba(208,208,208,0.8)',
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+    margin: '4rem auto',
+    padding: '0.5rem 0',
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    margin: '2rem auto',
+    padding: '0.5rem 0',
+  },
+}));
 
-const IconBox = styled(Box)`
-margin: 0 53.5rem 1rem 0;
-cursor : pointer;
-color : grey;
+const IconBox = styled(Box)(({ theme }) => ({
+  margin: '0 53.5rem 1rem 0',
+  cursor: 'pointer',
+  color: 'grey',
+  '&:hover': {
+    color: 'black',
+    transform: 'scale(0.9)',
+    transition: '0.4s',
+  },
+  '& > svg': {
+    fontSize: '40px',
+  },
+  [theme.breakpoints.down('md')]: {
+    margin: '0 1rem 1rem 0',
+  },
+  [theme.breakpoints.down('sm')]: {
+    margin: '0 0.5rem 1rem 0',
+  },
+}));
 
-: hover {
-  color : black;
-  transform : scale(0.9);
-  transition : 0.4s;
-}
+const HeaderBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'start',
+  gap: '8rem',
+  width: '100%',
+  padding: '0 20px',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+    gap: '2rem',
+  },
+}));
 
-& > svg {
-  font-size : 40px;
-}
-`
+const InfoBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: '15px',
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    gap: '10px',
+  },
+}));
 
-const HeaderBox = styled(Box)`
-display : flex;
-justify-content : space-between;
-align-items : start;
-gap : 8rem;
-width: 100%;
-padding : 0 20px;
+const ImageBox = styled(Box)(({ theme }) => ({
+  filter: 'drop-shadow(3px 3px 3px black)',
+  '& > img': {
+    width: '15vw',
+    borderRadius: '8px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    '& > img': {
+      width: '100%',
+    },
+  },
+}));
 
-`
+const Info = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '5px',
+  '& > h2': {
+    fontSize: '22px',
+  },
+  '& > p': {
+    color: 'grey',
+    fontSize: '14px',
+    fontFamily: 'Trebuchet MS',
+  },
+  [theme.breakpoints.down('sm')]: {
+    '& > h2': {
+      fontSize: '18px',
+    },
+    '& > p': {
+      fontSize: '12px',
+    },
+  },
+}));
 
-const InfoBox = styled(Box)`
-display : flex;
-gap : 15px;
-`
+const RatingBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: '12px',
+  alignItems: 'center',
+  justifyContent: 'start',
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    gap: '8px',
+  },
+}));
 
-const ImageBox = styled(Box)`
-filter: drop-shadow(3px 3px 3px black);
-& > img {
-  width : 15vw;
-  border-radius : 8px;
-}
-`
+const Rating = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: '4px',
+  background: 'rgba(220,220,220,0.6)',
+  borderRadius: '5px',
+  padding: '3px 4px',
+  '& p': {
+    fontWeight: '900',
+    fontFamily: 'Trebuchet MS',
+  },
+}));
 
-const Info = styled(Box)`
-display : flex;
-flex-direction : column;
-gap : 5px;
+const TotalRating = styled(Box)(({ theme }) => ({
+  '& > h4': {
+    fontFamily: 'Trebuchet MS',
+  },
+}));
 
-& > h2 {
-  font-size : 22px;
-}
+const TimeBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  gap: '20px',
+  marginTop: '22px',
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+}));
 
-& > p {
-  color: grey; 
-  font-size :14px;
-  font-family: "Trebuchet MS";
-}
-`
+const ServiceBox = styled(Box)(({ theme }) => ({
+  color: '#228B22',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '5px',
+}));
 
-
-const RatingBox = styled(Box)`
-display : flex;
-gap : 12px;
-align-items : center;
-justify-content : start;
-`
-
-const Rating = styled(Box)`
-display : flex;
-gap : 4px;
-background : rgba(220,220,220,0.6);
-border-radius : 5px;
-padding : 3px 4px;
-
-& p {
-  font-weight : 900;
-  font-family: "Trebuchet MS";
-}
-`
-const TotalRating = styled(Box)`
-
-& > h4 {
-  font-family: "Trebuchet MS" ;
-}
-`
-
-const TimeBox = styled(Box)`
-display : flex;
-flex-direction : column;
-justify-content : center;
-gap : 20px;
-margin-top : 22px;
-`
-
-const ServiceBox = styled(Box)`
-color: #228B22;
-display : flex; 
-align-items: center;
-gap : 5px;
-`
-
-const MenuInfo = styled(Box)`
-margin-top : 2rem;
-padding : 0 20px;
-width: 100%;
-`
+const MenuInfo = styled(Box)(({ theme }) => ({
+  marginTop: '2rem',
+  padding: '0 20px',
+  width: '100%',
+}));
 
 const RestaurantMenu = () => {
 
