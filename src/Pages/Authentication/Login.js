@@ -45,11 +45,11 @@ const Login = () => {
         navigate('/');
         toast.success(
           <div>
-            <div style={{ fontSize: '14px', textAlign: 'center', color: 'gray' }}>
-              Congratulations! Your account has been successfully created.
+            <div style={{ fontSize: '14px', textAlign: 'center', color: 'black' }}>
+              <strong>Congratulations! Your account has been successfully created.</strong>
             </div>
-            <div style={{ fontSize: '12px', textAlign: 'center', color: 'black' }}>
-              Click on the "Sign In Now" text below to Sign In.
+            <div style={{ fontSize: '12px', textAlign: 'center', color: 'rgb(211,47,47)', fontWeight:'bold', marginTop:'10px' }}>
+              <strong>Click on the "Sign In Now" below to Sign In.</strong>
             </div>
           </div>,
           {

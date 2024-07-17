@@ -207,7 +207,7 @@ const RestaurantMenu = () => {
   }
 
   // Ensure the necessary nested properties are available
-  const cardInfo = resInfo?.cards?.[2]?.card?.card?.info ||  resInfo?.cards?.[1]?.card?.card?.info || resInfo?.cards?.[3]?.card?.card?.info || resInfo?.cards?.[4]?.card?.card?.info || resInfo?.cards?.[0]?.card?.card?.info;
+  const cardInfo = resInfo?.cards?.[2]?.card?.card?.info || resInfo?.cards?.[1]?.card?.card?.info || resInfo?.cards?.[3]?.card?.card?.info || resInfo?.cards?.[4]?.card?.card?.info || resInfo?.cards?.[5]?.card?.card?.info || resInfo?.cards?.[0]?.card?.card?.info;
   console.log(cardInfo)
   if (!cardInfo) {
     return <Box>Menu information not available.</Box>;
@@ -233,7 +233,7 @@ const RestaurantMenu = () => {
   // const { itemCards }  = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   // console.log(itemCards);
 const regularCards = isMobile()
-  ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+  ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards 
   : resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards || resInfo?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||resInfo?.cards[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
 const categories = regularCards?.filter(

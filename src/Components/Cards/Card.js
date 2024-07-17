@@ -29,7 +29,7 @@ const PromotedLabel = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down('sm')]: {
      top: 22,
-     left: 10,
+     left: 28,
   },
 }));
 
@@ -49,7 +49,7 @@ const RestCard = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     width: '95%',
-    height: '65vh',
+    height: '52vh',
     margin: '10px auto',
   },
 }));
@@ -63,7 +63,7 @@ const CardImage = styled('img')(({ theme }) => ({
   objectFit: 'cover',
   filter: 'drop-shadow(3px 3px 3px black)',
   [theme.breakpoints.down('sm')]: {
-    width: '100%',
+    width: '92%',
     height: 'auto',
   },
 }));
@@ -82,7 +82,7 @@ const CardInfo = styled(Box)(({ theme }) => ({
     color: 'black',
   },
   [theme.breakpoints.down('sm')]: {
-    margin: '10px 5px',
+    margin: '10px 20px',
     textAlign: 'start',
     '& h2': {
       fontSize: '18px',
