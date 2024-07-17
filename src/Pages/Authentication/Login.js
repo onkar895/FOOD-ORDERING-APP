@@ -5,7 +5,7 @@ import { checkValidData } from '../../../utils/Validate';
 import FoodLogo from '../../Assets/FoodLogo.png';
 import { firebaseAuth, provider } from '../../../utils/Firebase/FirebaseConfig';
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import FoodImage from '../../Assets/FoodImage2.png';
@@ -19,7 +19,7 @@ import MobileScreenShareOutlinedIcon from '@mui/icons-material/MobileScreenShare
 import {HomeContainer,HeaderBox, FoodLogoBox, HeadingBox, NavItems, ButtonBox, GoogleButtonBox, LoggedOutBox, GetAppBox, CartBox, MainContainer, ImageBox, PaperBox, Header, InputBox, NewUserBox, SignUpLink} from './LoginStyles'
 
 const Login = () => {
-  const { setUserName, loggedInUser } = useContext(UserContext);
+  const { setUserName, loggedInUser, userName} = useContext(UserContext);
   const [isSignIn, setIsSignIn] = useState(true);
   const [errMessage, setErrMessage] = useState('');
   const [open, setOpen] = useState(false);
