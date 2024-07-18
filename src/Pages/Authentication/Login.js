@@ -55,7 +55,7 @@ const Login = () => {
           {
             position: 'top-center',
             newestOnTop: true,
-            autoClose: 5000,
+            autoClose: 2000,
             closeButton: true,
             closeOnClick: true,
             pauseOnHover: true,

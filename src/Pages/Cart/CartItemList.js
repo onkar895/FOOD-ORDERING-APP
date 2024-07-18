@@ -210,7 +210,7 @@ const CartItemList = ({ items }) => {
     toast.success('Order Placed Successfully', {
       position: 'top-center',
       newestOnTop: true,
-      autoClose: 2000,
+      autoClose: 5000,
     });
   };
 
@@ -260,7 +260,7 @@ const CartItemList = ({ items }) => {
         </Box>
         <SummaryContainer>
           <Container>
-            <Box>
+            <Box sx={{textAlign:'center', fontWeight:'bolder'}}>
               <Typography variant="h5">Order Summary</Typography>
             </Box>
             <InfoBox>
