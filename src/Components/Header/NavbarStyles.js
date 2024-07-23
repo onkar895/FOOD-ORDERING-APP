@@ -13,7 +13,7 @@ export const HeaderBox = styled(Toolbar)(({ theme }) => ({
   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)',
 
   [theme.breakpoints.down('sm')]: {
-    padding: '0 10px',
+    padding: '0 5px',
     height: '10vh',
   },
   

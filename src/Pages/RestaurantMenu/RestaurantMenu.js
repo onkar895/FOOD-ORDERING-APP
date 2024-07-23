@@ -19,7 +19,8 @@ import Footer from '../../Components/Footer/Footer';
 const MainContainer = styled(Box)(({ theme }) => ({
   padding: '0 20px',
   [theme.breakpoints.down('sm')]: {
-    padding: '50px 10px 0  10px',
+    padding: '50px 5px 0 5px',
+    width:'100%'
   },
 }));
 
@@ -40,7 +41,7 @@ const MenuContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     margin: '1rem auto',
-    padding: '0.5rem 0',
+    padding: '1rem 0 2rem 0',
   },
 }));
 
@@ -82,7 +83,7 @@ const InfoBox = styled(Box)(({ theme }) => ({
   gap: '15px',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
-    gap: '10px',
+    gap: '15px',
   },
 }));
 

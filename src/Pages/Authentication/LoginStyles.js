@@ -252,8 +252,7 @@ export const ImageBox = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column-reverse',
-    marginTop: '1rem',
-
+    minHeight: '90vh',
     '& > img': {
       width: '100%',
       height: 'auto'

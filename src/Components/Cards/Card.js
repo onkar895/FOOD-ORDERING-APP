@@ -28,8 +28,10 @@ const PromotedLabel = styled(Box)(({ theme }) => ({
   fontWeight: 'bold',
 
   [theme.breakpoints.down('sm')]: {
-     top: 22,
-     left: 28,
+     top: 23,
+    left: 18,
+    fontSize: '18px',
+    padding: '8px 16px',
   },
 }));
 
@@ -48,8 +50,8 @@ const RestCard = styled(Box)(({ theme }) => ({
     transition: '0.3s',
   },
   [theme.breakpoints.down('sm')]: {
-    width: '95%',
-    height: '52vh',
+    width: '100%',
+    height: '56vh',
     margin: '10px auto',
   },
 }));

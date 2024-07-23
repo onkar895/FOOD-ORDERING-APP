@@ -174,7 +174,7 @@ const Restaurants = () => {
         <Shimmer />
       ) : (
         <>
-          <Box sx={{ margin: isSmallScreen ? "1rem" : "30px 0 0 64px", textAlign : isSmallScreen ? "center" : "start", letterSpacing: '.1rem', fontSize: isSmallScreen ? "1rem" : "", }}>
+          <Box sx={{ margin: isSmallScreen ? "0.5rem" : "30px 0 0 64px", textAlign : isSmallScreen ? "center" : "start", letterSpacing: '.1rem', fontSize: isSmallScreen ? "1rem" : "", }}>
             <h2>Restaurants with online food delivery in Pune</h2>
           </Box>
           <CardContainer>
