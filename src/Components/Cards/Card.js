@@ -28,10 +28,10 @@ const PromotedLabel = styled(Box)(({ theme }) => ({
   fontWeight: 'bold',
 
   [theme.breakpoints.down('sm')]: {
-     top: 23,
+    top: 23,
     left: 18,
-    fontSize: '18px',
-    padding: '8px 16px',
+    fontSize: '15px',
+    padding: '6px 16px',
   },
 }));
 
