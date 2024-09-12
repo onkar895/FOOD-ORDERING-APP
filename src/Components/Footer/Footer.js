@@ -129,7 +129,18 @@ const LeftPanel = styled(Panel)(({ theme }) => ({
 const RightPanel = styled(Panel)(({ theme }) => ({
   borderLeft: '1px solid grey',
   paddingLeft: '25px',
-  marginRight:'3rem',
+  marginRight: '3rem',
+  '& > div': {
+    '& p': {
+      fontFamily: '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif',
+      color: 'white',
+      marginBottom: '8px',
+      fontSize: '14px',
+    },
+    'ul > li': {
+      marginBottom: '8px',
+    }
+  },
   [theme.breakpoints.down('md')]: {
     borderLeft: 'none',
     paddingLeft: '0',

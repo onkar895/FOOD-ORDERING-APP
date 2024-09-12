@@ -1,16 +1,12 @@
 import React, {lazy, Suspense, useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import Navbar from './Components/Header/Navbar'
-import HomePage from './Pages/HomePage'
-import Menu from './Pages/Menu'
 import Error from './Pages/Error'
 import About from './Pages/About'
 import Help from './Pages/Help'
-import Restaurants from './Pages/Restaurants'
 import Login from './Pages/Authentication/Login'
 import Cart from './Pages/Cart/Cart'
 import { Box } from '@mui/material'
-import RestaurantMenu from './Pages/RestaurantMenu/RestaurantMenu'
 // import Grocery from './Components/Grocery/Grocery'
 import UserContext from '../utils/userContext'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
@@ -32,6 +28,9 @@ import './index.css'
 // * Dynamic Import
 
 // const Grocery = lazy(() => import('./Components/Grocery/Grocery'));
+const HomePage = React.memo(lazy(() => import('./Pages/HomePage')));
+const Menu = React.memo(lazy(() => import('./Pages/Menu')));
+const RestaurantMenu = React.memo(lazy(() => import('./Pages/RestaurantMenu/RestaurantMenu')));
 
 const MainComponent = () => {
 
@@ -79,15 +78,19 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/home',
-        element: <HomePage/>,
+        element: (
+          <Suspense fallback={<h1>Loading HomePage...</h1>}>
+            <HomePage />
+          </Suspense>
+        ),
       },
       {
         path: '/restaurants',
          element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Menu/>
+          <Suspense fallback={<h1>Loading Restaurants...</h1>}>
+            <Menu />
           </Suspense>
-        )
+        ),
       },
       {
         path: '/about',
@@ -110,12 +113,12 @@ const appRouter = createBrowserRouter([
       //   )
       // },
       {
-        path: '/restaurants',
-        element: <Restaurants/>,
-      },
-      {
         path: '/restaurantmenu/:resId',
-        element: <RestaurantMenu/>,
+         element: (
+          <Suspense fallback={<h1>Loading Restaurant Menu...</h1>}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
       {
         path: '/',

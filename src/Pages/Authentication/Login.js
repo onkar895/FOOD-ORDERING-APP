@@ -16,7 +16,9 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import LoginIcon from '@mui/icons-material/Login';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import MobileScreenShareOutlinedIcon from '@mui/icons-material/MobileScreenShareOutlined';
-import {HomeContainer,HeaderBox, FoodLogoBox, HeadingBox, NavItems, ButtonBox, GoogleButtonBox, LoggedOutBox, GetAppBox, CartBox, MainContainer, ImageBox, PaperBox, Header, InputBox, NewUserBox, SignUpLink} from './LoginStyles'
+import { HomeContainer, HeaderBox, FoodLogoBox, HeadingBox, NavItems, ButtonBox, GoogleButtonBox, LoggedOutBox, GetAppBox, CartBox, MainContainer, ImageBox, PaperBox, Header, InputBox, NewUserBox, SignUpLink } from './LoginStyles'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Login = () => {
   const { setUserName, loggedInUser, userName} = useContext(UserContext);
@@ -132,10 +134,18 @@ const Login = () => {
         </HeaderBox>
       </AppBar>
 
-      <ImageBox>
-        <img src={FoodImage} alt="FoodImage" />
-        <img src={Image} alt="Image" />
-      </ImageBox>
+        <ImageBox>
+          <LazyLoadImage
+            src={FoodImage}
+            alt="FoodImage"
+            effect="blur"
+          />
+          <LazyLoadImage
+            src={Image}
+            alt="Image"
+            effect="blur"
+          />
+        </ImageBox>
 
       <Modal
         open={open}

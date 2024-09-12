@@ -6,6 +6,8 @@ import EmptyCart from '../../Assets/EmptyCart.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../../Components/Header/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const MainContainer = styled(Box)(({ theme }) => ({
   paddingBottom: theme.spacing(0),
@@ -83,11 +85,15 @@ const Cart = () => {
         <MainCartBox>
           {cartItems.length === 0 ? (
             <EmptyBox>
-              <img src={EmptyCart} alt="" />
-              <Typography variant="h5">Your Cart is Empty.</Typography>
-              <Button onClick={() => navigate('/restaurants')} variant="contained" size="large" color="error">
-                Explore the Restaurants
-              </Button>
+              <LazyLoadImage
+              src={EmptyCart}
+              alt="EmptyCart"
+              effect="blur"
+            />
+            <Typography variant="h5">Your Cart is Empty.</Typography>
+            <Button onClick={() => navigate('/restaurants')} variant="contained" size="large" color="error">
+              Explore the Restaurants
+            </Button>
             </EmptyBox>
           ) : (
             <CartBox>

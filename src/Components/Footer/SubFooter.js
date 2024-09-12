@@ -18,7 +18,7 @@ const Container = styled(Box)(({ theme }) => ({
   background: 'rgb(2, 6, 12)',
   width: '100%',
   height: '15vh',
-  padding: '1rem 6rem',
+  padding: '1rem 3rem',
   color: 'white',
   marginTop: '0.1rem',
 
@@ -72,8 +72,13 @@ const SubContainer = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '6px',
-  padding: '12px',
+  height: '14vh',
   backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%)',
+
+  '& > p > span': {
+    fontWeight: 'bold',
+  }, 
+    
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     alignItems: 'center',
@@ -111,10 +116,7 @@ const SubFooter = () => {
         </IconContainer>
       </Container>
       <SubContainer>
-        <Typography>Made with ❤️ by</Typography>
-        <Typography variant='h6' sx={{ animationName: 'example', animationDuration: '4s', animationIterationCount: 'infinite', textAlign: 'center' }}>
-          Onkar Karale 😊
-        </Typography>
+        <Typography>Made with ❤️ by <span> Onkar Karale 😊</span></Typography>
       </SubContainer>
     </MainContainer>
   );

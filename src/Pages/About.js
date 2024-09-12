@@ -8,6 +8,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Navbar from '../Components/Header/Navbar';
 import AboutImage from '../Assets/AboutImage.jpg'
 import Footer from '../Components/Footer/Footer';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const MainContainer = styled(Box)(({ theme }) => ({
   // background-image: linear-gradient(to bottom, rgba(238, 194, 174, 0) 0%, rgba(230, 99, 103, 0.1) 100%);
@@ -78,7 +80,7 @@ const Container = styled(Box)(({ theme }) => ({
 }));
 
 const ImageBox = styled(Box)(({ theme }) => ({
-  '& > img': {
+  '& img': {
     borderRadius: '10px',
     width: '75vw',
     height: '80vh',
@@ -90,10 +92,17 @@ const ImageBox = styled(Box)(({ theme }) => ({
   },
 }));
 
+const StoryBox = styled(Box)(({ theme }) => ({
+  '& p': {
+    fontSize:'18px',
+  }
+}))
+
 const SubContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '12px',
+
   '& > div': {
     display: 'flex',
     alignItems: 'center',
@@ -104,6 +113,7 @@ const SubContainer = styled(Box)(({ theme }) => ({
   },
   '& p': {
     fontFamily: 'Trebuchet MS',
+    fontSize:'18px',
   },
 }));
 
@@ -133,11 +143,15 @@ const About = () => {
       
         <HeaderBox>
           <ImageBox>
-            <img src={AboutImage} alt="" />
+            <LazyLoadImage
+              src={AboutImage}
+              alt="AboutImage"
+              effect="blur"
+            />
           </ImageBox>
        
           <h2>OUR STORY</h2>
-          <Box>
+          <StoryBox>
             <Typography>
               Everything we do is a celebration of fresh food - from how we source our restaurants and quality food
             </Typography>
@@ -147,7 +161,7 @@ const About = () => {
             <Typography>
               bringing you the best restaurants and food experience on our website you won't find anywhere else.
             </Typography>
-          </Box>
+          </StoryBox>
 
           <Container>
             <SubContainer>
