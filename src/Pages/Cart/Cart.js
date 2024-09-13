@@ -49,13 +49,16 @@ const EmptyBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  gap: theme.spacing(4),
-  '& > img': {
+  gap: theme.spacing(3),
+  '& img': {
     width: '40vw',
+    marginTop:'3rem',
   },
-  '& h2': {
+  '& p': {
     fontFamily: 'Trebuchet MS',
     color: 'rgb(211,47,47)',
+    fontWeight: '900',
+    fontSize:'2rem',
     textAlign: 'center',
   },
   '& button': {
@@ -63,7 +66,7 @@ const EmptyBox = styled(Box)(({ theme }) => ({
     textTransform: 'capitalize',
   },
   [theme.breakpoints.down('sm')]: {
-    '& > img': {
+    '& img': {
       width: '80vw',
     },
   },
@@ -90,7 +93,7 @@ const Cart = () => {
               alt="EmptyCart"
               effect="blur"
             />
-            <Typography variant="h5">Your Cart is Empty.</Typography>
+            <Typography>Your Cart is Empty.</Typography>
             <Button onClick={() => navigate('/restaurants')} variant="contained" size="large" color="error">
               Explore the Restaurants
             </Button>

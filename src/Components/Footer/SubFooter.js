@@ -76,7 +76,8 @@ const SubContainer = styled(Box)(({ theme }) => ({
   backgroundImage: 'linear-gradient(to bottom, rgba(238,194,174,0) 0%, rgba(230,99,103,0.3) 100%)',
 
   '& > p > span': {
-    fontWeight: 'bold',
+    fontWeight: '900',
+    color: 'rgb(211,47,47)'
   }, 
     
   [theme.breakpoints.down('sm')]: {
