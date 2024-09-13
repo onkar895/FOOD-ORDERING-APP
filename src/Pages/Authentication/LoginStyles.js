@@ -20,7 +20,10 @@ export const HeaderBox = styled(Toolbar)(({ theme }) => ({
 export const HomeContainer = styled(Box)(({ theme }) => ({
   backgroundColor: '#ffffff',
   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)',
-  position: 'fixed'
+  position: 'fixed',
+  [theme.breakpoints.between('sm', 'md')]: {
+    position: 'static'
+  }
 }))
 
 export const FoodLogoBox = styled(Box)(({ theme }) => ({
@@ -245,14 +248,16 @@ export const ImageBox = styled(Box)(({ theme }) => ({
   width: '100%',
   minHeight: '100vh',
 
-  '& img': {
+  '& > img': {
     width: '45%',
     height: 'auto'
   },
 
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column-reverse',
-    minHeight: '90vh',
+    minHeight: '100vh',
+    gap: '3rem',
+
     '& img': {
       width: '100%',
       height: 'auto'
@@ -260,12 +265,16 @@ export const ImageBox = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.between('sm', 'md')]: {
     flexDirection: 'column-reverse',
-    marginTop: '8rem',
 
     '& img': {
-      width: '100vw',
-      height: 'auto'
+      width: '100%',
+      height: 'auto',
+      marginTop: '4.5rem'
     }
+  },
+  [theme.breakpoints.between('md', 'lg')]: {
+    width: '90%',
+    minHeight: '80vh'
   }
 }))
 
@@ -289,6 +298,13 @@ export const PaperBox = styled(Paper)(({ theme }) => ({
     width: '50%',
     height: 'auto',
     padding: '2rem'
+  },
+  [theme.breakpoints.between('md', 'lg')]: {
+    width: '50%',
+    height: '50vh',
+    margin:'10rem auto',
+    padding: '2rem'
+
   }
 }))
 
