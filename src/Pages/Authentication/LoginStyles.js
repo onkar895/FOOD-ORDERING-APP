@@ -21,6 +21,8 @@ export const HomeContainer = styled(Box)(({ theme }) => ({
   backgroundColor: '#ffffff',
   backgroundImage: 'linear-gradient(to top, rgba(238,194,174,0) 0%, rgba(230,99,103,0.1) 100%)',
   position: 'fixed',
+  width: '100vw',
+  height: '100vh',
   [theme.breakpoints.between('sm', 'md')]: {
     position: 'static'
   }
@@ -302,7 +304,7 @@ export const PaperBox = styled(Paper)(({ theme }) => ({
   [theme.breakpoints.between('md', 'lg')]: {
     width: '50%',
     height: '50vh',
-    margin:'10rem auto',
+    margin: '10rem auto',
     padding: '2rem'
 
   }

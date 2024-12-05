@@ -7,8 +7,6 @@ import UserContext from '../../../utils/userContext';
 const CardWrapper = styled(Box)(({ theme }) => ({
   position: 'relative',
   display: 'inline-block',
-  width: '260px',
-  margin: '20px 21px',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     margin: '10px auto',
@@ -38,9 +36,10 @@ const PromotedLabel = styled(Box)(({ theme }) => ({
 const RestCard = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  width: '260px',
-  height: '380px',
-  margin: '20px 21px',
+  alignItems:'start',
+  width: '300px',
+  height: '400px',
+  margin: '30px 18px',
   backgroundColor: '#ffffff',
   borderRadius: '10px',
   ':hover': {
@@ -98,7 +97,7 @@ const CardInfo = styled(Box)(({ theme }) => ({
 const RatingContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: '16.6px',
-  justifyContent: 'center',
+  justifyContent: 'start',
   alignItems: 'center',
   marginTop: '5px',
   [theme.breakpoints.down('sm')]: {
