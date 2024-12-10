@@ -38,7 +38,7 @@ const RestCard = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   alignItems:'start',
   width: '300px',
-  height: '400px',
+  height: 'auto',
   margin: '30px 18px',
   backgroundColor: '#ffffff',
   borderRadius: '10px',
