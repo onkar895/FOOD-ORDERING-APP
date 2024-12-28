@@ -16,8 +16,6 @@ Live Demo : https://food-ordering-app-gilt.vercel.app/
 
 Give it a ⭐ if you like it! 😊
 
-Live Project : https://food-ordering-app-gilt.vercel.app/
-
 ## Technologies Used :
 
 - React JS
